@@ -4,6 +4,7 @@ import { getDatabase } from '../lib/notion/client.ts'
 import { getNavLink, getStaticFilePath, filePath } from '../lib/blog-helpers.ts'
 import '../styles/syntax-coloring.css'
 import GoogleAnalytics from '../components/GoogleAnalytics.astro'
+import Darkmode from '../components/Darkmode.astro'
 import SearchModal from '../components/SearchModal.astro'
 import SearchButton from '../components/SearchButton.astro'
 
@@ -50,7 +51,7 @@ if (database.Icon && database.Icon.Type === 'file') {
 ---
 
 <!DOCTYPE html>
-<html lang="en" prefix="og: https://ogp.me/ns#">
+<html lang="ja" prefix="og: https://ogp.me/ns#">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="max-image-preview:large" />
@@ -78,71 +79,57 @@ if (database.Icon && database.Icon.Type === 'file') {
   <body>
     <GoogleAnalytics trackingId={PUBLIC_GA_TRACKING_ID} />
     <div class="container">
-      <header>
-        {
-          coverImageURL && (
-            <div class="cover">
-              <img src={coverImageURL} alt="Site cover image" loading="lazy" />
-            </div>
-          )
-        }
+      <header class="site-header">
+        <h1>
+          <a href={getNavLink('/')}>
+            {
+              database.Icon && database.Icon.Type === 'emoji' ? (
+                <>
+                  <span>{database.Icon.Emoji}</span>
+                </>
+              ) : database.Icon && database.Icon.Type === 'external' ? (
+                <>
+                  <img src={database.Icon.Url} alt="Site icon image" />
+                </>
+              ) : database.Icon && database.Icon.Type === 'file' ? (
+                <>
+                  <img
+                    src={customIconURL}
+                    class="custom-icon"
+                    alt="Site icon image"
+                  />
+                </>
+              ) : (
+                database.Title
+              )
+            }
+            {
+              coverImageURL && (
+                  <img class="coversvg" src={coverImageURL} alt="Site cover image" loading="lazy" />
+              )
+            }
+          </a>
+        </h1>
+        <div class="header_button_wrapper">
+          <SearchButton />
+          <Darkmode />
+        </div>
       </header>
 
-      <div>
-        <main>
-          <div class="content">
-            <header>
-              <h1>
-                <a href={getNavLink('/')}>
-                  {
-                    database.Icon && database.Icon.Type === 'emoji' ? (
-                      <>
-                        <span>{database.Icon.Emoji}</span>
-                        {database.Title}
-                      </>
-                    ) : database.Icon && database.Icon.Type === 'external' ? (
-                      <>
-                        <img src={database.Icon.Url} alt="Site icon image" />
-                        {database.Title}
-                      </>
-                    ) : database.Icon && database.Icon.Type === 'file' ? (
-                      <>
-                        <img
-                          src={customIconURL}
-                          class="custom-icon"
-                          alt="Site icon image"
-                        />
-                        {database.Title}
-                      </>
-                    ) : (
-                      database.Title
-                    )
-                  }
-                </a>
-              </h1>
-              <div class="description">
-                {database.Description}
-              </div>
-            </header>
+    <div class="wrapper">
+      <main>
+        <div class="content">
+        <slot name="main" />
+      </main>
 
-            <slot name="main" />
-
-            <footer>
-              <div>
-                <span>Powered by&nbsp;</span>
-                <a href="https://github.com/otoyo/astro-notion-blog"
-                  >astro-notion-blog</a
-                >
-              </div>
-            </footer>
-          </div>
-        </main>
-
-        <aside>
-          <SearchButton />
-          <slot name="aside" />
-        </aside>
-      </div>
+      <aside>
+        <slot name="aside" />
+      </aside>
+    </div>
+    
+      <footer>
+      
+      </footer>
     </div>
 
     <SearchModal />
@@ -159,14 +146,19 @@ if (database.Icon && database.Icon.Type === 'file') {
     min-height: 100vh;
   }
 
-  .container > div {
+  .site-header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    background-color: var(--bg);
+    padding: 10px 10px;
+  }
+
+  .wrapper {
     display: flex;
     max-width: 1280px;
-  }
-  @media (max-width: 640px) {
-    .container > div {
-      display: block;
-    }
   }
 
   main {
@@ -182,25 +174,67 @@ if (database.Icon && database.Icon.Type === 'file') {
 
   aside {
     order: 1;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 16em;
+    position: sticky;
+    top: 10%;
+    height: 75vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin-left: 20px;
+    border-radius: 10px;
     width: 300px;
-    padding: 20px 20px;
-    background-color: #f4f4f4;
+    padding: 20px 25px;
+    background-color: var(--bg2);
   }
-  @media (max-width: 640px) {
+  
+  @media screen and (max-width: 640px) {
+    .wrapper {
+      display: block;
+    }
+    main {
+      margin: 0;
+    }
     aside {
-      order: 2;
       width: 100%;
+      height: initial;
+      margin-left: initial;
+      border-radius: 15px 15px 0 0;
+
     }
   }
 
-  div.cover {
+  img.custom-icon{
+    height: 30px;
+    min-width: 0;
+    max-height: 1.6em;
   }
-  div.cover img {
-    display: block;
-    width: 100%;
-    height: 20vh;
-    object-fit: cover;
-    object-position: center 60%;
+
+  .coversvg {
+    height: 30px;
+    min-width: 0;
+    max-width: 100%;
+    max-height: 1.6em;
+    object-fit: contain;
+  }
+
+  .header_button_wrapper {
+    font-size: 2.6em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+  }
+
+  header > h1 > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    height: fit-content;
+    color: inherit;
+    width: fit-content;
   }
 
   div.content {
@@ -281,7 +315,8 @@ if (database.Icon && database.Icon.Type === 'file') {
     --fg: #333;
     --accents-1: #666;
     --accents-2: #666;
-    --accents-3: #666;
+    --accents-3: #d3d1cb;
+    --bg2: #f4f4f4;
     --geist-foreground: #000;
     --geist-success: #690;
 
@@ -435,5 +470,14 @@ if (database.Icon && database.Icon.Type === 'file') {
     content: '';
     display: inline-block;
     min-height: 0.9rem;
+  }
+
+  ::-webkit-scrollbar {
+  background: var(--bg);
+  width:10px;
+  }
+  ::-webkit-scrollbar-thumb {
+  background-color: var(--accents-3);
+  border-radius: 20px;
   }
 </style>
