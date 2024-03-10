@@ -1,8 +1,8 @@
 ---
-import { Icon } from 'astro-icon'
+import { Icon } from 'astro-icon/components'
 ---
 
-<button class="search-button open-search-modal" type="button"><Icon name="octicon:search-24" /></button>
+<button class="search-button open-search-modal" type="button"><Icon name="mingcute:search-line" /></button>
 
 <style>
   .search-button {
@@ -23,7 +23,7 @@ import { Icon } from 'astro-icon'
     height: 26px;
     margin: 0.1rem 0.2rem 0 0.2rem;
   }
-  [astro-icon="octicon:search-24"] {
+  [data-icon="mingcute:search-line"] {
     color: var(--fg);
   }
 </style>
