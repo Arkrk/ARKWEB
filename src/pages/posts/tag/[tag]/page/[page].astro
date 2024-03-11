@@ -19,6 +19,7 @@ import BlogPostsLink from '../../../../../components/BlogPostsLink.astro'
 import BlogTagsLink from '../../../../../components/BlogTagsLink.astro'
 import styles from '../../../../../styles/blog.module.css'
 import '../../../../../styles/notion-color.css'
+import { Icon } from 'astro-icon/components'
 
 export async function getStaticPaths() {
   const allTags = await getAllTags()
@@ -68,9 +69,15 @@ const currentTag = posts[0].Tags.find((t) => t.name === tag)
       ) : (
         posts.map((post) => (
           <div class={styles.post} key={post.Slug}>
-            <PostDate post={post} />
-            <PostTags post={post} />
             <PostTitle post={post} />
+            <div class="date-area">
+              <Icon name="mingcute:calendar-2-fill" />
+              <PostDate post={post} />
+            </div>
+            <div class="tags-area">
+              <Icon name="mingcute:tag-2-fill" />
+              <PostTags post={post} />
+            </div>
             <PostFeaturedImage post={post} />
             <PostExcerpt post={post} />
             <ReadMoreLink post={post} />
@@ -110,5 +117,21 @@ const currentTag = posts[0].Tags.find((t) => t.name === tag)
     border-radius: 4px;
     padding: 3px 9px;
     background: var(--tag-bg-light-gray);
+  }
+  .date-area {
+    display: flex;
+    align-items: center;
+    padding: 0 0 0.3rem;
+    margin-top: 0.3rem;
+  }
+  .tags-area {
+    display: flex;
+    align-items: center;
+    padding: 0 0 0.3rem;
+  }
+  .{styles.main} svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px; 
   }
 </style>
