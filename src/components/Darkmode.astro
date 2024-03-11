@@ -1,10 +1,16 @@
 ---
+import { Icon } from 'astro-icon/components'
 ---
 
 <div class="mode-wrap">
   <input type="checkbox" id="mode-toggle" tabindex="0" />
   <label for="mode-toggle"><span></span></label>
 </div>
+
+<button id="modes" type="button">
+  <Icon name="mingcute:sun-fill" />
+  <Icon name="mingcute:moon-fill" />
+</button>
 
 <style is:global>
 /* --------------------
@@ -195,12 +201,6 @@ BlogTagsLink.astro
   color: #d5d5d5 !important;
 }
 
-/* --------------------
-SearchButton.astro
--------------------- */
-.darkmode .search-button:hover {
-    background-color: #272727 !important;
-}
 
 /* --------------------
 SearchModal.astro
@@ -284,7 +284,7 @@ notion-color.css
 ダークモードトグル
 -------------------- */
 .mode-wrap {
-  display:flex;
+  display:none;
 }
 
 .mode-wrap #mode-toggle {
@@ -336,6 +336,37 @@ notion-color.css
 .darkmode .mode-wrap #mode-toggle + label {
   border-color: #fff;
 }
+
+#modes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  width: 70px;
+  border: none;
+  background: #f7f6f3;
+  border-radius: 50vh;
+}
+.darkmode #modes{
+  background: #202020;
+}
+#modes svg{
+  width: 26px;
+  height: 26px;
+  transition: color 0.3s ease-in-out;
+}
+[data-icon="mingcute:sun-fill"] {
+  color: #ff4500;
+}
+[data-icon="mingcute:moon-fill"] {
+  color: #000;
+}
+.darkmode [data-icon="mingcute:sun-fill"] {
+  color: #fff;
+}
+.darkmode [data-icon="mingcute:moon-fill"] {
+  color: #ffff00;
+}
 </style>
 
 <script is:inline>
@@ -383,4 +414,8 @@ if (localStorage.getItem("mode") === "dark") {
 } else if (localStorage.getItem("mode") === "light") {
   darkModeOff();
 }
+
+modes.addEventListener ( "click", () => { 
+  modeToggle.click();
+});
 </script>
