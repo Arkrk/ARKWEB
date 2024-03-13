@@ -160,11 +160,22 @@ Table.astro
   color: var(--fg);
 }
 .darkmode table th {
-  background: #272727;
-  border-color: #272727;
+  background: var(--bg2);
+  border-color: #2f2f2f;
 }
 .darkmode table td {
-  border-color: #272727;
+  border-color: #2f2f2f;
+}
+.darkmode .table table {
+  &::-webkit-scrollbar {
+    height: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: var(--accents-3) !important;
+  }
+  &::-webkit-scrollbar-track {
+    background: var(--bg) !important;
+  }
 }
 
 /* --------------------
@@ -188,7 +199,7 @@ ToDo.astro
 PostRelativeLink.astro
 -------------------- */
 .darkmode div.post-relative-link > div > a.colored  {
-  background: rgba(227,226,224,0.1) !important;
+  background: var(--bg2) !important;
 }
 
 /* --------------------

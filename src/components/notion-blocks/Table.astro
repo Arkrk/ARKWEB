@@ -48,6 +48,15 @@ const { block } = Astro.props
   }
   .table table {
     margin: 0.6rem 0;
+    &::-webkit-scrollbar {
+      height: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #d3d1cb;
+    }
+    &::-webkit-scrollbar-track {
+      background: #fff;
+    }
   }
   .table th,
   .table td {
