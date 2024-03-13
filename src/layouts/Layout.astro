@@ -149,7 +149,7 @@ if (database.Icon && database.Icon.Type === 'file') {
     min-height: 100vh;
   }
 
-  .site-header {
+  header {
     position: sticky;
     top: 0;
     left: 0;
@@ -159,11 +159,18 @@ if (database.Icon && database.Icon.Type === 'file') {
     background-color: var(--bg);
     padding: 10px 10px;
     z-index:98;
+    transition:
+      translateY 600ms,
+      opacity 200ms;
   }
   @media (max-width: 640px) {
-    .site-header {
+    header {
       padding: 6px 6px;
     }
+  }
+  header.hide {
+    translatey: -100%;
+    opacity: 0;
   }
 
   .wrapper {
@@ -257,7 +264,7 @@ if (database.Icon && database.Icon.Type === 'file') {
     width: fit-content;
   }
 
-  .site-header > h1 {
+  header > h1 {
     padding: 5px 0 5px 0;
   }
 
@@ -509,3 +516,31 @@ if (database.Icon && database.Icon.Type === 'file') {
   border-radius: 20px;
   }
 </style>
+
+<script>
+    let lastScrollTop = 0;
+  function scrollHandler() {
+    const header = document.querySelector('header')!;
+    const body = document.querySelector('body')!;
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    if (scrollTop < lastScrollTop) {
+      header.classList.remove('hide');
+    } else if (window.scrollY > 48 && !body.classList.contains('no-scroll')) {
+      header.classList.add('hide');
+    }
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+  }
+
+  let timeout: NodeJS.Timeout | null = null;
+  function throttleScrollHandler() {
+    if (timeout) {
+      clearTimeout(timeout);
+    }
+    timeout = setTimeout(() => {
+      scrollHandler();
+      timeout = null;
+    }, 50);
+  }
+
+  document.addEventListener('scroll', throttleScrollHandler);
+</script>
