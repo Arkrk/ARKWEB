@@ -55,13 +55,6 @@ posts/[slug].astro
 }
 
 /* --------------------
-NoContents.astro
--------------------- */
-.darkmode .no-contents {
-  color: var(--accents-3);
-}
-
-/* --------------------
 Pagination.astro
 -------------------- */
 .darkmode .pagination a{
@@ -133,6 +126,20 @@ Caption.astro
 }
 
 /* --------------------
+Divider.astro
+-------------------- */
+.darkmode .divider {
+    background-color: #373737 !important;
+}
+
+/* --------------------
+File.astro
+-------------------- */
+.darkmode .file a:hover {
+    background-color: var(--bg2) !important;
+  }
+
+/* --------------------
 Paragraph.astro
 -------------------- */
 .darkmode p {
@@ -167,7 +174,7 @@ TableOfContents.astro
   color: #9B9B9B;
 }
 .darkmode .table-of-contents > a:hover {
-  background: rgba(241, 241, 239, 0.1) !important;
+  background: var(--bg2) !important;
 }
 
 /* --------------------
