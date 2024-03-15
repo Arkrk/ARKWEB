@@ -56,6 +56,14 @@ const id = buildHeadingId(block.Heading1)
       font-size: 1.3rem;
     }
   }
+  h3::before {
+    content: "#";
+    color: #dfdfde;
+    margin-right: 8px;
+  }
+  h3:hover::before {
+    color: #787774;
+  }
 
   .toggle {
     margin: 2rem 0 0;
@@ -80,5 +88,11 @@ const id = buildHeadingId(block.Heading1)
 
   .toggle > div {
     margin-left: 1em;
+  }
+
+  a {
+    display: block;
+    padding-top: 1px;
+    margin-top: -1px;
   }
 </style>
