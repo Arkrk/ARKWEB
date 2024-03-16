@@ -2,7 +2,6 @@
   padding: 0 0 20px;
 }
 .main footer {
-  border-top: 1px dashed #888;
   margin: 0 auto;
   padding: 40px 0 0;
 }
@@ -10,10 +9,6 @@
   .main footer {
     margin: 0 auto 40px;
   }
-}
-
-.post {
-  margin: 0 auto 40px;
 }
 .post footer {
   margin-top: 0.5rem;

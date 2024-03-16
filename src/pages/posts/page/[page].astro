@@ -12,8 +12,6 @@ import PostDate from '../../../components/PostDate.astro'
 import PostTags from '../../../components/PostTags.astro'
 import PostTitle from '../../../components/PostTitle.astro'
 import PostFeaturedImage from '../../../components/PostFeaturedImage.astro'
-import PostExcerpt from '../../../components/PostExcerpt.astro'
-import ReadMoreLink from '../../../components/ReadMoreLink.astro'
 import Pagination from '../../../components/Pagination.astro'
 import BlogPostsLink from '../../../components/BlogPostsLink.astro'
 import BlogTagsLink from '../../../components/BlogTagsLink.astro'
@@ -46,28 +44,32 @@ const [posts, rankedPosts, tags, numberOfPages] = await Promise.all([
       <div class="page-container">{page}/{numberOfPages}</div>
     </header>
 
+    <div class="card-wrapper">
     {
       posts.length === 0 ? (
         <NoContents contents={posts} />
       ) : (
         posts.map((post) => (
+        <div class="grid-parts">
           <div class={styles.post} key={post.Slug}>
-            <PostTitle post={post} />
-            <div class="date-area">
-              <Icon name="mingcute:calendar-2-fill" />
-              <PostDate post={post} />
-            </div>
-            <div class="tags-area">
-              <Icon name="mingcute:tag-2-fill" />
-              <PostTags post={post} />
-            </div>
             <PostFeaturedImage post={post} />
-            <PostExcerpt post={post} />
-            <ReadMoreLink post={post} />
+            <div class="grid-text">
+              <PostTitle post={post} />
+              <div class="date-area">
+                <Icon name="mingcute:calendar-2-fill" />
+                <PostDate post={post} />
+              </div>
+              <div class="tags-area">
+                <Icon name="mingcute:tag-2-fill" />
+                <PostTags post={post} />
+              </div>
+            </div>
+          </div>
           </div>
         ))
       )
     }
+    </div>
 
     <footer>
       <Pagination
@@ -110,5 +112,31 @@ const [posts, rankedPosts, tags, numberOfPages] = await Promise.all([
     width: 18px;
     height: 18px;
     margin-right: 5px; 
+  }
+  .card-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 15px;
+    row-gap: 15px;
+    line-height: 32px;
+  }
+  @media (max-width: 900px) {
+    .card-wrapper {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (max-width: 640px) {
+    .card-wrapper {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      line-height: 28px;
+    }
+  }
+  .grid-parts {
+    border:solid 1px #dfdfde;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .grid-text {
+    margin: 6px 13px 10px 13px;
   }
 </style>
