@@ -22,8 +22,6 @@ import PostTags from '../../components/PostTags.astro'
 import PostTitle from '../../components/PostTitle.astro'
 import PostBody from '../../components/PostBody.astro'
 import PostRelativeLink from '../../components/PostRelativeLink.astro'
-import BlogPostsLink from '../../components/BlogPostsLink.astro'
-import BlogTagsLink from '../../components/BlogTagsLink.astro'
 import styles from '../../styles/blog.module.css'
 import { Icon } from 'astro-icon/components'
 
@@ -114,21 +112,32 @@ if (post.FeaturedImage && post.FeaturedImage.Url) {
       <PostBody blocks={blocks} />
 
       <footer>
+        <div class="share-area">
+          <a id="js-share-x" class="share_button share_x" href="" target="_blank" rel="nofollow noopener noreferrer">
+            <Icon name="simple-icons:x" />
+          </a>
+          <a id="js-share-facebook" class="share_button share_facebook" href="" target="_blank" rel="nofollow noopener noreferrer">
+            <Icon name="simple-icons:facebook" />
+          </a>
+          <a id="js-share-bluesky" class="share_button share_bluesky" href="" target="_blank" rel="nofollow noopener noreferrer">
+           <Icon name="simple-icons:bluesky" />
+          </a>
+          <a id="js-share-misskey" class="share_button share_misskey" href="" target="_blank" rel="nofollow noopener noreferrer">
+            <Icon name="simple-icons:misskey" />
+          </a>
+          <a id="js-share-mastodon" class="share_button share_mastodon" href="" target="_blank" rel="nofollow noopener noreferrer">
+           <Icon name="simple-icons:mastodon" />
+          </a>
+          <a id="js-share-pocket" class="share_button share_pocket" href="" target="_blank" rel="nofollow noopener noreferrer">
+            <Icon name="simple-icons:pocket" />
+          </a>
+          <a id="js-share-hatena" class="share_button share_hatena" href="" target="_blank" rel="nofollow noopener noreferrer">
+            <Icon name="simple-icons:hatenabookmark" />
+          </a>
+        </div>
         <PostRelativeLink prevPost={prevPost} nextPost={nextPost} />
       </footer>
     </div>
-  </div>
-
-  <div slot="aside" class="aside">
-    <BlogPostsLink
-      heading="同じタグの記事"
-      posts={postsHavingSameTag.filter(
-        (p: interfaces.Post) => p.Slug !== post.Slug
-      )}
-    />
-    <BlogPostsLink heading="おすすめ記事" posts={rankedPosts} />
-    <BlogPostsLink heading="最新記事" posts={recentPosts} />
-    <BlogTagsLink heading="タグ" tags={tags} />
   </div>
 </Layout>
 
@@ -144,9 +153,91 @@ if (post.FeaturedImage && post.FeaturedImage.Url) {
     align-items: center;
     padding: 0 0 0.3rem;
   }
-  .{styles.main} svg {
+  .date-area svg, .tags-area svg {
     width: 18px;
     height: 18px;
     margin-right: 5px; 
   }
+  .share-area {
+    display: flex;
+    border-top: 1px solid #dfdfde;
+    padding: 30px 0 30px;
+    gap: 15px;
+  }
+  .share-area svg{
+    width: 26px;
+    height: 26px;
+  }
+  [data-icon="simple-icons:x"]:hover {
+    color: #10131a;
+  }
+  [data-icon="simple-icons:facebook"]:hover {
+    color: #0866ff;
+  }
+  [data-icon="simple-icons:bluesky"]:hover {
+    color: #1185fe;
+  }
+  [data-icon="simple-icons:misskey"]:hover {
+    color: #96d04a;
+  }
+  [data-icon="simple-icons:mastodon"]:hover {
+    color: #5d52e9;
+  }
+  [data-icon="simple-icons:pocket"]:hover {
+    color: #ef4056;
+  }
+  [data-icon="simple-icons:hatenabookmark"]:hover {
+    color: #00a4de;
+  }
+  footer {
+    padding-bottom: 5rem;
+  }
 </style>
+
+<script>
+  const share_url = location.href;
+  const share_title = document.title;
+  const share_hostpath = location.host + location.pathname;
+
+  const share_x = document.getElementById("js-share-x");
+  share_x.setAttribute(
+	  "href",
+	  "https://x.com/share?url=" + share_url + "&text=" + share_title
+  );
+
+  const share_facebook = document.getElementById("js-share-facebook");
+  share_facebook.setAttribute(
+	  "href",
+	  "https://www.facebook.com/share.php?u=" + share_url
+  );
+
+  const share_bluesky = document.getElementById("js-share-bluesky");
+  share_bluesky.setAttribute(
+	  "href",
+	  "https://bsky.app/intent/compose?text=" + share_title + "+" + share_url
+  );
+
+  const share_misskey = document.getElementById("js-share-misskey");
+  share_misskey.setAttribute(
+	  "href",
+	  "https://misskey-hub.net/share/?text=" + share_title + "+" + share_url
+  );
+
+  const share_mastodon = document.getElementById("js-share-mastodon");
+  share_mastodon.setAttribute(
+	  "href",
+	  "https://mastoshare.net/share?text=" + share_title + "+" + share_url
+  );
+
+  const share_pocket = document.getElementById("js-share-pocket");
+  share_pocket.setAttribute(
+	  "href",
+	  "https://getpocket.com/edit?url=" + share_url
+  );
+
+  const share_hatena = document.getElementById("js-share-hatena");
+  share_hatena.setAttribute(
+	  "href",
+	  "https://b.hatena.ne.jp/entry/s/" + share_hostpath
+  );
+</script>
