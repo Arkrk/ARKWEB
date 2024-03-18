@@ -22,14 +22,14 @@ layout.astro
   --accents-1: #9c9c9c;
   --accents-2: #f26000;
   --accents-3: #474c50;
-  --bg2: #202020;
+  --bg2: #252525;
 }
 .darkmode header h1 {
   color: var(--fg);
 }
 
 .darkmode aside {
-  background: #202020;
+  background: var(--bg2);
   color: var(--fg);
 }
 
@@ -98,7 +98,7 @@ Callout.astro
 Code.astro
 -------------------- */
 .darkmode .code button.copy {
-    background-color: #262626 !important;
+    background-color: #323232 !important;
     color: var(--fg) !important;
   }
 .darkmode .code pre {
@@ -225,12 +225,15 @@ BlogTagsLink.astro
   color: #d5d5d5 !important;
 }
 .darkmode .blog-tags-link ul li a {
-    color: #f7f7f7 !important;
-    background: #202020 !important;
-  }
+  color: #f7f7f7 !important;
+  background: var(--bg2) !important;
+}
 .darkmode .blog-tags-link ul li a:hover {
-    background: #2c2c2c !important;
-  }
+  background: #323232 !important;
+}
+.darkmode [data-icon="mingcute:filter-line"] {
+  color: #d5d5d5 !important;
+}
 
 /* --------------------
 SearchButton.astro
@@ -416,8 +419,14 @@ notion-color.css
   background: #f7f6f3;
   border-radius: 50vh;
 }
+#modes:hover {
+  background: #ebebeb;
+}
 .darkmode #modes{
-  background: #202020;
+  background: var(--bg2);
+}
+.darkmode #modes:hover {
+  background: #323232;
 }
 #modes svg{
   width: 26px;

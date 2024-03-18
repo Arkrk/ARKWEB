@@ -19,7 +19,7 @@ const { heading, tags } = Astro.props
     tags.length === 0 ? (
       <NoContents contents={tags} />
     ) : (
-      <ul>
+      <ul class="Box-Container">
         <Icon name="mingcute:filter-line" />
         {tags.map((tag: SelectProperty) => (
           <li>
@@ -34,10 +34,21 @@ const { heading, tags } = Astro.props
 </div>
 
 <style>
+  @media (max-width: 640px) {
+    .blog-tags-link {
+      margin-left: calc(-50vw + 50%);
+      margin-right: calc(-50vw + 50%);
+    }
+  }
   .blog-tags-link svg {
     min-width: 26px;
     min-height: 26px;
     margin-right: 6px;
+  }
+  @media (max-width: 640px) {
+    .blog-tags-link svg {
+      margin-left: 20px;
+    }
   }
   .blog-tags-link h2 {
     margin: 0;
@@ -50,7 +61,6 @@ const { heading, tags } = Astro.props
     display: flex;
     padding: 0;
     overflow-x: scroll;
-    overflow-y: visible;
     white-space: nowrap;
     align-items: center;
     padding: 10px 0 20px 0;
@@ -58,7 +68,6 @@ const { heading, tags } = Astro.props
   .blog-tags-link ul::-webkit-scrollbar {
     display: none;
   }
-  
   .blog-tags-link ul li {
     position: relative;
     line-height: 1.2rem;
@@ -68,6 +77,11 @@ const { heading, tags } = Astro.props
   }
   .blog-tags-link ul li:last-child {
     padding-right: 0;
+  }
+  @media (max-width: 640px) {
+    .blog-tags-link ul li:last-child {
+      padding-right: 20px;
+    }
   }
   .blog-tags-link ul li a {
     min-width: 0;
@@ -80,4 +94,17 @@ const { heading, tags } = Astro.props
   .blog-tags-link ul li a:hover {
     background: #ebebeb;
   }
+  [data-icon="mingcute:filter-line"] {
+    color: #333333;
+  }
 </style>
+
+<script>
+  const scrollElement = document.querySelector(".Box-Container");
+
+  scrollElement.addEventListener("wheel", (e) => {
+    if (Math.abs(e.deltaY) < Math.abs(e.deltaX)) return;
+    e.preventDefault();
+    scrollElement.scrollLeft += e.deltaY;
+  });
+</script>
