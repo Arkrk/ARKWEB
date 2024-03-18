@@ -28,6 +28,7 @@ const [posts, rankedPosts, tags, numberOfPages] = await Promise.all([
 
 <Layout>
   <div slot="main" class={styles.main}>
+    <BlogTagsLink tags={tags} />
     <div class="card-wrapper">
     {
       posts.length === 0 ? (
@@ -61,7 +62,6 @@ const [posts, rankedPosts, tags, numberOfPages] = await Promise.all([
 
   <div slot="aside" class={styles.aside}>
     <BlogPostsLink heading="おすすめ記事" posts={rankedPosts} />
-    <BlogTagsLink heading="タグ" tags={tags} />
   </div>
 </Layout>
 
