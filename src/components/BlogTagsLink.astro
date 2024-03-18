@@ -14,13 +14,13 @@ const { heading, tags } = Astro.props
 ---
 
 <div class="blog-tags-link">
-  <Icon name="mingcute:filter-line" />
   <h2>{heading}</h2>
   {
     tags.length === 0 ? (
       <NoContents contents={tags} />
     ) : (
       <ul>
+        <Icon name="mingcute:filter-line" />
         {tags.map((tag: SelectProperty) => (
           <li>
             <a href={getTagLink(tag.name)}>
@@ -34,16 +34,10 @@ const { heading, tags } = Astro.props
 </div>
 
 <style>
-  .blog-tags-link {
-    display: flex;
-    align-items: center;
-    padding-bottom: 20px;
-  }
   .blog-tags-link svg {
-    width: 26x;
-    height: 26px;
     min-width: 26px;
     min-height: 26px;
+    margin-right: 6px;
   }
   .blog-tags-link h2 {
     margin: 0;
@@ -58,17 +52,22 @@ const { heading, tags } = Astro.props
     overflow-x: scroll;
     overflow-y: visible;
     white-space: nowrap;
-    padding: 10px 0;
+    align-items: center;
+    padding: 10px 0 20px 0;
   }
   .blog-tags-link ul::-webkit-scrollbar {
     display: none;
   }
+  
   .blog-tags-link ul li {
     position: relative;
-    padding-right: 0.6rem;
     line-height: 1.2rem;
     font-size: 1rem;
     gap: 6px;
+    padding-right: 0.6rem;
+  }
+  .blog-tags-link ul li:last-child {
+    padding-right: 0;
   }
   .blog-tags-link ul li a {
     min-width: 0;
