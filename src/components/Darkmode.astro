@@ -27,14 +27,18 @@ layout.astro
 .darkmode header h1 {
   color: var(--fg);
 }
-
 .darkmode aside {
   background: var(--bg2);
   color: var(--fg);
 }
-
 .darkmode .coversvg {
   filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(309deg) brightness(108%) contrast(101%);
+}
+.darkmode footer::before {
+  background: #373737 !important;
+ }
+.darkmode .system, .darkmode .system a {
+  color: #7f7f7f !important;
 }
 
 /* --------------------
@@ -55,23 +59,31 @@ posts/[slug].astro
 }
 .darkmode .share-area {
     border-top: 1px solid #373737 !important;
-  }
+}
 .darkmode [data-icon="simple-icons:x"]:hover {
     color: #fffffc !important;
 }
 
 /* --------------------
+tag/[tag].astro
+-------------------- */
+.darkmode [data-icon="mingcute:filter-fill"] {
+  color: #d5d5d5 !important;
+}
+
+/* --------------------
 Pagination.astro
 -------------------- */
-.darkmode .pagination a{
-  background: #333 !important;
+.darkmode .pagination {
+  color: #adadad !important;
+  border: solid 1px #373737 !important;
 }
 .darkmode .pagination a:hover:not(.inactive) {
-  background: #555 !important;
+  background: var(--bg2) !important;
 }
 .darkmode .pagination a.inactive {
   color: #f7f7f7 !important;
-  background: #444 !important;
+  background: #323232 !important;
 }
 /* --------------------
 Bookmark.astro

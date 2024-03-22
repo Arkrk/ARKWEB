@@ -23,7 +23,6 @@ for (let i = startPage; i <= endPage; i++) {
 ---
 
 <div class="pagination">
-  <a href={getPageLink(1, tag)} class={isFirstPage && 'inactive'}>&lt;&lt;</a>
   {
     pages.map((p: number) => (
       <a href={getPageLink(p, tag)} class={p === currentPage && 'inactive'}>
@@ -31,9 +30,6 @@ for (let i = startPage; i <= endPage; i++) {
       </a>
     ))
   }
-  <a href={getPageLink(numberOfPages, tag)} class={isLastPage && 'inactive'}
-    >&gt;&gt;</a
-  >
 </div>
 
 <style>
@@ -41,29 +37,32 @@ for (let i = startPage; i <= endPage; i++) {
     display: flex;
     width: 100%;
     margin: 0 auto;
-    color: var(--fg);
-    justify-content: center;
+    color: #707070;
     align-items: center;
+    border: solid 1px #dfdfde;
+    border-radius: 8px;
+    overflow: hidden;
   }
   .pagination a {
     display: block;
-    width: 2.4rem;
+    width: 4rem;
     height: 3rem;
-    margin: 0 0.4rem;
-    border-radius: var(--radius);
-    background: #f4f4f4;
+    background: var(--bg);
     color: inherit;
-    font-size: 0.85rem;
+    font-size: 1rem;
     text-align: center;
-    text-decoration: underline;
     font-weight: 500;
     line-height: 3rem;
   }
   .pagination a:hover:not(.inactive) {
-    background: #ddd;
+    background: #f7f6f3;
   }
   .pagination a.inactive {
-    color: #999;
-    text-decoration: none;
+    color: var(--fg);
+    background: #ebebeb;
+  }
+  .pagination a svg {
+    width: 20px;
+    height: 20px;
   }
 </style>
