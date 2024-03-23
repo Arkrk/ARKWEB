@@ -1,10 +1,11 @@
 ---
+import type { SelectProperty } from '../../../lib/interfaces.ts'
+import { NUMBER_OF_POSTS_PER_PAGE } from '../../../server-constants.ts'
 import {
-  getPostsByPage,
+  getPostsByTag,
   getRankedPosts,
   getAllTags,
-  getNumberOfPages,
-  getPostsByPage,
+  getNumberOfPagesByTag,
 } from '../../../lib/notion/client.ts'
 import Layout from '../../../layouts/Layout.astro'
 import NoContents from '../../../components/NoContents.astro'
@@ -13,34 +14,36 @@ import PostTags from '../../../components/PostTags.astro'
 import PostTitle from '../../../components/PostTitle.astro'
 import PostFeaturedImage from '../../../components/PostFeaturedImage.astro'
 import Pagination from '../../../components/Pagination.astro'
-import BlogPostsLink from '../../../components/BlogPostsLink.astro'
-import BlogTagsLink from '../../../components/BlogTagsLink.astro'
 import styles from '../../../styles/blog.module.css'
+import '../../../styles/notion-color.css'
 import { Icon } from 'astro-icon/components'
 
 export async function getStaticPaths() {
-  const numberOfPages = await getNumberOfPages()
-
-  let params = []
-  for (let i = 2; i <= numberOfPages; i++) {
-    params.push({ params: { page: i.toString() } })
-  }
-  return params
+  const allTags = await getAllTags()
+  return allTags.map((tag: SelectProperty) => ({ params: { tag: tag.name } }))
 }
 
-const { page } = Astro.params
+const { tag } = Astro.params
 
 const [posts, rankedPosts, tags, numberOfPages] = await Promise.all([
-  getPostsByPage(parseInt(page, 10)),
+  getPostsByTag(tag, NUMBER_OF_POSTS_PER_PAGE),
   getRankedPosts(),
   getAllTags(),
-  getNumberOfPages(),
+  getNumberOfPagesByTag(tag),
 ])
+
+const currentTag = posts[0].Tags.find((t) => t.name === tag)
 ---
 
-<Layout title={`Posts ${page}/${numberOfPages}`} path={`/posts/page/${page}`}>
+<Layout title={`Posts in ${tag}`} path={`/blog/tag/${tag}`}>
   <div slot="main" class={styles.main}>
-    <BlogTagsLink tags={tags} />
+    <header>
+      <div class="tag-container">
+        <Icon name="mingcute:filter-fill" />
+        <span class={`tag ${currentTag.color}`}>{tag}</span>
+      </div>
+    </header>
+    
     <div class="card-wrapper">
     {
       posts.length === 0 ? (
@@ -69,30 +72,31 @@ const [posts, rankedPosts, tags, numberOfPages] = await Promise.all([
     </div>
 
     <footer>
-      <Pagination
-        currentPage={parseInt(page, 10)}
-        numberOfPages={numberOfPages}
-      />
+      <Pagination tag={tag} currentPage={1} numberOfPages={numberOfPages} />
     </footer>
-  </div>
-
-  <div slot="aside" class={styles.aside}>
-    <BlogPostsLink heading="おすすめ記事" posts={rankedPosts} />
-    <BlogTagsLink heading="タグ" tags={tags} />
   </div>
 </Layout>
 
 <style>
-  .page-container {
-    margin: 0;
-    line-height: 1.3;
-    font-size: 1.2rem;
-    font-weight: normal;
+  header {
+    padding: 0;
   }
-  @media (max-width: 640px) {
-    .page-container {
-      font-size: 1.15rem;
-    }
+  .tag-container {
+    display: flex;
+    align-items: center;
+    padding: 6px 0 16.5px 0;
+    line-height: 1.2rem;
+    font-size: 1rem;
+  }
+  .tag-container span.tag {
+    border-radius: 8px;
+    padding: 7.2px 12px;
+    background: rgba(227, 226, 224, 0.5);
+  }
+  .tag-container svg {
+    min-width: 26px;
+    min-height: 26px;
+    margin-right: 6px;
   }
   .date-area {
     display: flex;
@@ -109,6 +113,9 @@ const [posts, rankedPosts, tags, numberOfPages] = await Promise.all([
     width: 18px;
     height: 18px;
     margin-right: 5px; 
+  }
+  [data-icon="mingcute:filter-fill"] {
+    color: #333333;
   }
   .card-wrapper {
     display: grid;

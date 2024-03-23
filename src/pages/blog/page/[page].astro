@@ -1,0 +1,139 @@
+---
+import {
+  getPostsByPage,
+  getRankedPosts,
+  getAllTags,
+  getNumberOfPages,
+  getPostsByPage,
+} from '../../../lib/notion/client.ts'
+import Layout from '../../../layouts/Layout.astro'
+import NoContents from '../../../components/NoContents.astro'
+import PostDate from '../../../components/PostDate.astro'
+import PostTags from '../../../components/PostTags.astro'
+import PostTitle from '../../../components/PostTitle.astro'
+import PostFeaturedImage from '../../../components/PostFeaturedImage.astro'
+import Pagination from '../../../components/Pagination.astro'
+import BlogPostsLink from '../../../components/BlogPostsLink.astro'
+import BlogTagsLink from '../../../components/BlogTagsLink.astro'
+import styles from '../../../styles/blog.module.css'
+import { Icon } from 'astro-icon/components'
+
+export async function getStaticPaths() {
+  const numberOfPages = await getNumberOfPages()
+
+  let params = []
+  for (let i = 2; i <= numberOfPages; i++) {
+    params.push({ params: { page: i.toString() } })
+  }
+  return params
+}
+
+const { page } = Astro.params
+
+const [posts, rankedPosts, tags, numberOfPages] = await Promise.all([
+  getPostsByPage(parseInt(page, 10)),
+  getRankedPosts(),
+  getAllTags(),
+  getNumberOfPages(),
+])
+---
+
+<Layout title={`Posts ${page}/${numberOfPages}`} path={`/blog/page/${page}`}>
+  <div slot="main" class={styles.main}>
+    <BlogTagsLink tags={tags} />
+    <div class="card-wrapper">
+    {
+      posts.length === 0 ? (
+        <NoContents contents={posts} />
+      ) : (
+        posts.map((post) => (
+        <div class="grid-parts">
+          <div class={styles.post} key={post.Slug}>
+            <PostFeaturedImage post={post} />
+            <div class="grid-text">
+              <PostTitle post={post} />
+              <div class="date-area">
+                <Icon name="mingcute:calendar-2-fill" />
+                <PostDate post={post} />
+              </div>
+              <div class="tags-area">
+                <Icon name="mingcute:tag-2-fill" />
+                <PostTags post={post} />
+              </div>
+            </div>
+          </div>
+          </div>
+        ))
+      )
+    }
+    </div>
+
+    <footer>
+      <Pagination
+        currentPage={parseInt(page, 10)}
+        numberOfPages={numberOfPages}
+      />
+    </footer>
+  </div>
+
+  <div slot="aside" class={styles.aside}>
+    <BlogPostsLink heading="おすすめ記事" posts={rankedPosts} />
+    <BlogTagsLink heading="タグ" tags={tags} />
+  </div>
+</Layout>
+
+<style>
+  .page-container {
+    margin: 0;
+    line-height: 1.3;
+    font-size: 1.2rem;
+    font-weight: normal;
+  }
+  @media (max-width: 640px) {
+    .page-container {
+      font-size: 1.15rem;
+    }
+  }
+  .date-area {
+    display: flex;
+    align-items: center;
+    padding: 0 0 0.3rem;
+    margin-top: 0.3rem;
+  }
+  .tags-area {
+    display: flex;
+    align-items: center;
+    padding: 0 0 0.3rem;
+  }
+  .{styles.main} svg {
+    width: 18px;
+    height: 18px;
+    margin-right: 5px; 
+  }
+  .card-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 15px;
+    row-gap: 15px;
+    line-height: 32px;
+  }
+  @media (max-width: 900px) {
+    .card-wrapper {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (max-width: 640px) {
+    .card-wrapper {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      line-height: 28px;
+    }
+  }
+  .grid-parts {
+    border:solid 1px #dfdfde;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .grid-text {
+    margin: 6px 13px 10px 13px;
+  }
+</style>

@@ -42,7 +42,14 @@ layout.astro
 }
 
 /* --------------------
-pages/index.astro
+pages/blog/index.astro
+-------------------- */
+.darkmode .all-posts:hover {
+    background: var(--bg2) !important;
+  }
+
+/* --------------------
+pages/blog/index.astro
 -------------------- */
 .darkmode .read-more-link a {
   color: var(--fg);
@@ -224,7 +231,7 @@ PostRelativeLink.astro
 BlogPostsLink.astro
 -------------------- */
 .darkmode .blog-posts-link ul li a:hover {
-  background-color: #272727 !important;
+  background-color: var(--bg2) !important;
 }
 .darkmode .blog-posts-link h2 {
   color: #d5d5d5 !important;
