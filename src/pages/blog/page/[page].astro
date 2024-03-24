@@ -38,7 +38,7 @@ const [posts, rankedPosts, tags, numberOfPages] = await Promise.all([
 ])
 ---
 
-<Layout title={`Posts ${page}/${numberOfPages}`} path={`/blog/page/${page}`}>
+<Layout title={`ブログ (${page}/${numberOfPages})`} path={`/blog/page/${page}`}>
   <div slot="main" class={styles.main}>
     <BlogTagsLink tags={tags} />
     <div class="card-wrapper">

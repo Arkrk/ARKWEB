@@ -35,7 +35,7 @@ const [posts, rankedPosts, tags, numberOfPages] = await Promise.all([
 const currentTag = posts[0].Tags.find((t) => t.name === tag)
 ---
 
-<Layout title={`Posts in ${tag}`} path={`/blog/tag/${tag}`}>
+<Layout title={`${tag} の記事一覧`} path={`/blog/tag/${tag}`}>
   <div slot="main" class={styles.main}>
     <header>
       <div class="tag-container">

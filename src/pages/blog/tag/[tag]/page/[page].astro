@@ -50,7 +50,7 @@ const currentTag = posts[0].Tags.find((t) => t.name === tag)
 ---
 
 <Layout
-  title={`Posts in ${tag} ${page}/${numberOfPages}`}
+  title={`${tag} の記事一覧 (${page}/${numberOfPages})`}
   path={`/blog/tag/${tag}/page/${page}`}
 >
   <div slot="main" class={styles.main}>
