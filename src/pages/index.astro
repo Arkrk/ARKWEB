@@ -13,6 +13,7 @@ import PostFeaturedImage from '../components/PostFeaturedImage.astro'
 import BlogPostsLink from '../components/BlogPostsLink.astro'
 import styles from '../styles/blog.module.css'
 import { Icon } from 'astro-icon/components'
+import arkicon from '../images/arkicon.png'
 
 const [posts, rankedPosts] = await Promise.all([
   getPosts(3),
@@ -23,6 +24,13 @@ const [posts, rankedPosts] = await Promise.all([
 
 <Layout>
   <div slot="main" class={styles.main}>
+    <div class="myhead">
+      <img src={arkicon.src} class="ark-icon" alt=""/>
+      <div class="label">
+        <h1>Hey, I'm Ark.</h1>
+        <span>アニメ・邦楽・DTV・ガジェット・キャッシュレス</span>
+      </div>
+    </div>
     <div class="latest">
       <h2>最新記事</h2>
       <a class="all-posts" href="/blog">
@@ -30,6 +38,7 @@ const [posts, rankedPosts] = await Promise.all([
         <Icon name="mingcute:arrow-right-line" />
       </a>
     </div>
+
     <div class="card-wrapper">
     {
       posts.length === 0 ? (
@@ -56,6 +65,7 @@ const [posts, rankedPosts] = await Promise.all([
       )
     }
     </div>
+
     <div class="recommend">
       <h2>おすすめ記事</h2>
       <BlogPostsLink posts={rankedPosts} />
@@ -127,5 +137,12 @@ const [posts, rankedPosts] = await Promise.all([
   }
   .recommend {
     padding-top: 20px;
+  }
+  .ark-icon {
+    width: 150px;
+    height: 150px;
+  }
+  .label {
+    padding: 10px 0 25px 0;
   }
 </style>

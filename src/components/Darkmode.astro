@@ -263,6 +263,19 @@ SearchButton.astro
 .darkmode [data-icon="mingcute:search-line"] {
   color: #fff !important;
 }
+.search-button:hover {
+  background: var(--bg2) !important;
+}
+
+/* --------------------
+BlogButton.astro
+-------------------- */
+.darkmode [data-icon="mingcute:document-2-line"] {
+  color: #fff !important;
+}
+.darkmode .blog-button:hover {
+  background: var(--bg2) !important;
+}
 
 /* --------------------
 SearchModal.astro
@@ -442,6 +455,7 @@ notion-color.css
   border-radius: 50vh;
 }
 #modes:hover {
+  cursor: pointer;
   background: #ebebeb;
 }
 .darkmode #modes{

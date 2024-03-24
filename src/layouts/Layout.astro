@@ -7,6 +7,7 @@ import GoogleAnalytics from '../components/GoogleAnalytics.astro'
 import Darkmode from '../components/Darkmode.astro'
 import SearchModal from '../components/SearchModal.astro'
 import SearchButton from '../components/SearchButton.astro'
+import BlogButton from '../components/BlogButton.astro'
 
 export interface Props {
   title: string
@@ -123,6 +124,7 @@ if (database.Icon && database.Icon.Type === 'file') {
           </a>
         </h1>
         <div class="header_button_wrapper">
+          <BlogButton />
           <SearchButton />
           <Darkmode />
         </div>
@@ -260,11 +262,11 @@ if (database.Icon && database.Icon.Type === 'file') {
   }
 
   .header_button_wrapper {
-    font-size: 2.6em;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-left: auto;
+    gap: 4px;
   }
 
   header > h1 > a {
