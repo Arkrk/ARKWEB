@@ -88,13 +88,3 @@ import { Icon } from 'astro-icon/components'
         color: #5d52e9;
     }
 </style>
-
-<script>
-    const scrollElement = document.querySelector(".social-links");
-  
-    scrollElement.addEventListener("wheel", (e) => {
-      if (Math.abs(e.deltaY) < Math.abs(e.deltaX)) return;
-      e.preventDefault();
-      scrollElement.scrollLeft += e.deltaY;
-    });
-</script>
