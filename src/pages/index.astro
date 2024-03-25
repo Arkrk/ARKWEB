@@ -14,6 +14,7 @@ import BlogPostsLink from '../components/BlogPostsLink.astro'
 import styles from '../styles/blog.module.css'
 import { Icon } from 'astro-icon/components'
 import arkicon from '../images/arkicon.png'
+import SocialLinks from '../components/SocialLinks.astro'
 
 const [posts, rankedPosts] = await Promise.all([
   getPosts(3),
@@ -27,10 +28,11 @@ const [posts, rankedPosts] = await Promise.all([
     <div class="myhead">
       <img src={arkicon.src} class="ark-icon" alt="Ark"/>
       <div class="label">
-        <h1>Hey, I'm Ark.</h1>
-        <span>アニメ・邦楽・DTV・ガジェット・キャッシュレス</span>
+        <h1>Hi, I'm Ark</h1>
+        <span>アニメ・邦楽・DTV・ガジェット・キャッシュレスが好き。</span>
       </div>
     </div>
+    <SocialLinks />
     <div class="latest">
       <h2>最新記事</h2>
       <a class="all-posts" href="/blog">
@@ -142,7 +144,16 @@ const [posts, rankedPosts] = await Promise.all([
     width: 150px;
     height: 150px;
   }
+  @media (max-width: 640px) {
+    .ark-icon {
+      width: 120px;
+      height: 120px;
+    }
+  }
   .label {
     padding: 10px 0 25px 0;
+  }
+  .label h1 {
+    font-size: 2.5rem;
   }
 </style>
