@@ -15,6 +15,7 @@ import styles from '../styles/blog.module.css'
 import { Icon } from 'astro-icon/components'
 import arkicon from '../images/arkicon.png'
 import SocialLinks from '../components/SocialLinks.astro'
+import DiaryLinks from '../components/DiaryLinks.astro'
 
 const [posts, rankedPosts] = await Promise.all([
   getPosts(3),
@@ -71,6 +72,11 @@ const [posts, rankedPosts] = await Promise.all([
     <div class="recommend">
       <h2>おすすめ記事</h2>
       <BlogPostsLink posts={rankedPosts} />
+    </div>
+
+    <div class="diary">
+      <h2>ダイアリー</h2>
+      <DiaryLinks />
     </div>
   </div>
 </Layout>
@@ -155,5 +161,8 @@ const [posts, rankedPosts] = await Promise.all([
   }
   .label h1 {
     font-size: 2.5rem;
+  }
+  .diary {
+    padding-top: 20px;
   }
 </style>

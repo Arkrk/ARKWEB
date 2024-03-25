@@ -3,29 +3,29 @@ import { Icon } from 'astro-icon/components'
 ---
 
 <div>
-<ul class="social-links">
-    <li class="X-link">
-        <a href="https://twitter.com/Arkxv1" target="_blank" rel="noopener noreferrer">
-            <Icon name="simple-icons:x" />
-            <span>@Arkxv1</span>
+<ul class="diary-links">
+    <li class="reports-link">
+        <a href="https://diary.arkxv.com/reports" target="_blank" rel="noopener noreferrer">
+            <Icon name="twemoji:newspaper" />
+            <span>デイリーレポート</span>
         </a>
     </li>
-    <li class="Bluesky-link">
-        <a href="https://bsky.app/profile/arkxv.com" target="_blank" rel="noopener noreferrer">
-            <Icon name="simple-icons:bluesky" />
-            <span>@arkxv.com</span>
+    <li class="records-link">
+        <a href="https://diary.arkxv.com/records" target="_blank" rel="noopener noreferrer">
+            <Icon name="twemoji:file-folder" />
+            <span>アニメ視聴記録</span>
         </a>
     </li>
-    <li class="Misskey-link">
-        <a href="https://misskey.io/@Arkxv" target="_blank" rel="noopener noreferrer">
-            <Icon name="simple-icons:misskey" />
-            <span>@Arkxv@misskey.io</span>
+    <li class="ranking-link">
+        <a href="https://diary.arkxv.com/ranking" target="_blank" rel="noopener noreferrer">
+            <Icon name="twemoji:crown" />
+            <span>アニメランキング</span>
         </a>
     </li>
-    <li class="Mastodon-link">
-        <a href="https://mstdn.jp/web/@Arkxv" target="_blank" rel="noopener noreferrer">
-            <Icon name="simple-icons:mastodon" />
-            <span>@Arkxv@mstdn.jp</span>
+    <li class="songs-link">
+        <a href="https://diary.arkxv.com/songs" target="_blank" rel="noopener noreferrer">
+            <Icon name="twemoji:musical-note" />
+            <span>楽曲ランキング</span>
         </a>
     </li>
 </ul>
@@ -75,22 +75,10 @@ import { Icon } from 'astro-icon/components'
     svg {
         margin-left: 10px;
     }
-    [data-icon="simple-icons:x"] {
-        color: #10131a;
-    }
-    [data-icon="simple-icons:bluesky"] {
-        color: #1185fe;
-    }
-    [data-icon="simple-icons:misskey"] {
-        color: #96d04a;
-    }
-    [data-icon="simple-icons:mastodon"] {
-        color: #5d52e9;
-    }
 </style>
 
 <script>
-    const scrollElement = document.querySelector(".social-links");
+    const scrollElement = document.querySelector(".diary-links");
   
     scrollElement.addEventListener("wheel", (e) => {
       if (Math.abs(e.deltaY) < Math.abs(e.deltaX)) return;

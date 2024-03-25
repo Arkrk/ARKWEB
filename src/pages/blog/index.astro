@@ -59,10 +59,6 @@ const [posts, rankedPosts, tags, numberOfPages] = await Promise.all([
       <Pagination currentPage={1} numberOfPages={numberOfPages} />
     </footer>
   </div>
-
-  <div slot="aside" class={styles.aside}>
-    <BlogPostsLink heading="おすすめ記事" posts={rankedPosts} />
-  </div>
 </Layout>
 
 <style>
