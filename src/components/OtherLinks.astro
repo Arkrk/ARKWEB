@@ -1,5 +1,9 @@
 ---
 import { Icon } from 'astro-icon/components'
+import clubdam from '../images/clubdam.png'
+import nana from '../images/nana.png'
+import annict from '../images/annict.png'
+import petitlyrics from '../images/petitlyrics.png'
 ---
 
 <div>
@@ -10,15 +14,33 @@ import { Icon } from 'astro-icon/components'
             <span>Spotify</span>
         </a>
     </li>
+    <li class="annict-link">
+        <a href="https://annict.com/@Arkxv" target="_blank" rel="noopener noreferrer">
+            <img src={annict.src} />
+            <span>Annict</span>
+        </a>
+    </li>
     <li class="bookmeter-link">
         <a href="https://bookmeter.com/users/1340009" target="_blank" rel="noopener noreferrer">
             <Icon name="simple-icons:bookmeter" />
             <span>読書メーター</span>
         </a>
     </li>
+    <li class="petitlyrics-link">
+        <a href="https://petitlyrics.com/profile/Ark_sg" target="_blank" rel="noopener noreferrer">
+            <img src={petitlyrics.src} />
+            <span>プチリリ</span>
+        </a>
+    </li>
+    <li class="nana-link">
+        <a href="https://nana-music.com/users/830241" target="_blank" rel="noopener noreferrer">
+            <img src={nana.src} />
+            <span>nana</span>
+        </a>
+    </li>
     <li class="clubdam-link">
         <a href="https://www.clubdam.com/app/damtomo/SP/member/info/Profile.do?damtomoId=Mzc1MjQ1OTM" target="_blank" rel="noopener noreferrer">
-            <img src="https://i.imgur.com/NYV8SqC.png">
+            <img src={clubdam.src} />
             <span>DAM★とも</span>
         </a>
     </li>
