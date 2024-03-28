@@ -386,6 +386,8 @@ if (database.Icon && database.Icon.Type === 'file') {
     --accents-1: #666;
     --accents-2: #666;
     --accents-3: #d3d1cb;
+    --accents-4: #a58452;
+    --accents-5: #7e5c29;
     --bg2: #f4f4f4;
     --geist-foreground: #000;
     --geist-success: #690;
@@ -402,6 +404,10 @@ if (database.Icon && database.Icon.Type === 'file') {
   * {
     box-sizing: border-box;
     word-break: break-word;
+  }
+
+  *:focus {
+  outline: none;
   }
 
   html,
@@ -445,11 +451,12 @@ if (database.Icon && database.Icon.Type === 'file') {
   }
 
   a {
-    color: var(--accents-1);
+    color: var(--accents-4);
     text-decoration: none;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
   }
   a:hover {
-    color: var(--accents-1);
+    color: var(--accents-5);
   }
 
   mark {

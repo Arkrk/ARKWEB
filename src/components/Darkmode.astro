@@ -22,6 +22,8 @@ layout.astro
   --accents-1: #9c9c9c;
   --accents-2: #f26000;
   --accents-3: #474c50;
+  --accents-4: #a58452;
+  --accents-5: #c29f6c;
   --bg2: #252525;
 }
 .darkmode header h1 {
@@ -100,6 +102,9 @@ Bookmark.astro
 -------------------- */
 .darkmode .bookmark > a {
   border: 1px solid #373737 !important;
+}
+.darkmode .bookmark > a:hover {
+  background: var(--bg2) !important;
 }
 
 /* --------------------
@@ -224,10 +229,23 @@ ToDo.astro
 }
 
 /* --------------------
+Mention.astro
+-------------------- */
+.darkmode a.link:hover {
+  background: var(--bg2) !important;
+}
+.darkmode span.text {
+  text-decoration-color: #707070 !important;
+}
+
+/* --------------------
 PostRelativeLink.astro
 -------------------- */
 .darkmode div.post-relative-link > div > a.colored  {
   background: var(--bg2) !important;
+}
+.darkmode .post-relative-link > div > a.colored:hover {
+  background: #323232 !important;
 }
 
 /* --------------------
