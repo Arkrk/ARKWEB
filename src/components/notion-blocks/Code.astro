@@ -81,8 +81,9 @@ const grammer =
     margin-bottom: 0.6rem;
   }
   .code > div {
-    background: rgb(247, 246, 243);
-    border-radius: var(--radius);
+    background: var(--bg2);
+    border-radius: 8px;
+    overflow: hidden;
   }
   .code > div div {
     display: flex;
@@ -92,7 +93,7 @@ const grammer =
     display: block;
     width: 6rem;
     border: 0;
-    border-radius: var(--radius);
+    border-radius: 0 0 0 8px;
     background-color: rgba(227, 226, 224, 0.5);
     color: var(--fg);
     line-height: 1.2rem;
@@ -115,7 +116,7 @@ const grammer =
       background: rgb(211, 209, 203);
     }
     &::-webkit-scrollbar-track {
-      background: rgb(247, 246, 243);
+      background: var(--bg2);
     }
   }
   .code pre.mermaid {
