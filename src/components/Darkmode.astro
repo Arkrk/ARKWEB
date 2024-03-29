@@ -125,9 +125,12 @@ Callout.astro
 Code.astro
 -------------------- */
 .darkmode .code button.copy {
-    background-color: #323232 !important;
-    color: var(--fg) !important;
-  }
+  background-color: #323232 !important;
+  color: var(--fg) !important;
+}
+.darkmode .code button.copy:hover {
+  background: #3c3c3c !important;
+}
 .darkmode .code pre {
   background: var(--bg2) !important;
   &::-webkit-scrollbar {
@@ -482,7 +485,7 @@ syntax-coloring.css
 .darkmode .token.keyword,
 .darkmode .attr-name,
 .darkmode .language-autohotkey .token.selector {
-  color: #32b0e6;
+  color: #3ebcf2;
 }
 
 .darkmode .token.function,
