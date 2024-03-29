@@ -2,7 +2,7 @@
 .token.prolog,
 .token.doctype,
 .token.cdata {
-  color: slategray;
+  color: #647c93
 }
 
 .token.namespace {
@@ -11,7 +11,7 @@
 
 .token.string,
 .token.attr-value {
-  color: #690;
+  color: #76ab0b;
 }
 
 .token.punctuation {
@@ -46,7 +46,7 @@
 .token.keyword,
 .token.attr-name,
 .language-autohotkey .token.selector {
-  color: #07a;
+  color: #0a95d0;
 }
 
 .token.function,
