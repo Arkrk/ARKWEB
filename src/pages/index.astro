@@ -51,7 +51,9 @@ const [posts, rankedPosts] = await Promise.all([
         posts.map((post) => (
           <div class="grid-parts">
             <div class={styles.post} key={post.Slug}>
-              <PostFeaturedImage post={post} />
+              <figure class="grid-image">
+                <PostFeaturedImage post={post} />
+              </figure>
               <div class="grid-text">
                 <PostTitle post={post} />
                 <div class="date-area">
@@ -127,8 +129,11 @@ const [posts, rankedPosts] = await Promise.all([
     height: 18px;
     margin-right: 5px; 
   }
+  .grid-image {
+    overflow: hidden;
+  }
   .grid-text {
-    margin: 6px 13px 10px 13px;
+    padding: 6px 13px 10px 13px;
   }
   .latest {
     display: flex;

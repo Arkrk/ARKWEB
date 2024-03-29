@@ -50,9 +50,11 @@ const currentTag = posts[0].Tags.find((t) => t.name === tag)
         <NoContents contents={posts} />
       ) : (
         posts.map((post) => (
-        <div class="grid-parts">
+          <div class="grid-parts">
           <div class={styles.post} key={post.Slug}>
-            <PostFeaturedImage post={post} />
+            <figure class="grid-image">
+              <PostFeaturedImage post={post} />
+            </figure>
             <div class="grid-text">
               <PostTitle post={post} />
               <div class="date-area">
@@ -140,7 +142,10 @@ const currentTag = posts[0].Tags.find((t) => t.name === tag)
     border-radius: 8px;
     overflow: hidden;
   }
+  .grid-image {
+    overflow: hidden;
+  }
   .grid-text {
-    margin: 6px 13px 10px 13px;
+    padding: 6px 13px 10px 13px;
   }
 </style>
