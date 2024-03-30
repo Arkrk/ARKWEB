@@ -24,6 +24,7 @@ import PostBody from '../../components/PostBody.astro'
 import PostRelativeLink from '../../components/PostRelativeLink.astro'
 import styles from '../../styles/blog.module.css'
 import { Icon } from 'astro-icon/components'
+import PostUpdateDate from '../../components/PostUpdateDate.astro'
 
 export async function getStaticPaths() {
   const posts = await getAllPosts()
@@ -102,8 +103,8 @@ if (post.FeaturedImage && post.FeaturedImage.Url) {
     <div class={styles.post}>
       <PostTitle post={post} enableLink={false} />
       <div class="date-area">
-        <Icon name="mingcute:calendar-2-fill" />
         <PostDate post={post} />
+        <PostUpdateDate post={post} />
       </div>
       <div class="tags-area">
         <Icon name="mingcute:tag-2-fill" />
@@ -145,13 +146,13 @@ if (post.FeaturedImage && post.FeaturedImage.Url) {
   .date-area {
     display: flex;
     align-items: center;
-    padding: 0 0 0.3rem;
-    margin-top: 0.3rem;
+    margin: 0.3rem 0;
+    gap: 0.8rem;
   }
   .tags-area {
     display: flex;
     align-items: center;
-    padding: 0 0 0.3rem;
+    margin: 0 0 0.3rem;
   }
   .date-area svg, .tags-area svg {
     width: 18px;

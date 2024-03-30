@@ -11,7 +11,7 @@ const { post } = Astro.props
 ---
 
 <div>
-  {post.Date ? <div class="post-date"><Icon name="mingcute:calendar-2-fill" />{getDateStr(post.Date)}</div> : ''}
+  {post.UpdateDate ? <div class="post-date"><Icon name="mingcute:edit-3-fill" />{getDateStr(post.UpdateDate)}</div> : ''}
 </div>
 
 <style>
