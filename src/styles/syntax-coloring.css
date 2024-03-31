@@ -11,7 +11,7 @@
 
 .token.string,
 .token.attr-value {
-  color: #81c005;
+  color: #80b614;
 }
 
 .token.punctuation {
@@ -35,7 +35,7 @@
 }
 
 .token.prefix.inserted {
-  color: #76ab0b;
+  color: #80b614;
 }
 
 .token.prefix.deleted {
