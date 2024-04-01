@@ -387,14 +387,17 @@ if (database.Icon && database.Icon.Type === 'file') {
   outline: none;
   }
 
-  html,
+  html {
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+
   body {
     padding: 0;
     margin: 0;
     font-size: 16px;
-  }
-
-  body {
     min-height: 100vh;
     max-width: 1000px;
     width: 100%;
