@@ -18,7 +18,7 @@ layout.astro
 -------------------- */
 :root.darkmode {
   --bg: #191919;
-  --fg: #d5d5d5;
+  --fg: #ddd;
   --accents-1: #9c9c9c;
   --accents-2: #f26000;
   --accents-3: #474c50;
@@ -33,9 +33,6 @@ layout.astro
   background: var(--bg2);
   color: var(--fg);
 }
-.darkmode .coversvg {
-  filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(2%) hue-rotate(114deg) brightness(112%) contrast(101%);
-}
 .darkmode footer::before {
   background: #373737 !important;
  }
@@ -47,7 +44,7 @@ layout.astro
 pages/blog/index.astro
 -------------------- */
 .darkmode .all-posts {
-  color: #d5d5d5 !important;
+  color: var(--fg) !important;
 }
 .darkmode .all-posts:hover {
   background: var(--bg2) !important;
@@ -80,7 +77,7 @@ posts/[slug].astro
 tag/[tag].astro
 -------------------- */
 .darkmode [data-icon="mingcute:filter-fill"] {
-  color: #d5d5d5 !important;
+  color: var(--fg) !important;
 }
 
 /* --------------------
@@ -118,7 +115,7 @@ BulletedListItems.astro
 Callout.astro
 -------------------- */
 .darkmode .callout.gray-background {
-  background: #252525 !important;
+  background: var(--bg2) !important;
 }
 
 /* --------------------
@@ -254,14 +251,14 @@ BlogPostsLink.astro
   background-color: var(--bg2) !important;
 }
 .darkmode .blog-posts-link h2 {
-  color: #d5d5d5 !important;
+  color: var(--fg) !important;
 }
 
 /* --------------------
 BlogTagsLink.astro
 -------------------- */
 .darkmode .blog-tags-link h2 {
-  color: #d5d5d5 !important;
+  color: var(--fg) !important;
 }
 .darkmode .blog-tags-link ul li a {
   color: #f7f7f7 !important;
@@ -271,14 +268,14 @@ BlogTagsLink.astro
   background: #323232 !important;
 }
 .darkmode [data-icon="mingcute:filter-line"] {
-  color: #d5d5d5 !important;
+  color: var(--fg) !important;
 }
 
 /* --------------------
 SearchButton.astro
 -------------------- */
 .darkmode [data-icon="mingcute:search-line"] {
-  color: #fff !important;
+  color: var(--fg) !important;
 }
 .search-button:hover {
   background: var(--bg2) !important;
@@ -288,7 +285,7 @@ SearchButton.astro
 BlogButton.astro
 -------------------- */
 .darkmode [data-icon="mingcute:document-2-line"] {
-  color: #fff !important;
+  color: var(--fg) !important;
 }
 .darkmode .blog-button:hover {
   background: var(--bg2) !important;
@@ -298,7 +295,7 @@ BlogButton.astro
 RssButton.astro
 -------------------- */
 .darkmode [data-icon="mingcute:rss-2-line"] {
-  color: #fff !important;
+  color: var(--fg) !important;
 }
 .darkmode .rss-button:hover {
   background: var(--bg2) !important;
@@ -631,10 +628,10 @@ syntax-coloring.css
   color: #ff4500;
 }
 [data-icon="mingcute:moon-fill"] {
-  color: #000;
+  color: #222;
 }
 .darkmode [data-icon="mingcute:sun-fill"] {
-  color: #fff;
+  color: var(--fg);
 }
 .darkmode [data-icon="mingcute:moon-fill"] {
   color: #ffff00;
