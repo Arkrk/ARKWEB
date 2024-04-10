@@ -98,32 +98,8 @@ if (database.Icon && database.Icon.Type === 'file') {
       <header class="site-header">
         <h1>
           <a href={getNavLink('/')}>
-            {
-              database.Icon && database.Icon.Type === 'emoji' ? (
-                <>
-                  <span>{database.Icon.Emoji}</span>
-                </>
-              ) : database.Icon && database.Icon.Type === 'external' ? (
-                <>
-                  <img src={database.Icon.Url} alt="Site icon image" />
-                </>
-              ) : database.Icon && database.Icon.Type === 'file' ? (
-                <>
-                  <img
-                    src={customIconURL}
-                    class="custom-icon"
-                    alt="Site icon image"
-                  />
-                </>
-              ) : (
-                database.Title
-              )
-            }
-            {
-              coverImageURL && (
-                <div class="coversvg"></div>
-              )
-            }
+            <div class="custom-icon"></div>
+            <div class="coversvg"></div>
           </a>
         </h1>
         <div class="header_button_wrapper">
@@ -218,10 +194,15 @@ if (database.Icon && database.Icon.Type === 'file') {
     }
   }
 
-  img.custom-icon{
+  .custom-icon{
+    -webkit-mask: url("../images/blogicon.svg") no-repeat center center / contain;
+    mask-image: url("../images/blogicon.svg");
+    mask-repeat: no-repeat;
+    mask-position: center center;
+    mask-size: contain;
     height: 25px;
-    min-width: 0;
-    max-height: 1.6em;
+    width: 25px;
+    background-color: var(--accents-4);
   }
 
   .coversvg {
@@ -236,11 +217,13 @@ if (database.Icon && database.Icon.Type === 'file') {
   }
 
   @media (max-width: 640px) {
-    img.custom-icon{
+    .custom-icon{
       height: 23px;
+      width: 23px;
     }
     .coversvg{
       height: 23px;
+      width: 80.5px;
     }
   }
 
