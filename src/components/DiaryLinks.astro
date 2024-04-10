@@ -4,75 +4,75 @@ import { Icon } from 'astro-icon/components'
 
 <div>
 <ul class="diary-links">
-    <li class="reports-link">
-        <a href="https://diary.arkxv.com/reports" target="_blank" rel="noopener noreferrer">
-            <Icon name="twemoji:newspaper" />
-            <span>デイリーレポート</span>
-        </a>
-    </li>
-    <li class="records-link">
-        <a href="https://diary.arkxv.com/records" target="_blank" rel="noopener noreferrer">
-            <Icon name="twemoji:file-folder" />
-            <span>アニメ視聴記録</span>
-        </a>
-    </li>
-    <li class="ranking-link">
-        <a href="https://diary.arkxv.com/ranking" target="_blank" rel="noopener noreferrer">
-            <Icon name="twemoji:crown" />
-            <span>アニメランキング</span>
-        </a>
-    </li>
-    <li class="songs-link">
-        <a href="https://diary.arkxv.com/songs" target="_blank" rel="noopener noreferrer">
-            <Icon name="twemoji:musical-note" />
-            <span>楽曲ランキング</span>
-        </a>
-    </li>
+  <li class="reports-link">
+    <a href="https://diary.arkxv.com/reports" target="_blank" rel="noopener noreferrer">
+      <Icon name="twemoji:newspaper" />
+      <span>デイリーレポート</span>
+    </a>
+  </li>
+  <li class="records-link">
+    <a href="https://diary.arkxv.com/records" target="_blank" rel="noopener noreferrer">
+      <Icon name="twemoji:file-folder" />
+      <span>アニメ視聴記録</span>
+    </a>
+  </li>
+  <li class="ranking-link">
+    <a href="https://diary.arkxv.com/ranking" target="_blank" rel="noopener noreferrer">
+      <Icon name="twemoji:crown" />
+      <span>アニメランキング</span>
+    </a>
+  </li>
+  <li class="songs-link">
+    <a href="https://diary.arkxv.com/songs" target="_blank" rel="noopener noreferrer">
+      <Icon name="twemoji:musical-note" />
+      <span>楽曲ランキング</span>
+    </a>
+  </li>
 </ul>
 </div>
 
 <style>
+  ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0 0 2rem 0;
+    gap: 8px;
+    overflow-x: scroll;
+    white-space: nowrap;
+  }
+  ul::-webkit-scrollbar {
+    display: none;
+  }
+  @media (max-width: 640px) {
+    div {
+      margin-left: calc(-50vw + 50%);
+      margin-right: calc(-50vw + 50%);
+    }
     ul {
-        display: flex;
-        list-style-type: none;
-        padding: 0 0 2rem 0;
-        gap: 8px;
-        overflow-x: scroll;
-        white-space: nowrap;
+      padding-left: 18px;
     }
-    ul::-webkit-scrollbar {
-        display: none;
+    ul:last-child {
+      padding-right: 18px;
     }
-    @media (max-width: 640px) {
-        div {
-            margin-left: calc(-50vw + 50%);
-            margin-right: calc(-50vw + 50%);
-        }
-        ul {
-            padding-left: 18px;
-        }
-        ul:last-child {
-            padding-right: 18px;
-        }
-    }
-    a {
-        display: flex;
-        align-items: center;
-        height: 40px;
-        padding-right: 10px;
-        border:solid 1px #dfdfde;
-        border-radius: 8px;
-        overflow: hidden;
-        cursor: pointer;
-        color: var(--fg);
-    }
-    a:hover {
-        background: #f7f6f3;
-    }
-    span {
-        padding-left: 5px;
-    }
-    svg {
-        margin-left: 10px;
-    }
+  }
+  a {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding-right: 10px;
+    border:solid 1px #dfdfde;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    color: var(--fg);
+  }
+  a:hover {
+    background: #f7f6f3;
+  }
+  span {
+    padding-left: 5px;
+  }
+  svg {
+    margin-left: 10px;
+  }
 </style>

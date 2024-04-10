@@ -8,95 +8,95 @@ import petitlyrics from '../images/petitlyrics.png'
 
 <div>
 <ul class="other-links">
-    <li class="spotify-link">
-        <a href="https://open.spotify.com/user/21j2yhq6gvx2n2xhxga2obtri?si=762b421111464bf0" target="_blank" rel="noopener noreferrer">
-            <Icon name="simple-icons:spotify" />
-            <span>Spotify</span>
-        </a>
-    </li>
-    <li class="annict-link">
-        <a href="https://annict.com/@Arkxv" target="_blank" rel="noopener noreferrer">
-            <img src={annict.src} alt="Annict" />
-            <span>Annict</span>
-        </a>
-    </li>
-    <li class="bookmeter-link">
-        <a href="https://bookmeter.com/users/1340009" target="_blank" rel="noopener noreferrer">
-            <Icon name="simple-icons:bookmeter" />
-            <span>読書メーター</span>
-        </a>
-    </li>
-    <li class="petitlyrics-link">
-        <a href="https://petitlyrics.com/profile/Ark_sg" target="_blank" rel="noopener noreferrer">
-            <img src={petitlyrics.src} alt="プチリリ" />
-            <span>プチリリ</span>
-        </a>
-    </li>
-    <li class="nana-link">
-        <a href="https://nana-music.com/users/830241" target="_blank" rel="noopener noreferrer">
-            <img src={nana.src} alt="nana" />
-            <span>nana</span>
-        </a>
-    </li>
-    <li class="clubdam-link">
-        <a href="https://www.clubdam.com/app/damtomo/SP/member/info/Profile.do?damtomoId=Mzc1MjQ1OTM" target="_blank" rel="noopener noreferrer">
-            <img src={clubdam.src} alt="DAM★とも" />
-            <span>DAM★とも</span>
-        </a>
-    </li>
+  <li class="spotify-link">
+    <a href="https://open.spotify.com/user/21j2yhq6gvx2n2xhxga2obtri?si=762b421111464bf0" target="_blank" rel="noopener noreferrer">
+      <Icon name="simple-icons:spotify" />
+      <span>Spotify</span>
+    </a>
+  </li>
+  <li class="annict-link">
+    <a href="https://annict.com/@Arkxv" target="_blank" rel="noopener noreferrer">
+      <img src={annict.src} alt="" />
+      <span>Annict</span>
+    </a>
+  </li>
+  <li class="bookmeter-link">
+    <a href="https://bookmeter.com/users/1340009" target="_blank" rel="noopener noreferrer">
+      <Icon name="simple-icons:bookmeter" />
+      <span>読書メーター</span>
+    </a>
+  </li>
+  <li class="petitlyrics-link">
+    <a href="https://petitlyrics.com/profile/Ark_sg" target="_blank" rel="noopener noreferrer">
+      <img src={petitlyrics.src} alt="" />
+      <span>プチリリ</span>
+    </a>
+  </li>
+  <li class="nana-link">
+    <a href="https://nana-music.com/users/830241" target="_blank" rel="noopener noreferrer">
+      <img src={nana.src} alt="" />
+      <span>nana</span>
+    </a>
+  </li>
+  <li class="clubdam-link">
+    <a href="https://www.clubdam.com/app/damtomo/SP/member/info/Profile.do?damtomoId=Mzc1MjQ1OTM" target="_blank" rel="noopener noreferrer">
+      <img src={clubdam.src} alt="" />
+      <span>DAM★とも</span>
+    </a>
+  </li>
 </ul>
 </div>
 
 <style>
+  ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0 0 2rem 0;
+    gap: 8px;
+    overflow-x: scroll;
+    white-space: nowrap;
+  }
+  ul::-webkit-scrollbar {
+    display: none;
+  }
+  @media (max-width: 640px) {
+    div {
+      margin-left: calc(-50vw + 50%);
+      margin-right: calc(-50vw + 50%);
+    }
     ul {
-        display: flex;
-        list-style-type: none;
-        padding: 0 0 2rem 0;
-        gap: 8px;
-        overflow-x: scroll;
-        white-space: nowrap;
+      padding-left: 18px;
     }
-    ul::-webkit-scrollbar {
-        display: none;
+    ul:last-child {
+      padding-right: 18px;
     }
-    @media (max-width: 640px) {
-        div {
-            margin-left: calc(-50vw + 50%);
-            margin-right: calc(-50vw + 50%);
-        }
-        ul {
-            padding-left: 18px;
-        }
-        ul:last-child {
-            padding-right: 18px;
-        }
-    }
-    a {
-        display: flex;
-        align-items: center;
-        height: 40px;
-        padding-right: 10px;
-        border:solid 1px #dfdfde;
-        border-radius: 8px;
-        overflow: hidden;
-        cursor: pointer;
-        color: var(--fg);
-    }
-    a:hover {
-        background: #f7f6f3;
-    }
-    span {
-        padding-left: 5px;
-    }
-    svg, img {
-        width: 16px;
-        height: 16px;
-        margin-left: 10px;
-    }
-    [data-icon="simple-icons:spotify"] {
-        color: #1ed760;
-    }
-    [data-icon="simple-icons:bookmeter"] {
-        color: #64bc4b;
-    }
+  }
+  a {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding-right: 10px;
+    border:solid 1px #dfdfde;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    color: var(--fg);
+  }
+  a:hover {
+    background: #f7f6f3;
+  }
+  span {
+    padding-left: 5px;
+  }
+  svg, img {
+    width: 16px;
+    height: 16px;
+    margin-left: 10px;
+  }
+  [data-icon="simple-icons:spotify"] {
+    color: #1ed760;
+  }
+  [data-icon="simple-icons:bookmeter"] {
+    color: #64bc4b;
+  }
 </style>

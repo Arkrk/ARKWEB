@@ -4,87 +4,87 @@ import { Icon } from 'astro-icon/components'
 
 <div>
 <ul class="social-links">
-    <li class="X-link">
-        <a href="https://twitter.com/Arkxv1" target="_blank" rel="noopener noreferrer">
-            <Icon name="simple-icons:x" />
-            <span>@Arkxv1</span>
-        </a>
-    </li>
-    <li class="Bluesky-link">
-        <a href="https://bsky.app/profile/arkxv.com" target="_blank" rel="noopener noreferrer">
-            <Icon name="simple-icons:bluesky" />
-            <span>@arkxv.com</span>
-        </a>
-    </li>
-    <li class="Misskey-link">
-        <a href="https://misskey.io/@Arkxv" target="_blank" rel="noopener noreferrer me">
-            <Icon name="simple-icons:misskey" />
-            <span>@Arkxv@misskey.io</span>
-        </a>
-    </li>
-    <li class="Mastodon-link">
-        <a href="https://mstdn.jp/@Arkxv" target="_blank" rel="noopener noreferrer me">
-            <Icon name="simple-icons:mastodon" />
-            <span>@Arkxv@mstdn.jp</span>
-        </a>
-    </li>
+	<li class="X-link">
+    <a href="https://twitter.com/Arkxv1" target="_blank" rel="noopener noreferrer">
+      <Icon name="simple-icons:x" />
+      <span>@Arkxv1</span>
+    </a>
+  </li>
+  <li class="Bluesky-link">
+    <a href="https://bsky.app/profile/arkxv.com" target="_blank" rel="noopener noreferrer">
+      <Icon name="simple-icons:bluesky" />
+      <span>@arkxv.com</span>
+    </a>
+  </li>
+  <li class="Misskey-link">
+    <a href="https://misskey.io/@Arkxv" target="_blank" rel="noopener noreferrer me">
+    	<Icon name="simple-icons:misskey" />
+    	<span>@Arkxv@misskey.io</span>
+    </a>
+  </li>
+  <li class="Mastodon-link">
+    <a href="https://mstdn.jp/@Arkxv" target="_blank" rel="noopener noreferrer me">
+      <Icon name="simple-icons:mastodon" />
+      <span>@Arkxv@mstdn.jp</span>
+    </a>
+  </li>
 </ul>
 </div>
 
 <style>
+	ul {
+  	display: flex;
+    list-style-type: none;
+    padding: 0 0 2rem 0;
+    gap: 8px;
+    overflow-x: scroll;
+    white-space: nowrap;
+  }
+  ul::-webkit-scrollbar {
+    display: none;
+  }
+  @media (max-width: 640px) {
+    div {
+    	margin-left: calc(-50vw + 50%);
+      margin-right: calc(-50vw + 50%);
+    }
     ul {
-        display: flex;
-        list-style-type: none;
-        padding: 0 0 2rem 0;
-        gap: 8px;
-        overflow-x: scroll;
-        white-space: nowrap;
+      padding-left: 18px;
     }
-    ul::-webkit-scrollbar {
-        display: none;
+    ul:last-child {
+      padding-right: 18px;
     }
-    @media (max-width: 640px) {
-        div {
-            margin-left: calc(-50vw + 50%);
-            margin-right: calc(-50vw + 50%);
-        }
-        ul {
-            padding-left: 18px;
-        }
-        ul:last-child {
-            padding-right: 18px;
-        }
-    }
-    a {
-        display: flex;
-        align-items: center;
-        height: 40px;
-        padding-right: 10px;
-        border:solid 1px #dfdfde;
-        border-radius: 8px;
-        overflow: hidden;
-        cursor: pointer;
-        color: var(--fg);
+  }
+  a {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding-right: 10px;
+    border:solid 1px #dfdfde;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    color: var(--fg);
     }
     a:hover {
-        background: #f7f6f3;
+    	background: #f7f6f3;
     }
     span {
-        padding-left: 5px;
+      padding-left: 5px;
     }
     svg {
-        margin-left: 10px;
+      margin-left: 10px;
     }
     [data-icon="simple-icons:x"] {
-        color: #10131a;
+      color: #10131a;
     }
     [data-icon="simple-icons:bluesky"] {
-        color: #1185fe;
+      color: #1185fe;
     }
     [data-icon="simple-icons:misskey"] {
-        color: #96d04a;
+    	color: #96d04a;
     }
     [data-icon="simple-icons:mastodon"] {
-        color: #5d52e9;
+      color: #5d52e9;
     }
 </style>
