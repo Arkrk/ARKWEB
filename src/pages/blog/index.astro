@@ -65,12 +65,12 @@ const [posts, rankedPosts, tags, numberOfPages] = await Promise.all([
   .date-area {
     display: flex;
     align-items: center;
-    margin: 0.3rem 0;
+    margin-top: 0.8rem;
   }
   .tags-area {
     display: flex;
     align-items: center;
-    margin: 0 0 0.3rem;
+    margin-top: 0.2rem;
   }
   .{styles.main} svg {
     width: 18px;
@@ -100,10 +100,13 @@ const [posts, rankedPosts, tags, numberOfPages] = await Promise.all([
     border-radius: 8px;
     overflow: hidden;
   }
+  .grid-parts:hover {
+    background: #f7f6f3;
+  }
   .grid-image {
     overflow: hidden;
   }
   .grid-text {
-    padding: 6px 13px 13px;
+    padding: 6px 13px 17px;
   }
 </style>

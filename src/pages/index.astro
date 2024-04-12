@@ -92,12 +92,12 @@ const [posts, rankedPosts] = await Promise.all([
   .date-area {
     display: flex;
     align-items: center;
-    margin: 0.3rem 0;
+    margin-top: 0.8rem;
   }
   .tags-area {
     display: flex;
     align-items: center;
-    margin: 0 0 0.3rem;
+    margin-top: 0.2rem;
   }
   .card-wrapper {
     display: grid;
@@ -122,16 +122,19 @@ const [posts, rankedPosts] = await Promise.all([
     border-radius: 8px;
     overflow: hidden;
   }
+  .grid-parts:hover {
+    background: #f7f6f3;
+  }
   .grid-parts svg {
     width: 18px;
     height: 18px;
-    margin-right: 5px; 
+    margin-right: 5px;
   }
   .grid-image {
     overflow: hidden;
   }
   .grid-text {
-    padding: 6px 13px 13px;
+    padding: 6px 13px 17px;
   }
   .latest {
     display: flex;

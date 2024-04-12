@@ -38,7 +38,9 @@ if (post.FeaturedImage && post.FeaturedImage.Url) {
     object-fit: cover;
     transition: 0.3s all;
   }
-  .post-featured-image img:hover {
-    transform: scale(1.03,1.03);
+</style>
+<style is:global>
+  .grid-parts:hover .post-featured-image img {
+    transform: scale(1.05,1.05);
   }
 </style>
