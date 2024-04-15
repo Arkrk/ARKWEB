@@ -52,6 +52,7 @@ const currentTag = posts[0].Tags.find((t) => t.name === tag)
   path={`/blog/tag/${tag}/page/${page}`}
 >
   <div slot="main" class={styles.main}>
+    <h2 class="blog-label">ブログ</h2>
     <header>
       <div class="tag-container">
         <Icon name="mingcute:filter-fill" />
@@ -98,6 +99,18 @@ const currentTag = posts[0].Tags.find((t) => t.name === tag)
 </Layout>
 
 <style>
+  .blog-label {
+    margin: 0 0 0.3rem;
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--fg);
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .blog-label {
+      font-size: 1.875rem;
+    }
+  }
   header {
     padding: 0;
   }

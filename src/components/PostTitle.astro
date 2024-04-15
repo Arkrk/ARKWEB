@@ -31,7 +31,7 @@ let title = post.Title
         )}
       </a>
     ) : (
-      <>
+      <div>
         {post.Icon && post.Icon.Type === 'emoji' ? (
           <>
             <span>{post.Icon.Emoji}</span>
@@ -45,7 +45,7 @@ let title = post.Title
         ) : (
           title
         )}
-      </>
+      </div>
     )
   }
 </h2>
@@ -56,6 +56,9 @@ let title = post.Title
     font-size: 2.25rem;
     font-weight: 700;
     color: var(--fg);
+  }
+  .post-title div {
+    line-height: 1.3;
   }
   .post-title a {
     font-size: 1.5rem;
