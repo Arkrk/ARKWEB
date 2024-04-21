@@ -1,0 +1,49 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Search from "astro-pagefind/components/Search";
+---
+<Layout title="検索" path="/search">
+  <div slot="main">
+    <h2 class="blog-label">検索</h2>
+    <Search
+      id="search"
+      className="pagefind-ui"
+      uiOptions={{
+        translations: {
+        placeholder: '何をお探しですか？',
+        clear_search: '✕',
+        search_label: 'このサイトを検索',
+        filters_label: 'フィルタ',
+        zero_results: '"[SEARCH_TERM]" の検索結果（0件）',
+        many_results: '"[SEARCH_TERM]" の検索結果（[COUNT]件）',
+        one_result: '"[SEARCH_TERM]" の検索結果（[COUNT]件）',
+        alt_search: '"[SEARCH_TERM]" に一致する検索結果はありません。[DIFFERENT_TERM] の結果を表示しています。',
+        search_suggestion: '"[SEARCH_TERM]" に一致する検索結果はありません。次のいずれかの検索をお試しください。',
+        searching: '"[SEARCH_TERM]" を検索しています…',
+        load_more: 'さらに表示',
+        },
+      }}
+    />
+  </div>
+</Layout>
+
+<style>
+  h2 {
+    font-size: 2.25rem;
+    margin: 0 0 10px 0;  
+  }
+</style>
+
+<style is:global>
+  .pagefind-ui {
+    --pagefind-ui-text: var(--fg);
+    --pagefind-ui-background: var(--bg);
+    --pagefind-ui-border: #dfdfde;
+    --pagefind-ui-border-width: 1px;
+    --pagefind-ui-border-radius: 8px;
+    --pagefind-ui-font: var(--fg);
+  }
+  .darkmode .pagefind-ui {
+    --pagefind-ui-border: #373737;
+  }
+</style>

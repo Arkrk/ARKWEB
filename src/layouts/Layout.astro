@@ -5,7 +5,6 @@ import { getNavLink, getStaticFilePath, filePath } from '../lib/blog-helpers.ts'
 import '../styles/syntax-coloring.css'
 import GoogleAnalytics from '../components/GoogleAnalytics.astro'
 import Darkmode from '../components/Darkmode.astro'
-import SearchModal from '../components/SearchModal.astro'
 import SearchButton from '../components/SearchButton.astro'
 import BlogButton from '../components/BlogButton.astro'
 import RssButton from '../components/RssButton.astro'
@@ -62,6 +61,7 @@ if (database.Icon && database.Icon.Type === 'file') {
     <title>{siteTitle}</title>
     <meta name="description" content={siteDescription} />
     <link rel="canonical" href={siteURL} />
+    <link rel="sitemap" href="/sitemap.xml" />
     <meta property="og:url" content={siteURL} />
     <meta property="og:title" content={siteTitle} />
     <meta property="og:description" content={siteDescription} />
@@ -104,8 +104,8 @@ if (database.Icon && database.Icon.Type === 'file') {
         </h1>
         <div class="header_button_wrapper">
           <BlogButton />
-          <RssButton />
           <SearchButton />
+          <RssButton />
           <Darkmode />
         </div>
       </header>
@@ -130,12 +130,6 @@ if (database.Icon && database.Icon.Type === 'file') {
       </footer>
     </div>
 
-    <SearchModal />
-    {
-      ENABLE_LIGHTBOX && (
-        <script src={getStaticFilePath('/scripts/fslightbox.js')} />
-      )
-    }
   </body>
 </html>
 

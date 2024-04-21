@@ -2,42 +2,28 @@
 import { Icon } from 'astro-icon/components'
 ---
 
-<button class="search-button open-search-modal" type="button" aria-label="検索"><Icon name="mingcute:search-line" /></button>
+<a class="search-button" href="/search" aria-label="検索">
+	<Icon name="mingcute:search-line" />
+</a>
 
 <style>
-  .search-button {
+	.search-button {
     display: flex;
-    height: 35px;
     width: 35px;
-    background: transparent;
-    border: none;
+    height: 35px;
     justify-content: center;
     align-items: center;
     border-radius: 8px;
-    padding: 0;
   }
   .search-button:hover {
-    cursor: pointer;
+  	cursor: pointer;
     background: #f7f6f3;
   }
-  .search-button svg {
-    width: 26px;
+  svg {
+  	width: 26px;
     height: 26px;
   }
-  [data-icon="mingcute:search-line"] {
+	[data-icon="mingcute:search-line"] {
     color: var(--fg);
   }
 </style>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    function handleKeydown(event) {
-      if (event.keyCode === 75 && event.metaKey) {
-        // Ctrl+K or Cmd+K
-        document.querySelector('.open-search-modal').click()
-      }
-    }
-
-    document.addEventListener('keydown', handleKeydown)
-  })
-</script>

@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config';
+import pagefind from "astro-pagefind";
 import { CUSTOM_DOMAIN, BASE_PATH } from './src/server-constants';
 import CoverImageDownloader from './src/integrations/cover-image-downloader';
 import CustomIconDownloader from './src/integrations/custom-icon-downloader';
@@ -34,6 +35,9 @@ const getSite = function () {
 
 // https://astro.build/config
 export default defineConfig({
+  build: {
+    format: "file",
+  },
   site: getSite(),
   base: BASE_PATH,
   integrations: [
@@ -42,5 +46,6 @@ export default defineConfig({
     FeaturedImageDownloader(),
     PublicNotionCopier(),
     icon(),
+    pagefind(),
   ],
 });

@@ -46,7 +46,7 @@
       "astro-notion-blog": [
         {
           "file": ".astro/icon.d.ts",
-          "hash": "8728906254113098058"
+          "hash": "3573024771202830389"
         },
         {
           "file": ".eslintrc.json",
@@ -101,6 +101,10 @@
           "hash": "1679638439007128934"
         },
         {
+          "file": ".vscode/settings.json",
+          "hash": "13603056770034069977"
+        },
+        {
           "file": "LICENSE",
           "hash": "3968061630708903782"
         },
@@ -118,7 +122,7 @@
         },
         {
           "file": "package-lock.json",
-          "hash": "2476437849740735580"
+          "hash": "15849718500222148289"
         },
         {
           "file": "package.json",
@@ -195,6 +199,10 @@
           "hash": "3244421341483603138"
         },
         {
+          "file": "public/robots.txt",
+          "hash": "1028126208154915651"
+        },
+        {
           "file": "public/scripts/fslightbox.js",
           "hash": "8248718550495183067"
         },
@@ -208,7 +216,7 @@
         },
         {
           "file": "src/components/BlogButton.astro",
-          "hash": "14430596090372128160"
+          "hash": "8689871921033949922"
         },
         {
           "file": "src/components/BlogPostsLink.astro",
@@ -216,15 +224,15 @@
         },
         {
           "file": "src/components/BlogTagsLink.astro",
-          "hash": "13274027516932645660"
+          "hash": "63989290639702130"
         },
         {
           "file": "src/components/Darkmode.astro",
-          "hash": "5138195204977253108"
+          "hash": "16972656930799711357"
         },
         {
           "file": "src/components/DiaryLinks.astro",
-          "hash": "3567684963267535552"
+          "hash": "1057668130572142155"
         },
         {
           "file": "src/components/GoogleAnalytics.astro",
@@ -240,7 +248,11 @@
         },
         {
           "file": "src/components/OtherLinks.astro",
-          "hash": "9885154127725012325"
+          "hash": "16607055431549058001"
+        },
+        {
+          "file": "src/components/PageFindSearch.astro",
+          "hash": "3244421341483603138"
         },
         {
           "file": "src/components/Pagination.astro",
@@ -248,11 +260,11 @@
         },
         {
           "file": "src/components/PostBody.astro",
-          "hash": "11346605578866995694"
+          "hash": "13006265638715402465"
         },
         {
           "file": "src/components/PostDate.astro",
-          "hash": "11690592873987409630"
+          "hash": "4201651352676494917"
         },
         {
           "file": "src/components/PostExcerpt.astro",
@@ -260,11 +272,11 @@
         },
         {
           "file": "src/components/PostFeaturedImage.astro",
-          "hash": "7077797902820328633"
+          "hash": "8465927224854635298"
         },
         {
           "file": "src/components/PostRelativeLink.astro",
-          "hash": "9839037161171188867"
+          "hash": "7895563336072111587"
         },
         {
           "file": "src/components/PostTags.astro",
@@ -272,27 +284,35 @@
         },
         {
           "file": "src/components/PostTitle.astro",
-          "hash": "6273099258160474195"
+          "hash": "6871612530337879521"
+        },
+        {
+          "file": "src/components/PostUpdateDate.astro",
+          "hash": "3814873826913747945"
         },
         {
           "file": "src/components/ReadMoreLink.astro",
           "hash": "250389226168165572"
         },
         {
+          "file": "src/components/RssButton.astro",
+          "hash": "4112930262189299847"
+        },
+        {
           "file": "src/components/SearchButton.astro",
-          "hash": "14079914363092944477"
+          "hash": "6155078720765748553"
         },
         {
           "file": "src/components/SearchModal.astro",
-          "hash": "7149362351687918912"
+          "hash": "7767047097885146232"
         },
         {
           "file": "src/components/SocialLinks.astro",
-          "hash": "4759448135165867435"
+          "hash": "3630578466707790384"
         },
         {
           "file": "src/components/notion-blocks/Bookmark.astro",
-          "hash": "5326314135531615552"
+          "hash": "15554778711266420471"
         },
         {
           "file": "src/components/notion-blocks/BulletedListItems.astro",
@@ -300,15 +320,15 @@
         },
         {
           "file": "src/components/notion-blocks/Callout.astro",
-          "hash": "10824828307695703049"
+          "hash": "1623737199381965931"
         },
         {
           "file": "src/components/notion-blocks/Caption.astro",
-          "hash": "14170718128706895925"
+          "hash": "12239980236777687233"
         },
         {
           "file": "src/components/notion-blocks/Code.astro",
-          "hash": "14028475527101800827"
+          "hash": "3019930344575552164"
         },
         {
           "file": "src/components/notion-blocks/CodePenEmbed.astro",
@@ -332,23 +352,23 @@
         },
         {
           "file": "src/components/notion-blocks/File.astro",
-          "hash": "4208672955169163165"
+          "hash": "5462317415218262232"
         },
         {
           "file": "src/components/notion-blocks/Heading1.astro",
-          "hash": "659362651805704524"
+          "hash": "6290630189912180079"
         },
         {
           "file": "src/components/notion-blocks/Heading2.astro",
-          "hash": "10995104852966262735"
+          "hash": "3922087716838035057"
         },
         {
           "file": "src/components/notion-blocks/Heading3.astro",
-          "hash": "4570008190714780687"
+          "hash": "12383877410995366268"
         },
         {
           "file": "src/components/notion-blocks/Image.astro",
-          "hash": "8095570582096054225"
+          "hash": "6657113030187133695"
         },
         {
           "file": "src/components/notion-blocks/InstagramEmbed.astro",
@@ -360,7 +380,7 @@
         },
         {
           "file": "src/components/notion-blocks/Mention.astro",
-          "hash": "12957223868615023149"
+          "hash": "10254652962276571156"
         },
         {
           "file": "src/components/notion-blocks/NumberedListItems.astro",
@@ -392,11 +412,11 @@
         },
         {
           "file": "src/components/notion-blocks/TableOfContents.astro",
-          "hash": "1178495192358259088"
+          "hash": "1344959190491803468"
         },
         {
           "file": "src/components/notion-blocks/TikTokEmbed.astro",
-          "hash": "13178063942435703982"
+          "hash": "15650702417278761883"
         },
         {
           "file": "src/components/notion-blocks/ToDo.astro",
@@ -408,7 +428,7 @@
         },
         {
           "file": "src/components/notion-blocks/TweetEmbed.astro",
-          "hash": "8757668871254991868"
+          "hash": "5234819757295155639"
         },
         {
           "file": "src/components/notion-blocks/Video.astro",
@@ -416,7 +436,7 @@
         },
         {
           "file": "src/components/notion-blocks/annotations/Anchor.astro",
-          "hash": "6460738716723908997"
+          "hash": "2571010810866551229"
         },
         {
           "file": "src/components/notion-blocks/annotations/Bold.astro",
@@ -424,7 +444,7 @@
         },
         {
           "file": "src/components/notion-blocks/annotations/Code.astro",
-          "hash": "325576179428652895"
+          "hash": "664479691584151005"
         },
         {
           "file": "src/components/notion-blocks/annotations/Color.astro",
@@ -453,6 +473,14 @@
         {
           "file": "src/images/arkicon.png",
           "hash": "6994411708632079142"
+        },
+        {
+          "file": "src/images/arksblog.svg",
+          "hash": "10398973762542445956"
+        },
+        {
+          "file": "src/images/blogicon.svg",
+          "hash": "17217046420335678058"
         },
         {
           "file": "src/images/clubdam.png",
@@ -488,19 +516,23 @@
         },
         {
           "file": "src/layouts/Layout.astro",
-          "hash": "8277127494855172692"
+          "hash": "5624894987013305297"
         },
         {
           "file": "src/lib/blog-helpers.ts",
           "hash": "14664591377722625520"
         },
         {
+          "file": "src/lib/generate-sitemap.ts",
+          "hash": "2294373437467734788"
+        },
+        {
           "file": "src/lib/interfaces.ts",
-          "hash": "17656121439259808290"
+          "hash": "7338265353019912302"
         },
         {
           "file": "src/lib/notion/client.ts",
-          "hash": "9938611180834550987"
+          "hash": "3391926692082868889"
         },
         {
           "file": "src/lib/notion/request-params.ts",
@@ -524,31 +556,39 @@
         },
         {
           "file": "src/pages/blog/[slug].astro",
-          "hash": "12277507823160365852"
+          "hash": "16943628374686443688"
         },
         {
           "file": "src/pages/blog/index.astro",
-          "hash": "6236459139627979724"
+          "hash": "11402967595269579341"
         },
         {
           "file": "src/pages/blog/page/[page].astro",
-          "hash": "12289527878832075478"
+          "hash": "2653798502342503723"
         },
         {
           "file": "src/pages/blog/tag/[tag].astro",
-          "hash": "8405153001654572717"
+          "hash": "1516810180389448648"
         },
         {
           "file": "src/pages/blog/tag/[tag]/page/[page].astro",
-          "hash": "13306862150553547199"
-        },
-        {
-          "file": "src/pages/feed.ts",
-          "hash": "16753015388167876453"
+          "hash": "15592333691088101500"
         },
         {
           "file": "src/pages/index.astro",
-          "hash": "9652090766183564016"
+          "hash": "1131941298450814637"
+        },
+        {
+          "file": "src/pages/rss.xml.ts",
+          "hash": "988272312855529694"
+        },
+        {
+          "file": "src/pages/search.astro",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "src/pages/sitemap.xml.ts",
+          "hash": "6836441687121161649"
         },
         {
           "file": "src/server-constants.ts",
@@ -564,7 +604,7 @@
         },
         {
           "file": "src/styles/syntax-coloring.css",
-          "hash": "11689587646731024629"
+          "hash": "6907503631464121364"
         },
         {
           "file": "tsconfig.json",
