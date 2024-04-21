@@ -8,8 +8,8 @@ import { Icon } from 'astro-icon/components'
 </div>
 
 <button id="modes" type="button" aria-label="テーマ切替">
-  <Icon name="mingcute:sun-fill" />
-  <Icon name="mingcute:moon-fill" />
+  <Icon name="mingcute:sun-line" />
+  <Icon name="mingcute:moon-line" />
 </button>
 
 <style is:global>
@@ -435,6 +435,35 @@ notion-color.css
 .darkmode .red:hover {
   color: #df5452 !important;
 }
+
+.darkmode .gray-background {
+  background: #252525 !important;
+}
+.darkmode .brown-background {
+  background: #2f2723 !important;
+}
+.darkmode .orange-background {
+  background: #38281e !important;
+}
+.darkmode .yellow-background {
+  background: #392e1e !important;
+}
+.darkmode .green-background {
+  background: #222b26 !important;
+}
+.darkmode .blue-background {
+  background: #1d282e !important;
+}
+.darkmode .purple-background {
+  background: #2b2431 !important;
+}
+.darkmode .pink-background {
+  background: #302228 !important;
+}
+.darkmode .red-background {
+  background: #362422 !important;
+}
+
 .darkmode .tag.default {
   background: #373737 !important;
   color: #f7f7f7 !important;
@@ -475,32 +504,46 @@ notion-color.css
   background: #6f3630 !important;
   color: #f7f7f7 !important;
 }
-.darkmode .gray-background {
-  background: #252525 !important;
+
+.darkmode .tag.default:hover {
+  background: #464646 !important;
+  color: #f7f7f7 !important;
 }
-.darkmode .brown-background {
-  background: #2f2723 !important;
+.darkmode .tag.gray:hover {
+  background: #6b6b6b !important;
+  color: #f7f7f7 !important;
 }
-.darkmode .orange-background {
-  background: #38281e !important;
+.darkmode .tag.brown:hover {
+  background: #724837 !important;
+  color: #f7f7f7 !important;
 }
-.darkmode .yellow-background {
-  background: #392e1e !important;
+.darkmode .tag.orange:hover {
+  background: #985825 !important;
+  color: #f7f7f7 !important;
 }
-.darkmode .green-background {
-  background: #222b26 !important;
+.darkmode .tag.yellow.hover {
+  background: rgb(181, 134, 64) !important;
+  color: #f7f7f7 !important;
 }
-.darkmode .blue-background {
-  background: #1d282e !important;
+.darkmode .tag.green:hover {
+  background: #376b4e !important;
+  color: #f7f7f7 !important;
 }
-.darkmode .purple-background {
-  background: #2b2431 !important;
+.darkmode .tag.blue:hover {
+  background: #30517b !important;
+  color: #f7f7f7 !important;
 }
-.darkmode .pink-background {
-  background: #302228 !important;
+.darkmode .tag.purple:hover {
+  background: #5a3d79 !important;
+  color: #f7f7f7 !important;
 }
-.darkmode .red-background {
-  background: #362422 !important;
+.darkmode .tag.pink:hover{
+  background: #733c56 !important;
+  color: #f7f7f7 !important;
+}
+.darkmode .tag.red:hover {
+  background: #84433c !important;
+  color: #f7f7f7 !important;
 }
 
 /* --------------------
@@ -626,37 +669,37 @@ syntax-coloring.css
   justify-content: center;
   align-items: center;
   height: 35px;
+  width: 35px;
+  padding: 0;
   border: none;
-  background: #f7f6f3;
-  border-radius: 50vh;
+  background: transparent;
+  border-radius: 8px;
   cursor: pointer;
   -webkit-tap-highlight-color:rgba(0,0,0,0);
 }
 #modes:hover {
-  background: #ebebeb;
-}
-.darkmode #modes{
-  background: var(--bg2);
+  background: #f7f6f3;
 }
 .darkmode #modes:hover {
-  background: #323232;
+  background: var(--bg2);
 }
 #modes svg{
   width: 26px;
   height: 26px;
-  transition: color 0.3s ease-in-out;
 }
-[data-icon="mingcute:sun-fill"] {
-  color: #ff4500;
+[data-icon="mingcute:sun-line"] {
+  display: none;
 }
-[data-icon="mingcute:moon-fill"] {
+[data-icon="mingcute:moon-line"] {
+  display: block;
   color: #222;
 }
-.darkmode [data-icon="mingcute:sun-fill"] {
+.darkmode [data-icon="mingcute:sun-line"] {
+  display: block;
   color: var(--fg);
 }
-.darkmode [data-icon="mingcute:moon-fill"] {
-  color: #ffff00;
+.darkmode [data-icon="mingcute:moon-line"] {
+  display: none;
 }
 </style>
 
