@@ -103,42 +103,32 @@
   background: rgb(255, 226, 221) !important;
 }
 .tag.light-gray:hover {
-  color: rgb(28, 56, 41);
   background: rgba(211, 208, 202, 0.5) !important;
 }
 .tag.gray:hover {
-  color: rgb(28, 56, 41);
   background: rgb(217, 215, 210) !important;
 }
 .tag.brown:hover {
-  color: rgb(28, 56, 41);
   background: rgb(229, 212, 205) !important;
 }
 .tag.orange:hover {
-  color: rgb(28, 56, 41);
   background: rgb(239, 210, 188) !important;
 }
 .tag.yellow:hover {
-  color: rgb(28, 56, 41);
   background: rgb(239, 222, 183) !important;
 }
 .tag.green:hover {
-  color: rgb(28, 56, 41);
   background: rgb(204, 226, 204) !important;
 }
 .tag.blue:hover {
-  color: rgb(28, 56, 41);
   background: rgb(198, 218, 229) !important;
 }
 .tag.purple:hover {
-  color: rgb(28, 56, 41);
   background: rgb(218, 205, 225) !important;
 }
 .tag.pink:hover {
-  color: rgb(28, 56, 41);
   background: rgb(235, 210, 221) !important;
 }
 .tag.red:hover {
-  color: rgb(28, 56, 41);
   background: rgb(235, 204, 199) !important;
 }
