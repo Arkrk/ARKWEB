@@ -35,9 +35,6 @@ const getSite = function () {
 
 // https://astro.build/config
 export default defineConfig({
-  build: {
-    format: "file",
-  },
   site: getSite(),
   base: BASE_PATH,
   integrations: [
