@@ -27,13 +27,13 @@ import { Icon } from 'astro-icon/components'
     color: var(--fg);
   }
   .search-button.current [data-icon="mingcute:search-line"] {
-    color: #a58452;
+    color: var(--accents-4);
   }
 </style>
 
 <script>
   document.querySelectorAll('.search-button').forEach(link => {
-    if(link.href === window.location.href){
+    if(location.pathname.includes('/search')){
       link.classList.add('current')
     }
   })
