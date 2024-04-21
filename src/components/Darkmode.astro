@@ -293,7 +293,7 @@ BlogButton.astro
 .darkmode .blog-button [data-icon="mingcute:document-2-line"] {
   color: var(--fg) !important;
 }
-.darkmode .blog-button.current  {
+.darkmode .blog-button.current [data-icon="mingcute:document-2-line"] {
   color: var(--accents-4) !important;
 }
 .darkmode .blog-button:hover {
@@ -310,6 +310,19 @@ SearchButton.astro
   color: var(--accents-4) !important;
 }
 .search-button:hover {
+  background: var(--bg2) !important;
+}
+
+/* --------------------
+AboutButton.astro
+-------------------- */
+.darkmode .about-button [data-icon="mingcute:information-line"] {
+  color: var(--fg) !important;
+}
+.darkmode .about-button.current [data-icon="mingcute:information-line"] {
+  color: var(--accents-4) !important;
+}
+.darkmode .about-button:hover {
   background: var(--bg2) !important;
 }
 
