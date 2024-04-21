@@ -275,22 +275,41 @@ BlogTagsLink.astro
 }
 
 /* --------------------
-SearchButton.astro
+HomeButton.astro
 -------------------- */
-.darkmode [data-icon="mingcute:search-line"] {
+.darkmode .home-button [data-icon="mingcute:home-4-line"] {
   color: var(--fg) !important;
 }
-.search-button:hover {
+.darkmode .home-button.current [data-icon="mingcute:home-4-line"] {
+  color: var(--accents-4) !important;
+}
+.home-button:hover {
   background: var(--bg2) !important;
 }
 
 /* --------------------
 BlogButton.astro
 -------------------- */
-.darkmode [data-icon="mingcute:document-2-line"] {
+.darkmode .blog-button [data-icon="mingcute:document-2-line"] {
   color: var(--fg) !important;
 }
+.darkmode .blog-button.current [data-icon="mingcute:document-2-line"] {
+  color: var(--accents-4) !important;
+}
 .darkmode .blog-button:hover {
+  background: var(--bg2) !important;
+}
+
+/* --------------------
+SearchButton.astro
+-------------------- */
+.darkmode .search-button [data-icon="mingcute:search-line"] {
+  color: var(--fg) !important;
+}
+.darkmode .search-button.current [data-icon="mingcute:search-line"] {
+  color: var(--accents-4) !important;
+}
+.search-button:hover {
   background: var(--bg2) !important;
 }
 

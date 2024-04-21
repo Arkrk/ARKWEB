@@ -7,7 +7,7 @@ import GoogleAnalytics from '../components/GoogleAnalytics.astro'
 import Darkmode from '../components/Darkmode.astro'
 import SearchButton from '../components/SearchButton.astro'
 import BlogButton from '../components/BlogButton.astro'
-import RssButton from '../components/RssButton.astro'
+import HomeButton from '../components/HomeButton.astro'
 
 export interface Props {
   title: string
@@ -103,9 +103,9 @@ if (database.Icon && database.Icon.Type === 'file') {
           </a>
         </h1>
         <div class="header_button_wrapper">
+          <HomeButton />
           <BlogButton />
           <SearchButton />
-          <RssButton />
           <Darkmode />
         </div>
       </header>

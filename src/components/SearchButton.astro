@@ -23,7 +23,18 @@ import { Icon } from 'astro-icon/components'
   	width: 26px;
     height: 26px;
   }
-	[data-icon="mingcute:search-line"] {
+	.search-button [data-icon="mingcute:search-line"] {
     color: var(--fg);
   }
+  .search-button.current [data-icon="mingcute:search-line"] {
+    color: #a58452;
+  }
 </style>
+
+<script>
+  document.querySelectorAll('.search-button').forEach(link => {
+    if(link.href === window.location.href){
+      link.classList.add('current')
+    }
+  })
+</script>

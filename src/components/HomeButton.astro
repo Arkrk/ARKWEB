@@ -2,12 +2,12 @@
 import { Icon } from 'astro-icon/components'
 ---
 
-<a class="blog-button" href="/blog" aria-label="ブログ">
-	<Icon name="mingcute:quill-pen-line" />
+<a class="home-button" href="/" aria-label="ホーム">
+	<Icon name="mingcute:home-4-line" />
 </a>
 
 <style>
-	.blog-button {
+	.home-button {
     display: flex;
     width: 35px;
     height: 35px;
@@ -15,7 +15,7 @@ import { Icon } from 'astro-icon/components'
     align-items: center;
     border-radius: 8px;
   }
-  .blog-button:hover {
+  .home-button:hover {
   	cursor: pointer;
     background: #f7f6f3;
   }
@@ -23,17 +23,17 @@ import { Icon } from 'astro-icon/components'
   	width: 26px;
     height: 26px;
   }
-	.blog-button [data-icon="mingcute:quill-pen-line"] {
+	.home-button [data-icon="mingcute:home-4-line"] {
     color: var(--fg);
   }
-  .blog-button.current [data-icon="mingcute:quill-pen-line"] {
+  .home-button.current [data-icon="mingcute:home-4-line"] {
     color: var(--accents-4);
   }
 </style>
 
 <script>
-  document.querySelectorAll('.blog-button').forEach(link => {
-    if(location.pathname.includes('/blog')){
+  document.querySelectorAll('.home-button').forEach(link => {
+    if(link.href === window.location.href){
       link.classList.add('current')
     }
   })
