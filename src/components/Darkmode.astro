@@ -275,54 +275,9 @@ BlogTagsLink.astro
 }
 
 /* --------------------
-HomeButton.astro
+Navigation.astro
 -------------------- */
-.darkmode .home-button [data-icon="mingcute:home-4-line"] {
-  color: var(--fg) !important;
-}
-.darkmode .home-button.current [data-icon="mingcute:home-4-line"] {
-  color: var(--accents-4) !important;
-}
-.home-button:hover {
-  background: var(--bg2) !important;
-}
-
-/* --------------------
-BlogButton.astro
--------------------- */
-.darkmode .blog-button [data-icon="mingcute:document-2-line"] {
-  color: var(--fg) !important;
-}
-.darkmode .blog-button.current [data-icon="mingcute:document-2-line"] {
-  color: var(--accents-4) !important;
-}
-.darkmode .blog-button:hover {
-  background: var(--bg2) !important;
-}
-
-/* --------------------
-SearchButton.astro
--------------------- */
-.darkmode .search-button [data-icon="mingcute:search-line"] {
-  color: var(--fg) !important;
-}
-.darkmode .search-button.current [data-icon="mingcute:search-line"] {
-  color: var(--accents-4) !important;
-}
-.search-button:hover {
-  background: var(--bg2) !important;
-}
-
-/* --------------------
-AboutButton.astro
--------------------- */
-.darkmode .about-button [data-icon="mingcute:information-line"] {
-  color: var(--fg) !important;
-}
-.darkmode .about-button.current [data-icon="mingcute:information-line"] {
-  color: var(--accents-4) !important;
-}
-.darkmode .about-button:hover {
+.darkmode nav > a:hover {
   background: var(--bg2) !important;
 }
 
@@ -668,9 +623,6 @@ syntax-coloring.css
 }
 
 #modes {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 35px;
   width: 35px;
   padding: 0;
@@ -689,6 +641,7 @@ syntax-coloring.css
 #modes svg{
   width: 26px;
   height: 26px;
+  margin: 4.5px;
 }
 [data-icon="mingcute:sun-line"] {
   display: none;

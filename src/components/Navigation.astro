@@ -1,0 +1,68 @@
+---
+import { Icon } from 'astro-icon/components'
+---
+
+<nav>
+  <a class="home-icon" href="/" aria-label="ホーム">
+	  <Icon name="mingcute:home-4-line" />
+  </a>
+  <a class="blog-icon" href="/blog" aria-label="ブログ">
+	  <Icon name="mingcute:edit-line" />
+  </a>
+  <a class="search-icon" href="/search" aria-label="検索">
+	  <Icon name="mingcute:search-line" />
+  </a>
+  <a class="about-icon" href="/about" aria-label="About">
+	  <Icon name="mingcute:information-line" />
+  </a>
+</nav>
+
+<style>
+  nav {
+    display: flex;
+    justify-content: flex-end;
+    height: 35px;
+    gap: 4px;
+  }
+  a {
+    width: 35px;
+    height: 35px;
+    border-radius: 8px;
+  }
+  a:hover {
+  	cursor: pointer;
+    background: #f7f6f3;
+  }
+  a svg {
+  	width: 26px;
+    height: 26px;
+    margin: 4.5px;
+    color: var(--fg);
+  }
+  a.current svg {
+    color: var(--accents-4);
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.home-icon').forEach(link => {
+    if(link.href === window.location.href){
+      link.classList.add('current')
+    }
+  })
+  document.querySelectorAll('.blog-icon').forEach(link => {
+    if(location.pathname.includes('/blog')){
+      link.classList.add('current')
+    }
+  })
+  document.querySelectorAll('.search-icon').forEach(link => {
+    if(link.href === window.location.href){
+      link.classList.add('current')
+    }
+  })
+  document.querySelectorAll('.about-icon').forEach(link => {
+    if(link.href === window.location.href){
+      link.classList.add('current')
+    }
+  })
+</script>
