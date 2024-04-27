@@ -56,12 +56,12 @@ import { Icon } from 'astro-icon/components'
     }
   })
   document.querySelectorAll('.search-icon').forEach(link => {
-    if(link.href === window.location.href){
+    if(location.pathname.includes('/search')){
       link.classList.add('current')
     }
   })
   document.querySelectorAll('.about-icon').forEach(link => {
-    if(link.href === window.location.href){
+    if(location.pathname.includes('/about')){
       link.classList.add('current')
     }
   })
