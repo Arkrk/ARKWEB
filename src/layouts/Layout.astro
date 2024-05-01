@@ -134,15 +134,15 @@ if (database.Icon && database.Icon.Type === 'file') {
   }
 
   header {
+    display: flex;
     position: sticky;
     top: 0;
     left: 0;
     width: 100%;
-    display: flex;
     align-items: center;
     background-color: var(--bg);
     padding: 10px 10px;
-    z-index:98;
+    z-index: 98;
     transition:
       translateY 600ms,
       opacity 200ms;
@@ -155,11 +155,6 @@ if (database.Icon && database.Icon.Type === 'file') {
   header.hide {
     translatey: -100%;
     opacity: 0;
-  }
-
-  .wrapper {
-    display: flex;
-    max-width: 1280px;
   }
 
   main {
@@ -175,9 +170,6 @@ if (database.Icon && database.Icon.Type === 'file') {
   }
   
   @media screen and (max-width: 640px) {
-    .wrapper {
-      display: block;
-    }
     main {
       margin: 0;
     }
@@ -250,11 +242,6 @@ if (database.Icon && database.Icon.Type === 'file') {
   footer {
     padding: 20px 20px;
   }
-  @media (max-width: 640px) {
-    footer {
-      padding: 18px 18px;
-    }
-  }
   footer::before {
     content: "";
     display: block;
@@ -272,11 +259,17 @@ if (database.Icon && database.Icon.Type === 'file') {
     color: #787774;
   }
   @media (max-width: 640px) {
+    footer {
+      padding: 18px 18px;
+    }
+    footer::before {
+      width: 170px;
+    }
     .copyright {
       font-size: 0.95rem;
     }
     .system, .system a {
-    font-size: 0.75rem;
+      font-size: 0.75rem;
     }
   }
 </style>
@@ -470,7 +463,7 @@ if (database.Icon && database.Icon.Type === 'file') {
 </style>
 
 <script>
-    let lastScrollTop = 0;
+  let lastScrollTop = 0;
   function scrollHandler() {
     const header = document.querySelector('header')!;
     const body = document.querySelector('body')!;
