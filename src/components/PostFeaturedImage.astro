@@ -21,11 +21,9 @@ if (post.FeaturedImage && post.FeaturedImage.Url) {
 
 {
   image && (
-  <a href={getPostLink(post.Slug)}>
     <div class="post-featured-image">
       <img src={image} alt="Featured image of the post" />
     </div>
-  </a>
   )
 }
 

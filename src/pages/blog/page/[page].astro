@@ -13,7 +13,6 @@ import PostTags from '../../../components/PostTags.astro'
 import PostTitle from '../../../components/PostTitle.astro'
 import PostFeaturedImage from '../../../components/PostFeaturedImage.astro'
 import Pagination from '../../../components/Pagination.astro'
-import BlogPostsLink from '../../../components/BlogPostsLink.astro'
 import BlogTagsLink from '../../../components/BlogTagsLink.astro'
 import styles from '../../../styles/blog.module.css'
 import { Icon } from 'astro-icon/components'
@@ -137,6 +136,7 @@ const [posts, rankedPosts, tags, numberOfPages] = await Promise.all([
     }
   }
   .grid-parts {
+    position: relative;
     border:solid 1px #dfdfde;
     border-radius: 8px;
     overflow: hidden;
