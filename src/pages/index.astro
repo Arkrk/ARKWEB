@@ -12,6 +12,7 @@ import PostTitle from '../components/PostTitle.astro'
 import PostFeaturedImage from '../components/PostFeaturedImage.astro'
 import BlogPostsLink from '../components/BlogPostsLink.astro'
 import styles from '../styles/blog.module.css'
+import '../styles/post-grid.css'
 import { Icon } from 'astro-icon/components'
 import arkicon from '../images/arkicon.png'
 import SocialLinks from '../components/SocialLinks.astro'
@@ -89,54 +90,6 @@ const [posts, rankedPosts] = await Promise.all([
 </Layout>
 
 <style>
-  .date-area {
-    display: flex;
-    align-items: center;
-    margin-top: 0.8rem;
-  }
-  .tags-area {
-    display: flex;
-    align-items: center;
-    margin-top: 0.2rem;
-  }
-  .card-wrapper {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    column-gap: 15px;
-    row-gap: 15px;
-    line-height: 32px;
-  }
-  @media (max-width: 900px) {
-    .card-wrapper {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-  @media (max-width: 640px) {
-    .card-wrapper {
-      grid-template-columns: repeat(1, minmax(0, 1fr));
-      line-height: 28px;
-    }
-  }
-  .grid-parts {
-    position: relative;
-    border:solid 1px #dfdfde;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  .grid-parts:hover {
-    background: #f7f6f3;
-  }
-  .grid-parts svg {
-    width: 18px;
-    height: 18px;
-    margin-right: 5px;
-  }
-  .grid-image {
-    overflow: hidden;
-  }
-  .grid-text {
-    padding: 6px 13px 17px;
-  }
   .latest {
     display: flex;
     align-items: center;

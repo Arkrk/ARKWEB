@@ -15,6 +15,7 @@ import PostTitle from '../../../components/PostTitle.astro'
 import PostFeaturedImage from '../../../components/PostFeaturedImage.astro'
 import Pagination from '../../../components/Pagination.astro'
 import styles from '../../../styles/blog.module.css'
+import '../../../styles/post-grid.css'
 import '../../../styles/notion-color.css'
 import { Icon } from 'astro-icon/components'
 
@@ -52,21 +53,21 @@ const currentTag = posts[0].Tags.find((t) => t.name === tag)
       ) : (
         posts.map((post) => (
           <div class="grid-parts">
-          <div class={styles.post} key={post.Slug}>
-            <figure class="grid-image">
-              <PostFeaturedImage post={post} />
-            </figure>
-            <div class="grid-text">
-              <PostTitle post={post} />
-              <div class="date-area">
-                <PostDate post={post} />
-              </div>
-              <div class="tags-area">
-                <Icon name="mingcute:tag-2-fill" />
-                <PostTags post={post} />
+            <div class={styles.post} key={post.Slug}>
+              <figure class="grid-image">
+                <PostFeaturedImage post={post} />
+              </figure>
+              <div class="grid-text">
+                <PostTitle post={post} />
+                <div class="date-area">
+                  <PostDate post={post} />
+                </div>
+                <div class="tags-area">
+                  <Icon name="mingcute:tag-2-fill" />
+                  <PostTags post={post} />
+                </div>
               </div>
             </div>
-          </div>
           </div>
         ))
       )
@@ -112,55 +113,7 @@ const currentTag = posts[0].Tags.find((t) => t.name === tag)
     min-height: 26px;
     margin-right: 6px;
   }
-  .date-area {
-    display: flex;
-    align-items: center;
-    margin-top: 0.8rem;
-  }
-  .tags-area {
-    display: flex;
-    align-items: center;
-    margin-top: 0.2rem;
-  }
-  .{styles.main} svg {
-    width: 18px;
-    height: 18px;
-    margin-right: 5px; 
-  }
   [data-icon="mingcute:filter-fill"] {
     color: #333333;
-  }
-  .card-wrapper {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    column-gap: 15px;
-    row-gap: 15px;
-    line-height: 32px;
-  }
-  @media (max-width: 900px) {
-    .card-wrapper {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-  @media (max-width: 640px) {
-    .card-wrapper {
-      grid-template-columns: repeat(1, minmax(0, 1fr));
-      line-height: 28px;
-    }
-  }
-  .grid-parts {
-    position: relative;
-    border:solid 1px #dfdfde;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  .grid-parts:hover {
-    background: #f7f6f3;
-  }
-  .grid-image {
-    overflow: hidden;
-  }
-  .grid-text {
-    padding: 6px 13px 17px;
   }
 </style>
