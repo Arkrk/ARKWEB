@@ -1,7 +1,7 @@
 ---
 import { Post } from '../lib/interfaces.ts'
-import { getNavLink, getPostLink } from '../lib/blog-helpers.ts'
-import PostTags from './PostTags.astro'
+import { getPostLink } from '../lib/blog-helpers.ts'
+import { Icon } from 'astro-icon/components'
 
 export interface Props {
   prevPost: Post
@@ -15,10 +15,9 @@ const { prevPost, nextPost } = Astro.props
   <div>
     {
       nextPost && (
-        <a href={getPostLink(nextPost.Slug)} class="colored">
-          <div>次の記事</div>
-          <div>{nextPost.Title}</div>
-          <PostTags post={nextPost} enableLink={false} />
+        <a href={getPostLink(nextPost.Slug)} class="colored next">
+          <div class="arrow-icon"><Icon name="mingcute:arrow-left-line" /></div>
+          <div class="relative-title next">{nextPost.Title}</div>
         </a>
       )
     }
@@ -26,10 +25,9 @@ const { prevPost, nextPost } = Astro.props
   <div>
     {
       prevPost && (
-        <a href={getPostLink(prevPost.Slug)} class="colored">
-          <div>前の記事</div>
-          <div>{prevPost.Title}</div>
-          <PostTags post={prevPost} enableLink={false} />
+        <a href={getPostLink(prevPost.Slug)} class="colored prev">
+          <div class="relative-title prev">{prevPost.Title}</div>
+          <div class="arrow-icon"><Icon name="mingcute:arrow-right-line" /></div>
         </a>
       )
     }
@@ -38,11 +36,17 @@ const { prevPost, nextPost } = Astro.props
 
 <style>
   div.post-relative-link {
+    display: flex;
     margin-top: 1rem;
+    gap: 1rem;
   }
   div.post-relative-link > div {
     display: block;
+    max-width: 50%;
     margin-top: 0.6rem;
+  }
+  div.post-relative-link > div:last-child {
+    margin-left: auto;
   }
   div.post-relative-link > div > a {
     display: block;
@@ -51,24 +55,39 @@ const { prevPost, nextPost } = Astro.props
     font-size: 0.95rem;
   }
   div.post-relative-link > div > a.colored {
-    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    padding: 10px;
     border-radius: 8px;
     color: var(--fg);
-    background: #f7f6f3;
   }
   div.post-relative-link > div > a.colored:hover {
-    background: #ebebeb;
+    background: #f7f6f3;
   }
-  div.post-relative-link > div > a.colored > div:first-child {
-    width: auto;
-    text-align: left;
-    font-size: 0.85rem;
+  div.post-relative-link > div > a.colored > div.arrow-icon {
+    font-size: 24px;
   }
-  div.post-relative-link > div > a.colored > div:nth-child(2) {
+  div.post-relative-link > div > a.colored > div.relative-title {
     width: auto;
-    padding: 0.2rem 0 0.4rem;
-    text-align: left;
     font-size: 1rem;
     font-weight: bold;
+  }
+  div.post-relative-link > div > a.colored > div.relative-title.next {
+    text-align: left;
+  }
+  div.post-relative-link > div > a.colored > div.relative-title.prev {
+    text-align: right;
+  }
+  @media (max-width: 640px) {
+    div.post-relative-link {
+      display: block;
+    }
+    div.post-relative-link > div {
+      max-width: 100%;
+    }
+    div.post-relative-link > div > a.colored.prev {
+      justify-content: end;
+    }
   }
 </style>
