@@ -14,7 +14,6 @@ import PostTitle from '../../../components/PostTitle.astro'
 import PostFeaturedImage from '../../../components/PostFeaturedImage.astro'
 import Pagination from '../../../components/Pagination.astro'
 import BlogTagsLink from '../../../components/BlogTagsLink.astro'
-import styles from '../../../styles/blog.module.css'
 import '../../../styles/post-grid.css'
 import { Icon } from 'astro-icon/components'
 
@@ -39,7 +38,7 @@ const [posts, rankedPosts, tags, numberOfPages] = await Promise.all([
 ---
 
 <Layout title={`ブログ (${page}/${numberOfPages})`} path={`/blog/page/${page}`}>
-  <div slot="main" class={styles.main}>
+  <div slot="main">
     <h2 class="blog-label">ブログ</h2>
     <BlogTagsLink tags={tags} />
     <div class="card-wrapper">
@@ -49,7 +48,7 @@ const [posts, rankedPosts, tags, numberOfPages] = await Promise.all([
       ) : (
         posts.map((post) => (
           <div class="grid-parts">
-            <div class={styles.post} key={post.Slug}>
+            <div key={post.Slug}>
               <figure class="grid-image">
                 <PostFeaturedImage post={post} />
               </figure>

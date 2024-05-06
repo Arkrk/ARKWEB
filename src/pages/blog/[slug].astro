@@ -22,7 +22,6 @@ import PostTags from '../../components/PostTags.astro'
 import PostTitle from '../../components/PostTitle.astro'
 import PostBody from '../../components/PostBody.astro'
 import PostRelativeLink from '../../components/PostRelativeLink.astro'
-import styles from '../../styles/blog.module.css'
 import { Icon } from 'astro-icon/components'
 import PostUpdateDate from '../../components/PostUpdateDate.astro'
 
@@ -99,8 +98,8 @@ if (post.FeaturedImage && post.FeaturedImage.Url) {
   path={getPostLink(post.Slug)}
   ogImage={ogImage}
 >
-  <div slot="main" class={styles.main}>
-    <div class={styles.post}>
+  <div slot="main">
+    <div>
       <article data-pagefind-body>
         <PostTitle post={post} enableLink={false} />
         <div class="date-area">

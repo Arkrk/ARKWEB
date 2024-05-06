@@ -14,7 +14,6 @@ import PostTags from '../../../components/PostTags.astro'
 import PostTitle from '../../../components/PostTitle.astro'
 import PostFeaturedImage from '../../../components/PostFeaturedImage.astro'
 import Pagination from '../../../components/Pagination.astro'
-import styles from '../../../styles/blog.module.css'
 import '../../../styles/post-grid.css'
 import '../../../styles/notion-color.css'
 import { Icon } from 'astro-icon/components'
@@ -37,7 +36,7 @@ const currentTag = posts[0].Tags.find((t) => t.name === tag)
 ---
 
 <Layout title={`${tag} の記事一覧`} path={`/blog/tag/${tag}`}>
-  <div slot="main" class={styles.main}>
+  <div slot="main">
     <h2 class="blog-label">ブログ</h2>
     <header>
       <div class="tag-container">
@@ -53,7 +52,7 @@ const currentTag = posts[0].Tags.find((t) => t.name === tag)
       ) : (
         posts.map((post) => (
           <div class="grid-parts">
-            <div class={styles.post} key={post.Slug}>
+            <div key={post.Slug}>
               <figure class="grid-image">
                 <PostFeaturedImage post={post} />
               </figure>

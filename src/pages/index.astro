@@ -11,7 +11,6 @@ import PostTags from '../components/PostTags.astro'
 import PostTitle from '../components/PostTitle.astro'
 import PostFeaturedImage from '../components/PostFeaturedImage.astro'
 import BlogPostsLink from '../components/BlogPostsLink.astro'
-import styles from '../styles/blog.module.css'
 import '../styles/post-grid.css'
 import { Icon } from 'astro-icon/components'
 import arkicon from '../images/arkicon.png'
@@ -27,7 +26,7 @@ const [posts, rankedPosts] = await Promise.all([
 ---
 
 <Layout>
-  <div slot="main" class={styles.main}>
+  <div slot="main">
     <div class="myhead">
       <img src={arkicon.src} class="ark-icon" alt="Ark"/>
       <div class="label">
@@ -51,7 +50,7 @@ const [posts, rankedPosts] = await Promise.all([
       ) : (
         posts.map((post) => (
           <div class="grid-parts">
-            <div class={styles.post} key={post.Slug}>
+            <div key={post.Slug}>
               <figure class="grid-image">
                 <PostFeaturedImage post={post} />
               </figure>
