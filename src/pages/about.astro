@@ -4,8 +4,49 @@ import { getAllBlocksByBlockId } from '../lib/notion/client.ts'
 import Layout from '../layouts/Layout.astro'
 import NotionBlocks from '../components/NotionBlocks.astro'
 import AboutLinks from '../components/AboutLinks.astro'
+import {
+  getBlock,
+  getAllBlocksByBlockId,
+  downloadFile,
+} from '../lib/notion/client.ts'
+import { extractTargetBlocks } from '../lib/blog-helpers.ts'
 
 const blocks = await getAllBlocksByBlockId(INDEX_PAGE_ID)
+
+const fileAtacchedBlocks = extractTargetBlocks('image', blocks)
+  .concat(extractTargetBlocks('file', blocks))
+  .filter((block) => {
+    if (!block) {
+      return false
+    }
+    const imageOrFile = block.Image || block.File
+    return imageOrFile && imageOrFile.File && imageOrFile.File.Url
+  })
+
+// Download files
+await Promise.all(
+  fileAtacchedBlocks
+    .map(async (block) => {
+      const expiryTime = (block.Image || block.File).File.ExpiryTime
+      if (Date.parse(expiryTime) > Date.now()) {
+        return Promise.resolve(block)
+      }
+      return getBlock(block.Id)
+    })
+    .map((promise) =>
+      promise.then((block) => {
+        let url!: URL
+        try {
+          url = new URL((block.Image || block.File).File.Url)
+        } catch (err) {
+          console.log('Invalid file URL')
+          return Promise.reject()
+        }
+        return Promise.resolve(url)
+      })
+    )
+    .map((promise) => promise.then(downloadFile))
+)
 ---
 
 <Layout title="About" path="/about">
