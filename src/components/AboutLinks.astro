@@ -1,0 +1,66 @@
+---
+import { Icon } from 'astro-icon/components'
+---
+
+<div>
+<ul class="about-links">
+	<li class="feed-link">
+    <a href="/rss.xml" target="_blank">
+      <Icon name="mingcute:rss-2-fill" />
+      <span>フィード</span>
+    </a>
+  </li>
+  <li class="GitHub-link">
+    <a href="https://github.com/Arkrk/astro-notion-blog/commits/main/" target="_blank" rel="noopener noreferrer">
+      <Icon name="simple-icons:github" />
+      <span>コミット</span>
+    </a>
+  </li>
+</ul>
+</div>
+
+<style>
+	ul {
+  	display: flex;
+    list-style-type: none;
+    padding: 0 0 2rem 0;
+    gap: 8px;
+    overflow-x: scroll;
+    white-space: nowrap;
+  }
+  ul::-webkit-scrollbar {
+    display: none;
+  }
+  @media (max-width: 640px) {
+    div {
+    	margin-left: calc(-50vw + 50%);
+      margin-right: calc(-50vw + 50%);
+    }
+    ul {
+      padding-left: 18px;
+    }
+    ul:last-child {
+      padding-right: 18px;
+    }
+  }
+  a {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding-right: 10px;
+    border: solid 1px #dfdfde;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    color: var(--fg);
+  }
+  a:hover {
+    background: #f7f6f3;
+  }
+  span {
+    padding-left: 5px;
+  }
+  svg {
+    margin-left: 10px;
+  }
+</style>

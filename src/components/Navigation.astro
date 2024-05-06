@@ -6,13 +6,13 @@ import { Icon } from 'astro-icon/components'
   <a class="home-icon" href="/" aria-label="ホーム">
 	  <Icon name="mingcute:home-4-line" />
   </a>
-  <a class="blog-icon" href="/blog" aria-label="ブログ">
+  <a class="blog-icon" href="/blog/" aria-label="ブログ">
 	  <Icon name="mingcute:edit-line" />
   </a>
-  <a class="search-icon" href="/search" aria-label="検索">
+  <a class="search-icon" href="/search/" aria-label="検索">
 	  <Icon name="mingcute:search-line" />
   </a>
-  <a class="about-icon" href="/about" aria-label="About">
+  <a class="about-icon" href="/about/" aria-label="About">
 	  <Icon name="mingcute:information-line" />
   </a>
 </nav>
@@ -56,12 +56,12 @@ import { Icon } from 'astro-icon/components'
     }
   })
   document.querySelectorAll('.search-icon').forEach(link => {
-    if(location.pathname.includes('/search')){
+    if(link.href === window.location.href){
       link.classList.add('current')
     }
   })
   document.querySelectorAll('.about-icon').forEach(link => {
-    if(location.pathname.includes('/about')){
+    if(link.href === window.location.href){
       link.classList.add('current')
     }
   })

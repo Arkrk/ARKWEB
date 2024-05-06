@@ -1,10 +1,18 @@
 ---
+import { INDEX_PAGE_ID } from '../server-constants.ts'
+import { getAllBlocksByBlockId } from '../lib/notion/client.ts'
 import Layout from '../layouts/Layout.astro'
+import NotionBlocks from '../components/NotionBlocks.astro'
+import AboutLinks from '../components/AboutLinks.astro'
+
+const blocks = await getAllBlocksByBlockId(INDEX_PAGE_ID)
 ---
+
 <Layout title="About" path="/about">
   <div slot="main">
     <h2 class="blog-label">About</h2>
-    <span>準備中</span>
+    <AboutLinks />
+    <NotionBlocks blocks={blocks} isRoot={true} />
   </div>
 </Layout>
 

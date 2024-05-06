@@ -39,6 +39,9 @@ layout.astro
 .darkmode .system, .darkmode .system a {
   color: #9b9b9b !important;
 }
+.darkmode .system a:hover {
+  color: var(--accents-4) !important;
+}
 
 /* --------------------
 pages/blog/index.astro
@@ -319,6 +322,16 @@ OtherLinks.astro
   border:solid 1px #373737 !important;
 }
 .darkmode .other-links a:hover {
+  background: var(--bg2) !important;
+}
+
+/* --------------------
+AboutLinks.astro
+-------------------- */
+.darkmode .about-links a {
+  border:solid 1px #373737 !important;
+}
+.darkmode .about-links a:hover {
   background: var(--bg2) !important;
 }
 
