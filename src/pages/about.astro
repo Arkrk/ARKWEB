@@ -53,7 +53,9 @@ await Promise.all(
   <div slot="main">
     <h2 class="blog-label">About</h2>
     <AboutLinks />
-    <NotionBlocks blocks={blocks} isRoot={true} />
+    <article>
+      <NotionBlocks blocks={blocks} isRoot={true} />
+    </article>
   </div>
 </Layout>
 
@@ -69,5 +71,8 @@ await Promise.all(
     h2 {
       font-size: 1.875rem;
     }
+  }
+  article {
+    padding-top: 30px;
   }
 </style>

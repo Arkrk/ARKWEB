@@ -33,15 +33,16 @@ const [posts, rankedPosts] = await Promise.all([
         <h1>Hi, I'm Ark</h1>
         <span>アニメ・邦楽・DTV・ガジェット・キャッシュレスが好き。</span>
       </div>
+      <SocialLinks />
     </div>
-    <SocialLinks />
-    <div class="latest">
-      <h2>最新記事</h2>
-      <a class="all-posts" href="/blog/">
-        すべての記事を見る
-        <Icon name="mingcute:arrow-right-line" />
-      </a>
-    </div>
+    <div class="top-container">
+      <div class="latest">
+        <h2>最新記事</h2>
+        <a class="all-posts" href="/blog/">
+          すべての記事を見る
+          <Icon name="mingcute:arrow-right-line" />
+        </a>
+      </div>
 
     <div class="card-wrapper">
     {
@@ -70,18 +71,19 @@ const [posts, rankedPosts] = await Promise.all([
       )
     }
     </div>
+    </div>
 
-    <div class="recommend">
+    <div class="home-container">
       <h2>おすすめ記事</h2>
       <BlogPostsLink posts={rankedPosts} />
     </div>
 
-    <div class="diary">
+    <div class="home-container">
       <h2>ダイアリー</h2>
       <DiaryLinks />
     </div>
 
-    <div class="other">
+    <div class="home-container">
       <h2>その他リンク</h2>
       <OtherLinks />
     </div>
@@ -108,8 +110,11 @@ const [posts, rankedPosts] = await Promise.all([
   .all-posts svg {
     margin: 2px 0 0 2px;
   }
-  .recommend {
-    padding-top: 20px;
+  .top-container {
+    margin-top: 30px;
+  }
+  .home-container {
+    margin-top: 50px;
   }
   .ark-icon {
     width: 150px;
@@ -122,15 +127,9 @@ const [posts, rankedPosts] = await Promise.all([
     }
   }
   .label {
-    padding: 10px 0 25px 0;
+    padding: 10px 0 25px;
   }
   .label h1 {
     font-size: 2.5rem;
-  }
-  .diary {
-    padding-top: 20px;
-  }
-  .other {
-    padding-top: 10px;
   }
 </style>
