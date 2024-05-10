@@ -37,13 +37,12 @@ const { prevPost, nextPost } = Astro.props
 <style>
   div.post-relative-link {
     display: flex;
-    margin-top: 1rem;
+    padding-top: 1.5rem;
     gap: 1rem;
   }
   div.post-relative-link > div {
     display: block;
     max-width: 50%;
-    margin-top: 0.6rem;
   }
   div.post-relative-link > div:last-child {
     margin-left: auto;
@@ -81,7 +80,7 @@ const { prevPost, nextPost } = Astro.props
   }
   @media (max-width: 640px) {
     div.post-relative-link {
-      display: block;
+      flex-direction: column;
     }
     div.post-relative-link > div {
       max-width: 100%;
