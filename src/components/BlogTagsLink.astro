@@ -3,28 +3,25 @@ import type { SelectProperty } from '../lib/interfaces.ts'
 import { getTagLink } from '../lib/blog-helpers.ts'
 import NoContents from './NoContents.astro'
 import '../styles/notion-color.css'
-import { Icon } from 'astro-icon/components'
 
 export interface Props {
   heading: string
   tags: SelectProperty[]
 }
 
-const { heading, tags } = Astro.props
+const { tags } = Astro.props
 ---
 
 <div class="blog-tags-link">
-  <h2>{heading}</h2>
   {
     tags.length === 0 ? (
       <NoContents contents={tags} />
     ) : (
       <ul class="Box-Container">
-        <Icon name="mingcute:filter-line" />
         {tags.map((tag: SelectProperty) => (
           <li>
             <a href={getTagLink(tag.name)}>
-              {tag.name}
+              <span>{tag.name}</span>
             </a>
           </li>
         ))}
@@ -34,67 +31,45 @@ const { heading, tags } = Astro.props
 </div>
 
 <style>
-  @media (max-width: 640px) {
-    .blog-tags-link {
-      margin-left: calc(-50vw + 50%);
-      margin-right: calc(-50vw + 50%);
-    }
-  }
-  .blog-tags-link svg {
-    min-width: 26px;
-    min-height: 26px;
-    margin-right: 6px;
-  }
-  @media (max-width: 640px) {
-    .blog-tags-link svg {
-      margin-left: 18px;
-    }
-  }
-  .blog-tags-link h2 {
-    margin: 0;
-    padding-left: 0.4rem;
-    color: #777;
-    font-size: 0.95rem;
-  }
-  .blog-tags-link ul {
+  ul {
+  	display: flex;
     list-style-type: none;
-    display: flex;
+    padding: 0;
+    gap: 8px;
     overflow-x: scroll;
     white-space: nowrap;
-    align-items: center;
-    padding: 10px 0 40px 0;
   }
-  .blog-tags-link ul::-webkit-scrollbar {
+  ul::-webkit-scrollbar {
     display: none;
   }
-  .blog-tags-link ul li {
-    position: relative;
-    line-height: 1.2rem;
-    font-size: 1rem;
-    gap: 6px;
-    padding-right: 0.6rem;
-  }
-  .blog-tags-link ul li:last-child {
-    padding-right: 0;
-  }
   @media (max-width: 640px) {
-    .blog-tags-link ul li:last-child {
+    div {
+    	margin-left: calc(-50vw + 50%);
+      margin-right: calc(-50vw + 50%);
+    }
+    ul {
+      padding-left: 18px;
+    }
+    ul:last-child {
       padding-right: 18px;
     }
   }
-  .blog-tags-link ul li a {
-    min-width: 0;
+  a {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding: 0 10px;
+    border: solid 1px #dfdfde;
     border-radius: 8px;
-    padding: 6px 12px;
-    line-height: 1.2;
-    color: rgb(50, 48, 44);
+    overflow: hidden;
+    cursor: pointer;
+    color: var(--fg);
+  }
+  a:hover {
     background: #f7f6f3;
   }
-  .blog-tags-link ul li a:hover {
-    background: #ebebeb;
-  }
-  [data-icon="mingcute:filter-line"] {
-    color: #333333;
+  svg {
+    margin-left: 10px;
   }
 </style>
 

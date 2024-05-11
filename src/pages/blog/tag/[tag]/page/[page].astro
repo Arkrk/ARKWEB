@@ -52,13 +52,10 @@ const currentTag = posts[0].Tags.find((t) => t.name === tag)
   path={`/blog/tag/${tag}/page/${page}`}
 >
   <div slot="main">
-    <h2 class="blog-label">ブログ</h2>
-    <header>
-      <div class="tag-container">
-        <Icon name="mingcute:filter-fill" />
-        <span class={`tag ${currentTag.color}`}>{tag}</span>
-      </div>
-    </header>
+    <div class="head-wrapper">
+      <h2 class="blog-label">ブログ</h2>
+      <span class={`tag ${currentTag.color}`}>{tag}</span>
+    </div>
     
     <div class="card-wrapper">
     {
@@ -99,8 +96,11 @@ const currentTag = posts[0].Tags.find((t) => t.name === tag)
 </Layout>
 
 <style>
+  .head-wrapper {
+    margin-bottom: 30px;
+  }
   .blog-label {
-    margin: 0 0 0.3rem;
+    margin: 0 0 0.7rem;
     font-size: 2.25rem;
     font-weight: 700;
     color: var(--fg);
@@ -114,24 +114,13 @@ const currentTag = posts[0].Tags.find((t) => t.name === tag)
   header {
     padding: 0;
   }
-  .tag-container {
-    display: flex;
-    align-items: center;
-    padding: 6px 0 36.5px 0;
-    line-height: 1.2rem;
-    font-size: 1rem;
-  }
-  .tag-container span.tag {
+  span.tag {
+    display: inline-block;
     border-radius: 8px;
-    padding: 7.2px 12px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    padding: 0 11px;
     background: rgba(227, 226, 224, 0.5);
-  }
-  .tag-container svg {
-    min-width: 26px;
-    min-height: 26px;
-    margin-right: 6px;
-  }
-  [data-icon="mingcute:filter-fill"] {
-    color: #333333;
   }
 </style>
