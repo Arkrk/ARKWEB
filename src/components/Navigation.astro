@@ -5,15 +5,19 @@ import { Icon } from 'astro-icon/components'
 <nav>
   <a class="home-icon" href="/" aria-label="ホーム">
 	  <Icon name="mingcute:home-4-line" />
+    <span class="tooltip">ホーム</span>
   </a>
   <a class="blog-icon" href="/blog/" aria-label="ブログ">
 	  <Icon name="mingcute:edit-line" />
+    <span class="tooltip">ブログ</span>
   </a>
   <a class="search-icon" href="/search/" aria-label="検索">
 	  <Icon name="mingcute:search-line" />
+    <span class="tooltip">検索</span>
   </a>
   <a class="about-icon" href="/about/" aria-label="About">
 	  <Icon name="mingcute:information-line" />
+    <span class="tooltip">About</span>
   </a>
 </nav>
 
@@ -28,6 +32,7 @@ import { Icon } from 'astro-icon/components'
     width: 35px;
     height: 35px;
     border-radius: 8px;
+    position: relative;
   }
   a:hover {
   	cursor: pointer;
@@ -41,6 +46,27 @@ import { Icon } from 'astro-icon/components'
   }
   a.current svg {
     color: var(--accents-4);
+  }
+  .tooltip {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -30px;
+    display: inline-block;
+    padding: 5px;
+    white-space: nowrap;
+    font-size: 0.8rem;
+    line-height: 1.3;
+    background: #f7f6f3;
+    color: var(--fg);
+    border-radius: 3px;
+    transition: 0.1s ease-in;
+  }
+  a:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
   }
 </style>
 
