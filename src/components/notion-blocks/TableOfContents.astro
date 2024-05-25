@@ -43,8 +43,6 @@ const { block, headings } = Astro.props
 </div>
 
 <style>
-  .table-of-contents {
-  }
   .table-of-contents > a {
     display: block;
     line-height: 1.8rem;
@@ -70,6 +68,11 @@ const { block, headings } = Astro.props
   @media (max-width: 640px) {
     h3 {
       font-size: 1.3rem;
+    }
+  }
+  @media (min-width: 801px) {
+    .table-of-contents {
+      display: none;
     }
   }
 </style>

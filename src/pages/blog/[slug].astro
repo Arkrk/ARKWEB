@@ -24,6 +24,7 @@ import PostBody from '../../components/PostBody.astro'
 import PostRelativeLink from '../../components/PostRelativeLink.astro'
 import { Icon } from 'astro-icon/components'
 import PostUpdateDate from '../../components/PostUpdateDate.astro'
+import TocLink from '../../components/notion-blocks/TocLink.astro'
 
 export async function getStaticPaths() {
   const posts = await getAllPosts()
@@ -110,7 +111,10 @@ if (post.FeaturedImage && post.FeaturedImage.Url) {
           <Icon name="mingcute:tag-2-fill" />
           <PostTags post={post} />
         </div>
+        <div class="body-area">
         <PostBody blocks={blocks} />
+        <TocLink blocks={blocks} />
+        </div>
       </article>
 
       <footer>
@@ -159,6 +163,12 @@ if (post.FeaturedImage && post.FeaturedImage.Url) {
     width: 18px;
     height: 18px;
     margin-right: 5px; 
+  }
+  @media (min-width: 801px) {
+    .body-area {
+      display: flex;
+      gap: 60px;
+    }
   }
   .share-area {
     display: flex;

@@ -16,5 +16,11 @@ const { blocks } = Astro.props
 <style>
   .post-body {
     padding: 3rem 0 5rem;
+    width: 75%;
+  }
+  @media (max-width: 800px) {
+    .post-body {
+      width: 100%;
+    }
   }
 </style>
