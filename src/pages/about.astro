@@ -2,7 +2,7 @@
 import { INDEX_PAGE_ID } from '../server-constants.ts'
 import { getAllBlocksByBlockId } from '../lib/notion/client.ts'
 import Layout from '../layouts/Layout.astro'
-import NotionBlocks from '../components/NotionBlocks.astro'
+import AboutBody from '../components/AboutBody.astro'
 import AboutLinks from '../components/AboutLinks.astro'
 import {
   getBlock,
@@ -10,6 +10,7 @@ import {
   downloadFile,
 } from '../lib/notion/client.ts'
 import { extractTargetBlocks } from '../lib/blog-helpers.ts'
+import ContentList from '../components/ContentList.astro'
 
 const blocks = await getAllBlocksByBlockId(INDEX_PAGE_ID)
 
@@ -55,14 +56,14 @@ await Promise.all(
       <h2 class="blog-label">About</h2>
       <AboutLinks />
     </div>
-    <NotionBlocks blocks={blocks} isRoot={true} />
+    <div class="body-wrapper">
+      <AboutBody blocks={blocks} />
+      <ContentList blocks={blocks} />
+    </div>
   </div>
 </Layout>
 
 <style>
-  .head-wrapper {
-    margin-bottom: 30px;
-  }
   .blog-label {
     margin: 0 0 0.7rem;
     font-size: 2.25rem;
@@ -73,6 +74,12 @@ await Promise.all(
   @media (max-width: 640px) {
     .blog-label {
       font-size: 1.875rem;
+    }
+  }
+  @media (min-width: 801px) {
+    .body-wrapper {
+      display: flex;
+      gap: 60px;
     }
   }
 </style>

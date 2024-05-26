@@ -1,0 +1,27 @@
+---
+import { Block } from '../lib/interfaces.ts'
+import NotionBlocks from './NotionBlocks.astro'
+import { getAllBlocksByBlockId } from '../lib/notion/client.ts'
+import { INDEX_PAGE_ID } from '../server-constants.ts'
+
+export interface Props {
+  blocks: Block[]
+}
+
+const blocks = await getAllBlocksByBlockId(INDEX_PAGE_ID)
+---
+
+<div class="about-body">
+  <NotionBlocks blocks={blocks} isRoot={true} />
+</div>
+
+<style>
+  .about-body {
+    padding: 3rem 0;
+  }
+  @media (min-width: 801px) {
+    .about-body {
+      width: 75%;
+    }
+  }
+</style>
