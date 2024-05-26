@@ -1,0 +1,224 @@
+---
+import NoContents from './NoContents.astro'
+import '../styles/notion-color.css'
+import { Block } from '../lib/interfaces.ts'
+import * as interfaces from '../lib/interfaces.ts'
+import { buildHeadingId } from '../lib/blog-helpers.ts'
+
+export interface Props {
+  blocks: Block[]
+}
+
+const { blocks } = Astro.props
+---
+
+<div class={`content-list`}>
+  <h2 class="toc-label">目次</h2>
+  {
+    blocks.length === 0 ? (
+      <NoContents contents={'目次なし'} />
+    ) : (
+      <ul class="ul-depth-1">
+        {
+          blocks.map((Block: interfaces.Block) => {
+            const heading =
+              Block.Heading1 || Block.Heading2
+            let depthClass = ''
+            if (heading) {
+              if (Block.Type === 'heading_2') {
+                depthClass = 'depth-2'
+              } else {
+                depthClass = 'depth-1'
+              }
+
+              let ret = [
+                <li class={depthClass}>
+                  <a
+                    href={`#${buildHeadingId(heading)}`}
+                    class={`table-of-contents`}
+                  >
+                    {heading.RichTexts.map(
+                      (richText: interfaces.RichText) => richText.PlainText
+                    ).join('')}
+                  </a>
+                </li>,
+              ]
+
+              if (Block.HasChildren && heading.Children) {
+                heading.Children.map((child_Block: interfaces.Block) => {
+                  const child_heading =
+                    child_Block.Heading1 || child_Block.Heading2
+                  let depthClass = ''
+                  if (child_heading) {
+                    if (child_Block.Type === 'heading_2') {
+                      depthClass = 'depth-2'
+                    } else {
+                      depthClass = 'depth-1'
+                    }
+
+                    ret.push(
+                      <li class={depthClass}>
+                        <a
+                          href={`#${buildHeadingId(child_heading)}`}
+                          class={`table-of-contents`}
+                        >
+                          {child_heading.RichTexts.map(
+                            (richText: interfaces.RichText) =>
+                              richText.PlainText
+                          ).join('')}
+                        </a>
+                      </li>
+                    )
+                  }
+                })
+              }
+
+              return ret
+            }
+            else {
+              return ''
+            }
+          })
+        }
+      </ul>
+    )
+  }
+</div>
+
+<style>
+  .toc-label {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--fg);
+  }
+  .ul-depth-1 {
+    position: relative;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  .ul-depth-1::before {
+    position: absolute;
+    top: 17px;
+    bottom: 8px;
+    left: 5px;
+    width: 2px;
+    content: '';
+    background: var(--accents-7);
+    border-radius: 0 0 5px 5px;
+  }
+  .ul-depth-1 li {
+    position: relative;
+    padding-left: 21px;
+    margin-top: 5px;
+    font-weight: 700;
+  }
+  .ul-depth-1 li::before {
+    position: absolute;
+    content: '';
+    border-radius: 99rem;
+    box-sizing: border-box;
+  }
+
+  .ul-depth-1 li.depth-1::before {
+    top: 4px;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    background: var(--accents-6);
+    border: 2px solid var(--bg);
+  }
+  .ul-depth-1 li.depth-1.active::before {
+    background: var(--accents-4);
+    border-color: var(--accents-6);
+  }
+
+  .ul-depth-1 li.depth-2 {
+    font-weight: 400;
+  }
+  .ul-depth-1 li.depth-2::before {
+    top: 6px;
+    left: 2px;
+    width: 8px;
+    height: 8px;
+    background: var(--accents-7);
+    border: 2px solid var(--bg);
+  }
+  .ul-depth-1 li.depth-2.active::before {
+    background: var(--accents-4);
+    border-color: var(--accents-4);
+  }
+
+  .ul-depth-1 li a {
+    position: relative;
+    display: block;
+    max-height: 3.05em;
+    margin: 10px 0;
+    overflow: hidden;
+    color: #7d7c78;
+    transition: none;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+  }
+  .ul-depth-1 li a:hover {
+    background: #f7f6f3;
+  }
+  .ul-depth-1 li.active a {
+    color: var(--fg);
+  }
+
+  .content-list {
+    position: sticky;
+    width: 25%;
+    top: 5rem;
+    align-self: start;
+    padding: 10px 10px 0;
+    margin: 3rem 0 5rem;
+    border: solid 1px #dfdfde;
+    border-radius: 8px;
+    overflow-y: auto;
+    max-height: 80vh;
+  }
+  .content-list::-webkit-scrollbar {
+    display: none;
+  }
+  @media (max-width: 800px) {
+    .content-list {
+      display: none;
+    }
+  }
+</style>
+
+<script type="module">
+  document.addEventListener('DOMContentLoaded', (event) => {
+    const sections = document.querySelectorAll('.heading1, .heading2, .heading3')
+    const navLinks = document.querySelectorAll('.content-list ul li')
+
+    const observer = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && entry.boundingClientRect.top <= 0) {
+            navLinks.forEach((navLink) => {
+              navLink.classList.remove('active')
+              if (
+                entry.target.getAttribute('data-section') ===
+                navLink.querySelector('a').getAttribute('href').substring(1)
+              ) {
+                navLink.classList.add('active')
+              }
+            })
+          }
+        })
+      },
+      { threshold: [0, 1] }
+    ) 
+
+    sections.forEach((section) => {
+      observer.observe(section)
+    })
+  })
+</script>

@@ -24,7 +24,7 @@ import PostBody from '../../components/PostBody.astro'
 import PostRelativeLink from '../../components/PostRelativeLink.astro'
 import { Icon } from 'astro-icon/components'
 import PostUpdateDate from '../../components/PostUpdateDate.astro'
-import TocLink from '../../components/notion-blocks/TocLink.astro'
+import ContentList from '../../components/ContentList.astro'
 
 export async function getStaticPaths() {
   const posts = await getAllPosts()
@@ -113,7 +113,7 @@ if (post.FeaturedImage && post.FeaturedImage.Url) {
         </div>
         <div class="body-area">
         <PostBody blocks={blocks} />
-        <TocLink blocks={blocks} />
+        <ContentList blocks={blocks} />
         </div>
       </article>
 

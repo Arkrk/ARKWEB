@@ -19,7 +19,7 @@ const id = buildHeadingId(block.Heading1)
     <details class="toggle">
       <summary>
         <a href={`#${id}`} id={id}>
-          <h3 class="heading1">
+          <h3 class="heading1" data-section={id}>
             {block.Heading1.RichTexts.map((richText: interfaces.RichText) => (
               <RichText richText={richText} />
             ))}
@@ -34,7 +34,7 @@ const id = buildHeadingId(block.Heading1)
     </details>
   ) : (
     <a href={`#${id}`} id={id}>
-      <h3 class="heading1">
+      <h3 class="heading1" data-section={id}>
         {block.Heading1.RichTexts.map((richText: interfaces.RichText) => (
           <RichText richText={richText} />
         ))}
@@ -88,11 +88,5 @@ const id = buildHeadingId(block.Heading1)
 
   .toggle > div {
     margin-left: 1em;
-  }
-
-  a {
-    display: block;
-    padding-top: 1px;
-    margin-top: -1px;
   }
 </style>

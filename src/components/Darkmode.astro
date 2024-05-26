@@ -24,6 +24,8 @@ layout.astro
   --accents-3: #474c50;
   --accents-4: #c29f6c;
   --accents-5: #d2a86a;
+  --accents-6: #76654f;
+  --accents-7: #4d4435;
   --bg2: #252525;
 }
 .darkmode header h1 {
@@ -60,7 +62,7 @@ pages/blog/index.astro
   color: var(--fg);
 }
 .darkmode .grid-parts {
-  border:solid 1px #373737 !important;
+  border: solid 1px #373737 !important;
 }
 .darkmode .grid-parts:hover {
   background: var(--bg2) !important;
@@ -158,7 +160,7 @@ Code.astro
 Caption.astro
 -------------------- */
 .darkmode .caption {
-  color: #7f7f7f !important;
+  color: #9b9b9b !important;
 }
 
 /* --------------------
@@ -225,16 +227,19 @@ TableOfContents.astro
 }
 
 /* --------------------
-TocLink.astro
+ContentList.astro
 -------------------- */
-.darkmode .toc-nav {
+.darkmode .ul-depth-1 li a:hover {
+  background: var(--bg2) !important;
+}
+.darkmode .content-list {
   border: solid 1px #373737 !important;
 }
-.darkmode .toc-nav > span.active > a {
-  color: #fff !important;
+.darkmode .ul-depth-1 li a {
+  color: #9b9b9b !important;
 }
-.darkmode .toc-nav > span > a:hover {
-  background: var(--bg2) !important;
+.darkmode .ul-depth-1 li.active a {
+  color: var(--fg) !important;
 }
 
 /* --------------------
