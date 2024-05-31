@@ -433,7 +433,7 @@ if (database.Icon && database.Icon.Type === 'file') {
     display: block;
     overflow-x: auto;
     white-space: nowrap;
-    border-collapse: collapse;
+    border-spacing: 0;
   }
 
   table tr {
@@ -442,16 +442,15 @@ if (database.Icon && database.Icon.Type === 'file') {
 
   table th {
     font-weight: 600;
-    background-color: #f4f4f4;
   }
 
   table td,
   table th {
     font-size: 0.9rem;
-    border: 1px solid #e4e4e4;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 2rem 0.5rem 0;
     text-align: left;
     line-height: 1.2rem;
+    border-bottom: solid 1px #dfdfde;
   }
   table td::after {
     content: '';

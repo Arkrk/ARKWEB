@@ -197,12 +197,8 @@ Table.astro
 .darkmode table {
   color: var(--fg);
 }
-.darkmode table th {
-  background: var(--bg2);
-  border-color: #2f2f2f;
-}
-.darkmode table td {
-  border-color: #2f2f2f;
+.darkmode table td, .darkmode table th {
+  border-bottom: solid 1px #373737 !important;
 }
 .darkmode .table table {
   &::-webkit-scrollbar {
