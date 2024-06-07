@@ -17,14 +17,14 @@
     "_fetch-notion-blocks": "node scripts/retrieve-block-children.cjs"
   },
   "dependencies": {
-    "@astrojs/react": "^3.4.0",
+    "@astrojs/react": "^3.5.0",
     "@astrojs/rss": "^4.0.6",
     "@iconify-json/mingcute": "^1.1.17",
     "@iconify-json/simple-icons": "^1.1.104",
     "@iconify-json/twemoji": "^1.1.15",
     "@notionhq/client": "^2.2.15",
     "@supercharge/promise-pool": "^3.2.0",
-    "astro": "^4.9.1",
+    "astro": "^4.10.0",
     "astro-icon": "^1.1.0",
     "astro-pagefind": "^1.5.0",
     "async-retry": "^1.3.3",
