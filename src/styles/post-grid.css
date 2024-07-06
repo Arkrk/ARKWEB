@@ -18,7 +18,7 @@
 }
 .grid-parts {
   position: relative;
-  border:solid 1px #dfdfde;
+  border: solid 1px #dfdfde;
   border-radius: 8px;
   overflow: hidden;
 }
@@ -33,7 +33,15 @@
 .grid-image {
   overflow: hidden;
 }
+@media (min-width: 641px) {
+  .grid-fix {
+    display: flex;
+    align-items: center;
+    min-height: 200px;
+  }
+}
 .grid-text {
+  width: 100%;
   padding: 6px 13px 17px;
 }
 .date-area {

@@ -42,14 +42,16 @@ const [posts, rankedPosts, tags, numberOfPages] = await Promise.all([
               <figure class="grid-image">
                 <PostFeaturedImage post={post} />
               </figure>
-              <div class="grid-text">
-                <PostTitle post={post} />
-                <div class="date-area">
-                  <PostDate post={post} />
-                </div>
-                <div class="tags-area">
-                  <Icon name="mingcute:tag-2-fill" />
-                  <PostTags post={post} />
+              <div class="grid-fix">
+                <div class="grid-text">
+                  <PostTitle post={post} />
+                  <div class="date-area">
+                    <PostDate post={post} />
+                  </div>
+                  <div class="tags-area">
+                    <Icon name="mingcute:tag-2-fill" />
+                    <PostTags post={post} />
+                  </div>
                 </div>
               </div>
             </div>
