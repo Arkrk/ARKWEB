@@ -197,23 +197,26 @@ if (database.Icon && database.Icon.Type === 'file') {
     background-color: var(--fg);
   }
 
-  @media (max-width: 640px) {
-    .custom-icon{
-      height: 23px;
-      width: 23px;
-    }
-    .coversvg{
-      height: 23px;
-      width: 80.5px;
-    }
-  }
-
   .header_button_wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-left: auto;
-    gap: 4px;
+    gap: 10px;
+  }
+
+  @media (max-width: 640px) {
+    .custom-icon {
+      height: 23px;
+      width: 23px;
+    }
+    .coversvg {
+      height: 23px;
+      width: 80.5px;
+    }
+    .header_button_wrapper {
+      gap: 4px;
+    }
   }
 
   header > h1 > a {
