@@ -29,12 +29,17 @@ const { block, headings } = Astro.props
 <style>
   .toggle > summary {
     cursor: pointer;
-    padding: 0.4rem;
+    padding: 0.6rem 0.6rem 0.6rem 0.8rem;
+    border: 1px solid var(--border);
     border-radius: 8px;
+  }
+  details[open] summary {
+    border-radius: 8px 8px 0 0;
+    background: var(--bg2);
   }
   
   .toggle > summary:hover {
-    background: #f7f6f3;
+    background: var(--bg2);
   }
 
   .toggle > summary > a {
@@ -42,6 +47,9 @@ const { block, headings } = Astro.props
   }
 
   .toggle > div {
-    margin-left: 1em;
+    margin-top: -1px;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid var(--border);
+    border-radius: 0 0 8px 8px;
   }
 </style>
