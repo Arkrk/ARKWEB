@@ -16,8 +16,8 @@ const { prevPost, nextPost } = Astro.props
     {
       nextPost && (
         <a href={getPostLink(nextPost.Slug)} class="colored next">
-          <div class="arrow-icon"><Icon name="mingcute:arrow-left-line" /></div>
-          <div class="relative-title next">{nextPost.Title}</div>
+          <Icon name="mingcute:arrow-left-line" />
+          <div class="relative-title">{nextPost.Title}</div>
         </a>
       )
     }
@@ -26,8 +26,8 @@ const { prevPost, nextPost } = Astro.props
     {
       prevPost && (
         <a href={getPostLink(prevPost.Slug)} class="colored prev">
-          <div class="relative-title prev">{prevPost.Title}</div>
-          <div class="arrow-icon"><Icon name="mingcute:arrow-right-line" /></div>
+          <Icon name="mingcute:arrow-right-line" />
+          <div class="relative-title">{prevPost.Title}</div>
         </a>
       )
     }
@@ -49,12 +49,8 @@ const { prevPost, nextPost } = Astro.props
   }
   div.post-relative-link > div > a {
     display: block;
-    text-align: center;
-    line-height: 1.2rem;
-    font-size: 0.95rem;
   }
   div.post-relative-link > div > a.colored {
-    display: flex;
     align-items: center;
     gap: 2px;
     padding: 10px;
@@ -64,18 +60,24 @@ const { prevPost, nextPost } = Astro.props
   div.post-relative-link > div > a.colored:hover {
     background: #f7f6f3;
   }
-  div.post-relative-link > div > a.colored > div.arrow-icon {
-    font-size: 24px;
+  div.post-relative-link > div > a.colored > svg {
+    width: 24px;
+    height: 24px;
   }
   div.post-relative-link > div > a.colored > div.relative-title {
     width: auto;
     font-size: 1rem;
+    line-height: 1.2rem;
     font-weight: bold;
+    margin-bottom: 4px;
   }
-  div.post-relative-link > div > a.colored > div.relative-title.next {
-    text-align: left;
+  div.post-relative-link > div > a.colored.next > div.relative-title {
+    margin-left: 2.5px;
   }
-  div.post-relative-link > div > a.colored > div.relative-title.prev {
+  div.post-relative-link > div > a.colored.prev > div.relative-title {
+    margin-right: 2.5px;
+  }
+  div.post-relative-link > div > a.colored.prev {
     text-align: right;
   }
   @media (max-width: 640px) {
