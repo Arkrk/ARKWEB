@@ -176,13 +176,14 @@ if (database.Icon && database.Icon.Type === 'file') {
   }
 
   .custom-icon{
-    -webkit-mask: url("../images/blogicon.svg") no-repeat center center / contain;
-    mask-image: url("../images/blogicon.svg");
+    -webkit-mask: url("../images/blogicon2.svg") no-repeat center center / contain;
+    mask-image: url("../images/blogicon2.svg");
     mask-repeat: no-repeat;
     mask-position: center center;
     mask-size: contain;
     height: 25px;
-    width: 25px;
+    width: 42px;
+    margin-left: 4px;
     background-color: var(--accents-4);
   }
 
@@ -208,7 +209,7 @@ if (database.Icon && database.Icon.Type === 'file') {
   @media (max-width: 640px) {
     .custom-icon {
       height: 23px;
-      width: 23px;
+      width: 38px;
     }
     .coversvg {
       height: 23px;
