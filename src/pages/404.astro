@@ -1,0 +1,64 @@
+---
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout title="ページが見つかりません" path="/404">
+  <div slot="main" id="page404">
+    <p id="figure">404</p>
+    <p id="notfound">NOT FOUND</p>
+    <p id="description">このURLに該当するページは存在しません<br>お探しのページは移動あるいは削除された可能性があります</p>
+    <a href="/" aria-label="ホーム"><p>ホーム</p></a>
+  </div>
+</Layout>
+
+<style>
+  @font-face {
+    font-family: 'Phenomena-ExtraBold';
+    src: url('/fonts/Phenomena-ExtraBold.woff2') format('woff2');
+  }
+
+  #page404 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    padding: 0 20px;
+    text-align: center;
+  }
+  #figure, #notfound {
+    font-family: 'Phenomena-ExtraBold';
+  }
+  #figure {
+    margin: 0;
+    font-size: 100px;
+    color: var(--accents-4);
+  }
+  #notfound {
+    font-size: 35px;
+  }
+  #description {
+    margin: 40px 0;
+    font-size: 0.8rem;
+    line-height: 1.6;
+  }
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    width: 70px;
+    margin: 0 auto;
+    padding: 0 10px;
+    color: var(--fg);
+    border: solid 1px var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  a:hover {
+    background: var(--bg2);
+  }
+  a p {
+    font-size: 0.8rem;
+  }
+</style>
