@@ -4,28 +4,40 @@ import { Icon } from 'astro-icon/components'
 
 <div>
 <ul class="scroll-links">
+  <li>
+    <a class="arrow" href="/about/">
+      <span>About me</span>
+      <Icon name="mingcute:arrow-right-line" />
+    </a>
+  </li>
 	<li>
     <a href="https://x.com/Arkxv1" target="_blank" rel="noopener noreferrer">
       <Icon name="simple-icons:x" />
-      <span>@Arkxv1</span>
+      <span>X</span>
     </a>
   </li>
   <li>
     <a href="https://bsky.app/profile/arkxv.com" target="_blank" rel="noopener noreferrer">
       <Icon name="simple-icons:bluesky" />
-      <span>@arkxv.com</span>
+      <span>Bluesky</span>
     </a>
   </li>
   <li>
     <a href="https://misskey.io/@Arkxv" target="_blank" rel="noopener noreferrer me">
     	<Icon name="simple-icons:misskey" />
-    	<span>@Arkxv@misskey.io</span>
+    	<span>Misskey.io</span>
     </a>
   </li>
   <li>
     <a href="https://mstdn.jp/@Arkxv" target="_blank" rel="noopener noreferrer me">
       <Icon name="simple-icons:mastodon" />
-      <span>@Arkxv@mstdn.jp</span>
+      <span>mstdn.jp</span>
+    </a>
+  </li>
+  <li>
+    <a href="https://www.threads.net/@arkvw" target="_blank" rel="noopener noreferrer me">
+      <Icon name="simple-icons:threads" />
+      <span>Threads</span>
     </a>
   </li>
 </ul>
@@ -60,11 +72,14 @@ import { Icon } from 'astro-icon/components'
     align-items: center;
     height: 40px;
     padding-right: 10px;
-    border: solid 1px #dfdfde;
+    border: solid 1px var(--border);
     border-radius: 8px;
     overflow: hidden;
     cursor: pointer;
     color: var(--fg);
+  }
+  a.arrow {
+    padding-left: 7px;
   }
   a:hover {
     background: #f7f6f3;
@@ -86,5 +101,8 @@ import { Icon } from 'astro-icon/components'
   }
   [data-icon="simple-icons:mastodon"] {
     color: #5d52e9;
+  }
+  [data-icon="simple-icons:threads"] {
+    color: #000000;
   }
 </style>
