@@ -11,31 +11,31 @@ import { Icon } from 'astro-icon/components'
     </a>
   </li>
 	<li>
-    <a href="https://x.com/Arkxv1" target="_blank" rel="noopener noreferrer">
+    <a class="sns" href="https://x.com/Arkxv1" target="_blank" rel="noopener noreferrer">
       <Icon name="simple-icons:x" />
       <span>X</span>
     </a>
   </li>
   <li>
-    <a href="https://bsky.app/profile/arkxv.com" target="_blank" rel="noopener noreferrer">
+    <a class="sns" href="https://bsky.app/profile/arkxv.com" target="_blank" rel="noopener noreferrer">
       <Icon name="simple-icons:bluesky" />
       <span>Bluesky</span>
     </a>
   </li>
   <li>
-    <a href="https://misskey.io/@Arkxv" target="_blank" rel="noopener noreferrer me">
+    <a class="sns" href="https://misskey.io/@Arkxv" target="_blank" rel="noopener noreferrer me">
     	<Icon name="simple-icons:misskey" />
     	<span>Misskey.io</span>
     </a>
   </li>
   <li>
-    <a href="https://mstdn.jp/@Arkxv" target="_blank" rel="noopener noreferrer me">
+    <a class="sns" href="https://mstdn.jp/@Arkxv" target="_blank" rel="noopener noreferrer me">
       <Icon name="simple-icons:mastodon" />
       <span>mstdn.jp</span>
     </a>
   </li>
   <li>
-    <a href="https://www.threads.net/@arkvw" target="_blank" rel="noopener noreferrer me">
+    <a class="sns" href="https://www.threads.net/@arkvw" target="_blank" rel="noopener noreferrer me">
       <Icon name="simple-icons:threads" />
       <span>Threads</span>
     </a>
@@ -78,17 +78,20 @@ import { Icon } from 'astro-icon/components'
     cursor: pointer;
     color: var(--fg);
   }
+  a:hover {
+    background: var(--bg2);
+  }
   a.arrow {
     padding-left: 7px;
   }
-  a:hover {
-    background: #f7f6f3;
+  a.arrow svg {
+    margin-left: 5px;
+  }
+  a.sns svg {
+    margin-left: 10px;
   }
   span {
     padding-left: 5px;
-  }
-  svg {
-     margin-left: 10px;
   }
   [data-icon="simple-icons:x"] {
     color: #10131a;
