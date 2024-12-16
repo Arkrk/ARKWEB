@@ -1,5 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components'
+import mixi2 from '../images/mixi2.svg'
 ---
 
 <div>
@@ -20,6 +21,12 @@ import { Icon } from 'astro-icon/components'
     <a class="sns" href="https://bsky.app/profile/arkxv.com" target="_blank" rel="noopener noreferrer">
       <Icon name="simple-icons:bluesky" />
       <span>Bluesky</span>
+    </a>
+  </li>
+  <li>
+    <a class="sns" href="https://mixi.social/@Arks" target="_blank" rel="noopener noreferrer">
+      <img id="mixi2" src={mixi2.src} alt="" />
+      <span>mixi2</span>
     </a>
   </li>
   <li>
@@ -87,11 +94,15 @@ import { Icon } from 'astro-icon/components'
   a.arrow svg {
     margin-left: 5px;
   }
-  a.sns svg {
+  a.sns svg, a.sns img {
     margin-left: 10px;
   }
   span {
     padding-left: 5px;
+  }
+  #mixi2 {
+    width: 16px;
+    height: 12.57px;
   }
   [data-icon="simple-icons:x"] {
     color: #10131a;
