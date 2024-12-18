@@ -184,7 +184,6 @@ if (database.Icon && database.Icon.Type === 'file') {
     mask-size: contain;
     height: 25px;
     width: 41px;
-    margin-left: 4px;
     background-color: var(--accents-4);
   }
 
@@ -226,13 +225,12 @@ if (database.Icon && database.Icon.Type === 'file') {
     justify-content: center;
     align-items: center;
     max-width: 100%;
-    height: fit-content;
-    color: inherit;
-    width: fit-content;
+    padding: 5px 5px 5px 3px;
+    border-radius: 8px;
   }
 
-  header > h1 {
-    padding: 5px 0 5px 0;
+  header > h1 > a:hover {
+    background: var(--bg2);
   }
 
   div.content {
