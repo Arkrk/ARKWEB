@@ -327,6 +327,7 @@ if (database.Icon && database.Icon.Type === 'file') {
     padding: 0;
     margin: 0;
     font-size: 16px;
+    scroll-behavior: smooth;
     scroll-padding-top: 55px; 
   }
 
@@ -471,6 +472,20 @@ if (database.Icon && database.Icon.Type === 'file') {
 </style>
 
 <script>
+  function imgWidthHeightSet() {
+    const images = document.querySelectorAll('img');
+    images.forEach(image => {
+        const img = new Image();
+        img.onload = function() {
+            image.setAttribute('width', this.width);
+            image.setAttribute('height', this.height);
+        };
+        img.src = image.getAttribute('src') || image.getAttribute('data-src');
+    });
+  }
+  
+  document.addEventListener('DOMContentLoaded', imgWidthHeightSet);
+
   let lastScrollTop = 0;
   function scrollHandler() {
     const header = document.querySelector('header')!;
