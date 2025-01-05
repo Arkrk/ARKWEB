@@ -441,17 +441,18 @@ if (database.Icon && database.Icon.Type === 'file') {
   table tr {
     vertical-align: top;
   }
-
   table th {
     font-weight: 600;
   }
-
   table td, table th {
     font-size: 0.9rem;
     padding: 0.5rem 2rem 0.5rem 0;
     text-align: left;
     line-height: 1.2rem;
     border-bottom: solid 1px #dfdfde;
+  }
+  table tr:last-child td, table tr:last-child th {
+    border-bottom: none;
   }
   table td::after {
     content: '';

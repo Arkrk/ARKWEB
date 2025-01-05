@@ -192,6 +192,9 @@ Table.astro
 .darkmode table td, .darkmode table th {
   border-bottom: solid 1px #373737 !important;
 }
+.darkmode table tr:last-child td, .darkmode table tr:last-child th {
+  border-bottom: none !important;
+}
 .darkmode .table table {
   &::-webkit-scrollbar {
     height: 8px;
@@ -328,16 +331,6 @@ Heading2.astro
   color: #373737 !important;
 }
 .darkmode h4:hover::before {
-  color: #9b9b9b !important;
-}
-
-/* --------------------
-Heading3.astro
--------------------- */
-.darkmode h5::before {
-  color: #373737 !important;
-}
-.darkmode h5:hover::before {
   color: #9b9b9b !important;
 }
 
