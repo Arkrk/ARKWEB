@@ -69,6 +69,14 @@ if (database.Icon && database.Icon.Type === 'file') {
     <meta name="twitter:description" content={siteDescription} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content={ogImage || siteOGImage} />
+    <script type="application/ld+json">
+      {
+       "@context": "https://schema.org",
+       "@type": "WebSite",
+       "name": "ARKWEB",
+       "url": "https://arkxv.com/"
+      }
+    </script>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
@@ -77,7 +85,7 @@ if (database.Icon && database.Icon.Type === 'file') {
     />
     <link rel="icon" href="/favicon.ico" sizes="32x32">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png"><!-- 180×180 -->
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="manifest" href="/manifest.webmanifest">
     <link rel="alternate" type="application/rss+xml" title={database.Title} href="/rss.xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">

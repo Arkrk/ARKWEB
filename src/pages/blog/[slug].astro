@@ -122,9 +122,6 @@ if (post.FeaturedImage && post.FeaturedImage.Url) {
           <a id="js-share-x" class="share_button share_x" href="" target="_blank" rel="nofollow noopener noreferrer">
             <Icon name="simple-icons:x" />
           </a>
-          <a id="js-share-facebook" class="share_button share_facebook" href="" target="_blank" rel="nofollow noopener noreferrer">
-            <Icon name="simple-icons:facebook" />
-          </a>
           <a id="js-share-bluesky" class="share_button share_bluesky" href="" target="_blank" rel="nofollow noopener noreferrer">
            <Icon name="simple-icons:bluesky" />
           </a>
@@ -133,6 +130,9 @@ if (post.FeaturedImage && post.FeaturedImage.Url) {
           </a>
           <a id="js-share-mastodon" class="share_button share_mastodon" href="" target="_blank" rel="nofollow noopener noreferrer">
            <Icon name="simple-icons:mastodon" />
+          </a>
+          <a id="js-share-threads" class="share_button share_threads" href="" target="_blank" rel="nofollow noopener noreferrer">
+            <Icon name="simple-icons:threads" />
           </a>
           <a id="js-share-pocket" class="share_button share_pocket" href="" target="_blank" rel="nofollow noopener noreferrer">
             <Icon name="simple-icons:pocket" />
@@ -194,31 +194,24 @@ if (post.FeaturedImage && post.FeaturedImage.Url) {
     height: 26px;
   }
   [data-icon="simple-icons:x"]:hover {
-    cursor: pointer;
     color: #10131a;
   }
-  [data-icon="simple-icons:facebook"]:hover {
-    cursor: pointer;
-    color: #0866ff;
-  }
   [data-icon="simple-icons:bluesky"]:hover {
-    cursor: pointer;
     color: #1185fe;
   }
   [data-icon="simple-icons:misskey"]:hover {
-    cursor: pointer;
     color: #96d04a;
   }
   [data-icon="simple-icons:mastodon"]:hover {
-    cursor: pointer;
     color: #5d52e9;
   }
+  [data-icon="simple-icons:threads"]:hover {
+    color: #000000;
+  }
   [data-icon="simple-icons:pocket"]:hover {
-    cursor: pointer;
     color: #ef4056;
   }
   [data-icon="simple-icons:hatenabookmark"]:hover {
-    cursor: pointer;
     color: #00a4de;
   }
 </style>
@@ -232,12 +225,6 @@ if (post.FeaturedImage && post.FeaturedImage.Url) {
   share_x.setAttribute(
 	  "href",
 	  "https://x.com/share?url=" + share_url + "&text=" + share_title
-  );
-
-  const share_facebook = document.getElementById("js-share-facebook");
-  share_facebook.setAttribute(
-	  "href",
-	  "https://www.facebook.com/share.php?u=" + share_url
   );
 
   const share_bluesky = document.getElementById("js-share-bluesky");
@@ -256,6 +243,12 @@ if (post.FeaturedImage && post.FeaturedImage.Url) {
   share_mastodon.setAttribute(
 	  "href",
 	  "https://mastoshare.net/share?text=" + share_title + "+" + share_url
+  );
+
+  const share_threads = document.getElementById("js-share-threads");
+  share_threads.setAttribute(
+	  "href",
+	  "https://www.threads.net/intent/post?text=" + share_title + "+" + share_url
   );
 
   const share_pocket = document.getElementById("js-share-pocket");
