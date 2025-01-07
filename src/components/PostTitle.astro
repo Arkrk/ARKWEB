@@ -53,17 +53,26 @@ let title = post.Title
 <style>
   .post-title {
     margin: 0;
-    font-size: 2.25rem;
     font-weight: 700;
-    color: var(--fg);
   }
   .post-title div {
+    font-size: 2.25rem;
     line-height: 1.3;
+    color: var(--fg);
   }
   .post-title a {
-    font-size: 1.4rem;
-    line-height: 1.0;
+    font-size: 1.3rem;
+    line-height: 1.35;
     color: inherit;
+  }
+  @media (max-width: 640px) {
+    .post-title div {
+      font-size: 1.875rem;
+    }
+    .post-title a {
+      font-size: 1.2rem;
+      line-height: 1.2;
+    }
   }
   .post-title span,
   .post-title img {
@@ -77,15 +86,8 @@ let title = post.Title
     height: 1.3em;
     vertical-align: sub;
   }
-  @media (max-width: 640px) {
-    .post-title {
-      font-size: 1.875rem;
-    }
-    .post-title a {
-      font-size: 1.2rem;
-    }
-  }
 </style>
+
 <style is:global>
   .post-title a::before {
     content: '';
