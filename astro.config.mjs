@@ -39,11 +39,10 @@ export default defineConfig({
   base: BASE_PATH,
   integrations: [
     icon(),
+    pagefind(),
     CoverImageDownloader(),
     CustomIconDownloader(),
     FeaturedImageDownloader(),
     PublicNotionCopier(),
-    icon(),
-    pagefind(),
   ],
 });
