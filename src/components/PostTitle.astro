@@ -12,9 +12,9 @@ const { post, enableLink = true } = Astro.props
 let title = post.Title
 ---
 
-<h2 class="post-title">
-  {
-    enableLink ? (
+{
+  enableLink ? (
+    <h2 class="post-title">
       <a href={getPostLink(post.Slug)}>
         {post.Icon && post.Icon.Type === 'emoji' ? (
           <>
@@ -30,7 +30,9 @@ let title = post.Title
           title
         )}
       </a>
-    ) : (
+    </h2>
+  ) : (
+    <h1 class="post-title" data-pagefind-meta="title">
       <div>
         {post.Icon && post.Icon.Type === 'emoji' ? (
           <>
@@ -46,9 +48,9 @@ let title = post.Title
           title
         )}
       </div>
-    )
-  }
-</h2>
+    </h1>
+  )
+}
 
 <style>
   .post-title {

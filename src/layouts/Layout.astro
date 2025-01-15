@@ -102,12 +102,10 @@ if (database.Icon && database.Icon.Type === 'file') {
     <GoogleAnalytics trackingId={PUBLIC_GA_TRACKING_ID} />
     <div class="container" onclick="">
       <header class="site-header">
-        <h1>
-          <a href={getNavLink('/')}>
+        <a href={getNavLink('/')}>
             <div class="custom-icon"></div>
             <div class="coversvg"></div>
-          </a>
-        </h1>
+        </a>
         <div class="header_button_wrapper">
           <Navigation />
           <Darkmode />
@@ -164,6 +162,19 @@ if (database.Icon && database.Icon.Type === 'file') {
   header.hide {
     translatey: -100%;
     opacity: 0;
+  }
+
+  header > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    padding: 5px 5px 5px 3px;
+    border-radius: 8px;
+  }
+
+  header > a:hover {
+    background: var(--bg2);
   }
 
   main {
@@ -226,19 +237,6 @@ if (database.Icon && database.Icon.Type === 'file') {
     .header_button_wrapper {
       gap: 4px;
     }
-  }
-
-  header > h1 > a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 100%;
-    padding: 5px 5px 5px 3px;
-    border-radius: 8px;
-  }
-
-  header > h1 > a:hover {
-    background: var(--bg2);
   }
 
   div.content {
@@ -388,14 +386,7 @@ if (database.Icon && database.Icon.Type === 'file') {
   h1 {
     margin: 0;
     color: var(--fg);
-    font-size: 2rem;
     font-weight: 700;
-  }
-
-  @media (max-width: 640px) {
-    h1 {
-      font-size: 1.6rem;
-    }
   }
 
   ol {

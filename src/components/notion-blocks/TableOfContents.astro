@@ -13,7 +13,7 @@ const { block, headings } = Astro.props
 ---
 
 <div class="table-of-contents">
-  <h3>目次</h3>
+  <h2>目次</h2>
   {
     headings.map((headingBlock: interfaces.Block) => {
       const heading =
@@ -61,7 +61,7 @@ const { block, headings } = Astro.props
   .table-of-contents > a.indent-2 {
     padding-left: 3rem;
   }
-  h3 {
+  h2 {
     margin: 3rem 0 0.7rem;
     color: var(--fg);
     font-size: 1.8rem;
@@ -69,7 +69,7 @@ const { block, headings } = Astro.props
     padding-bottom: 0.5rem;
   }
   @media (max-width: 640px) {
-    h3 {
+    h2 {
       font-size: 1.3rem;
     }
   }

@@ -20,11 +20,11 @@ const id = buildHeadingId(block.Heading2)
     <details class="toggle">
       <summary>
         <a href={`#${id}`} id={id}>
-          <h4 class="heading2" data-section={id}>
+          <h3 class="heading2" data-section={id}>
             {block.Heading2.RichTexts.map((richText: interfaces.RichText) => (
               <RichText richText={richText} />
             ))}
-          </h4>
+          </h3>
         </a>
         <Icon name="mingcute:down-line" />
       </summary>
@@ -36,32 +36,32 @@ const id = buildHeadingId(block.Heading2)
     </details>
   ) : (
     <a href={`#${id}`} id={id}>
-      <h4 class="heading2" data-section={id}>
+      <h3 class="heading2" data-section={id}>
         {block.Heading2.RichTexts.map((richText: interfaces.RichText) => (
           <RichText richText={richText} />
         ))}
-      </h4>
+      </h3>
     </a>
   )
 }
 
 <style>
-  h4 {
+  .heading2 {
     margin: 3rem 0 1.1rem;
     color: var(--fg);
     font-size: 1.5rem;
   }
   @media (max-width: 640px) {
-    h4 {
+    .heading2 {
       font-size: 1.2rem;
     }
   }
-  h4::before {
+  .heading2::before {
     content: "##";
     color: #dfdfde;
     margin-right: 8px;
   }
-  h4:hover::before {
+  .heading2:hover::before {
     color: #787774;
   }
 
@@ -93,7 +93,7 @@ const id = buildHeadingId(block.Heading2)
     display: inline;
   }
 
-  .toggle > summary > a > h4 {
+  .toggle > summary > a > .heading2 {
     display: inline;
   }
 

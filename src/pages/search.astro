@@ -4,7 +4,7 @@ import Search from "astro-pagefind/components/Search";
 ---
 <Layout title="検索" path="/search">
   <div slot="main">
-    <h2 class="blog-label">検索</h2>
+    <h1>検索</h1>
     <Search
       id="search"
       className="pagefind-ui"
@@ -31,7 +31,7 @@ import Search from "astro-pagefind/components/Search";
 </Layout>
 
 <style>
-  h2 {
+  h1 {
     margin: 0 0 0.7rem;
     font-size: 2.25rem;
     font-weight: 700;
@@ -39,7 +39,7 @@ import Search from "astro-pagefind/components/Search";
     line-height: 1.3;
   }
   @media (max-width: 640px) {
-    h2 {
+    h1 {
       font-size: 1.875rem;
     }
   }

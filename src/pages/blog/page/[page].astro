@@ -40,7 +40,7 @@ const [posts, rankedPosts, tags, numberOfPages] = await Promise.all([
 <Layout title={`ブログ (${page}/${numberOfPages})`} path={`/blog/page/${page}`}>
   <div slot="main">
     <div class="head-wrapper">
-      <h2 class="blog-label">ブログ</h2>
+      <h1>ブログ</h1>
       <BlogTagsLink tags={tags} />
     </div>
     <div class="card-wrapper">
@@ -83,7 +83,7 @@ const [posts, rankedPosts, tags, numberOfPages] = await Promise.all([
 </Layout>
 
 <style>
-  .blog-label {
+  h1 {
     margin: 0 0 0.7rem;
     font-size: 2.25rem;
     font-weight: 700;
@@ -91,7 +91,7 @@ const [posts, rankedPosts, tags, numberOfPages] = await Promise.all([
     line-height: 1.3;
   }
   @media (max-width: 640px) {
-    .blog-label {
+    h1 {
       font-size: 1.875rem;
     }
   }
