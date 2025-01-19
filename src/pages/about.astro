@@ -11,6 +11,7 @@ import {
 } from '../lib/notion/client.ts'
 import { extractTargetBlocks } from '../lib/blog-helpers.ts'
 import ContentList from '../components/ContentList.astro'
+import '../styles/dialog-toc.css'
 
 const blocks = await getAllBlocksByBlockId(INDEX_PAGE_ID)
 
@@ -52,14 +53,23 @@ await Promise.all(
 
 <Layout title="About" path="/about">
   <div slot="main">
-    <div class="head-wrapper">
+    <div class="head-area">
       <h1>About</h1>
       <AboutLinks />
     </div>
-    <div class="body-wrapper">
+    <div class="body-area">
       <AboutBody blocks={blocks} />
       <ContentList blocks={blocks} />
     </div>
+
+    <button id="openButton">目次</button>
+    <dialog id="modalDialog" class="dialog">
+      <div id="dialogInputArea">
+        <div id="dialog-container">
+          <ContentList blocks={blocks} />
+        </div>
+      </div>
+    </dialog>
   </div>
 </Layout>
 
@@ -76,13 +86,17 @@ await Promise.all(
       font-size: 1.875rem;
     }
   }
-  .body-wrapper {
+  .body-area {
     padding-bottom: 3rem;
   }
   @media (min-width: 801px) {
-    .body-wrapper {
+    .body-area {
       display: flex;
       gap: 60px;
     }
   }
 </style>
+
+<script>
+  import '../scripts/dialog.js'
+</script>

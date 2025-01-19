@@ -1,0 +1,58 @@
+#openButton {
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  padding: 8px 10px;
+  z-index: 1;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 5px 15px #001b443b;
+  color: var(--fg);
+}
+#openButton:hover {
+  background: var(--bg2);
+}
+@media (min-width: 801px) {
+  #openButton {
+    display: none;
+  }
+}
+
+.dialog {
+  box-shadow: 0 5px 15px #001b443b;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+.dialog:-internal-dialog-in-top-layer {
+  position: fixed;
+  inset-block-start: unset;
+  inset-block-end: unset;
+  right: 15px;
+  bottom: 70px;
+  margin: 0 0 0 auto;
+  padding: 0.2em 1em;
+  max-height: 80vh;
+  background: var(--bg);
+}
+.dialog:-internal-dialog-in-top-layer::backdrop {
+  background: unset;
+}
+.dialog:-internal-dialog-in-top-layer::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  } to {
+    opacity: 1;
+  }
+}
+.dialog[open] {
+  display: unset;
+  animation-name: fadeIn;
+  animation-fill-mode: forwards;
+  animation-duration: 100ms;
+  animation-timing-function: ease-out;
+}

@@ -166,8 +166,14 @@ const { blocks } = Astro.props
   .ul-depth-1 li a:hover, .ul-depth-1 li.active a {
     color: var(--fg);
   }
+  
+  .content-list::-webkit-scrollbar {
+    display: none;
+  }
+</style>
 
-  .content-list {
+<style is:global>
+  .body-area .content-list {
     position: sticky;
     width: 25%;
     top: 5rem;
@@ -178,13 +184,17 @@ const { blocks } = Astro.props
     overflow-y: auto;
     max-height: 80vh;
   }
-  .content-list::-webkit-scrollbar {
-    display: none;
-  }
   @media (max-width: 800px) {
-    .content-list {
+    .body-area .content-list {
       display: none;
     }
+  }
+
+  #dialog-container .content-list {
+    overflow-y: auto;
+  }
+  #dialog-container .toc-label {
+    display: none;
   }
 </style>
 

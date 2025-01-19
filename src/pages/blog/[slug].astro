@@ -25,6 +25,7 @@ import PostRelativeLink from '../../components/PostRelativeLink.astro'
 import { Icon } from 'astro-icon/components'
 import PostUpdateDate from '../../components/PostUpdateDate.astro'
 import ContentList from '../../components/ContentList.astro'
+import '../../styles/dialog-toc.css'
 
 export async function getStaticPaths() {
   const posts = await getAllPosts()
@@ -117,33 +118,41 @@ if (post.FeaturedImage && post.FeaturedImage.Url) {
         </div>
       </article>
 
-      <footer>
-        <div class="share-area">
-          <a id="js-share-x" class="share_button share_x" href="" target="_blank" rel="nofollow noopener noreferrer">
-            <Icon name="simple-icons:x" />
-          </a>
-          <a id="js-share-bluesky" class="share_button share_bluesky" href="" target="_blank" rel="nofollow noopener noreferrer">
-           <Icon name="simple-icons:bluesky" />
-          </a>
-          <a id="js-share-misskey" class="share_button share_misskey" href="" target="_blank" rel="nofollow noopener noreferrer">
-            <Icon name="simple-icons:misskey" />
-          </a>
-          <a id="js-share-mastodon" class="share_button share_mastodon" href="" target="_blank" rel="nofollow noopener noreferrer">
-           <Icon name="simple-icons:mastodon" />
-          </a>
-          <a id="js-share-threads" class="share_button share_threads" href="" target="_blank" rel="nofollow noopener noreferrer">
-            <Icon name="simple-icons:threads" />
-          </a>
-          <a id="js-share-pocket" class="share_button share_pocket" href="" target="_blank" rel="nofollow noopener noreferrer">
-            <Icon name="simple-icons:pocket" />
-          </a>
-          <a id="js-share-hatena" class="share_button share_hatena" href="" target="_blank" rel="nofollow noopener noreferrer">
-            <Icon name="simple-icons:hatenabookmark" />
-          </a>
-        </div>
-        <PostRelativeLink prevPost={prevPost} nextPost={nextPost} />
-      </footer>
+      <div class="share-area">
+        <a id="js-share-x" class="share_button share_x" href="" target="_blank" rel="nofollow noopener noreferrer">
+          <Icon name="simple-icons:x" />
+        </a>
+        <a id="js-share-bluesky" class="share_button share_bluesky" href="" target="_blank" rel="nofollow noopener noreferrer">
+          <Icon name="simple-icons:bluesky" />
+        </a>
+        <a id="js-share-misskey" class="share_button share_misskey" href="" target="_blank" rel="nofollow noopener noreferrer">
+          <Icon name="simple-icons:misskey" />
+        </a>
+        <a id="js-share-mastodon" class="share_button share_mastodon" href="" target="_blank" rel="nofollow noopener noreferrer">
+          <Icon name="simple-icons:mastodon" />
+        </a>
+        <a id="js-share-threads" class="share_button share_threads" href="" target="_blank" rel="nofollow noopener noreferrer">
+          <Icon name="simple-icons:threads" />
+        </a>
+        <a id="js-share-pocket" class="share_button share_pocket" href="" target="_blank" rel="nofollow noopener noreferrer">
+          <Icon name="simple-icons:pocket" />
+        </a>
+        <a id="js-share-hatena" class="share_button share_hatena" href="" target="_blank" rel="nofollow noopener noreferrer">
+          <Icon name="simple-icons:hatenabookmark" />
+        </a>
+      </div>
+      <PostRelativeLink prevPost={prevPost} nextPost={nextPost} />
     </div>
+
+    <button id="openButton">目次</button>
+    <dialog id="modalDialog" class="dialog">
+      <div id="dialogInputArea">
+        <div id="dialog-container">
+          <ContentList blocks={blocks} />
+        </div>
+      </div>
+    </dialog>
+
   </div>
 </Layout>
 
@@ -217,6 +226,8 @@ if (post.FeaturedImage && post.FeaturedImage.Url) {
 </style>
 
 <script>
+  import '../../scripts/dialog.js'
+
   const share_url = location.href;
   const share_title = document.title;
   const share_hostpath = location.host + location.pathname;
