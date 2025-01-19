@@ -2,12 +2,14 @@
   position: fixed;
   right: 15px;
   bottom: 15px;
-  padding: 8px 10px;
+  padding: 8px 10px 9px;
   z-index: 1;
   background: var(--bg);
   border: 1px solid var(--border);
   border-radius: 8px;
   box-shadow: 0 5px 15px #001b443b;
+  font-family: "Inter", "Noto Sans JP", sans-serif;
+  font-size: 14px;
   color: var(--fg);
 }
 #openButton:hover {
@@ -23,8 +25,6 @@
   box-shadow: 0 5px 15px #001b443b;
   border-radius: 8px;
   border: 1px solid var(--border);
-}
-.dialog:-internal-dialog-in-top-layer {
   position: fixed;
   inset-block-start: unset;
   inset-block-end: unset;
@@ -35,10 +35,10 @@
   max-height: 80vh;
   background: var(--bg);
 }
-.dialog:-internal-dialog-in-top-layer::backdrop {
+.dialog::backdrop {
   background: unset;
 }
-.dialog:-internal-dialog-in-top-layer::-webkit-scrollbar {
+.dialog::-webkit-scrollbar {
   display: none;
 }
 
