@@ -2,7 +2,7 @@
   position: fixed;
   right: 15px;
   bottom: 15px;
-  padding: 8px 10px 9px;
+  padding: 8px 10px 10px;
   z-index: 1;
   background: var(--bg);
   border: 1px solid var(--border);
