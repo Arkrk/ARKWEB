@@ -172,7 +172,7 @@ export const buildHeadingId = (heading: Heading1 | Heading2 | Heading3) => {
     if (!richText.Text) {
       return ''
     }
-    return richText.Text.Content
+    return (richText.Text.Content).replace(/\s+/g, '-')
   })
     .join()
     .trim()
