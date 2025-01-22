@@ -19,8 +19,8 @@ const id = buildHeadingId(block.Heading3)
   block.Heading3.IsToggleable ? (
     <details class="toggle">
       <summary>
-        <a href={`#${id}`} id={id}>
-          <h4 class="heading3" data-section={id}>
+        <a href={`#${id}`}>
+          <h4 class="heading3" data-section={id} id={id}>
             {block.Heading3.RichTexts.map((richText: interfaces.RichText) => (
               <RichText richText={richText} />
             ))}
@@ -35,8 +35,8 @@ const id = buildHeadingId(block.Heading3)
       </div>
     </details>
   ) : (
-    <a href={`#${id}`} id={id}>
-      <h4 class="heading3" data-section={id}>
+    <a href={`#${id}`}>
+      <h4 class="heading3" data-section={id} id={id}>
         {block.Heading3.RichTexts.map((richText: interfaces.RichText) => (
           <RichText richText={richText} />
         ))}

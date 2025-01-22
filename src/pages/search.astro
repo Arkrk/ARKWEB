@@ -10,19 +10,20 @@ import Search from "astro-pagefind/components/Search";
       className="pagefind-ui"
       uiOptions={{
         pageSize: 20,
-        excerptLength: 100,
+        excerptLength: 30,
+        showSubResults : true,
         showImages: false,
         translations: {
           placeholder: '何をお探しですか？',
           clear_search: '✕',
           search_label: 'このサイトを検索',
           filters_label: 'フィルタ',
-          zero_results: '"[SEARCH_TERM]" の検索結果（0件）',
-          many_results: '"[SEARCH_TERM]" の検索結果（[COUNT]件）',
-          one_result: '"[SEARCH_TERM]" の検索結果（[COUNT]件）',
-          alt_search: '"[SEARCH_TERM]" に一致する検索結果はありません。[DIFFERENT_TERM] の結果を表示しています。',
-          search_suggestion: '"[SEARCH_TERM]" に一致する検索結果はありません。次のいずれかの検索をお試しください。',
-          searching: '"[SEARCH_TERM]" を検索しています…',
+          zero_results: '“[SEARCH_TERM]” の検索結果（0件）',
+          many_results: '“[SEARCH_TERM]” の検索結果（[COUNT]件）',
+          one_result: '“[SEARCH_TERM]” の検索結果（[COUNT]件）',
+          alt_search: '“[SEARCH_TERM]” に一致する検索結果はありません。[DIFFERENT_TERM] の結果を表示しています。',
+          search_suggestion: '“[SEARCH_TERM]” に一致する検索結果はありません。次のいずれかの検索をお試しください。',
+          searching: '“[SEARCH_TERM]” を検索しています…',
           load_more: 'さらに表示',
         },
       }}
