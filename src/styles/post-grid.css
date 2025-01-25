@@ -16,12 +16,12 @@
 }
 .grid-parts {
   position: relative;
-  border: solid 1px #dfdfde;
+  border: 1px solid var(--border);
   border-radius: 8px;
   overflow: hidden;
 }
 .grid-parts:hover {
-  background: #f7f6f3;
+  background: var(--bg2);
 }
 .grid-parts svg {
   width: 18px;

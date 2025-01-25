@@ -69,14 +69,6 @@ if (database.Icon && database.Icon.Type === 'file') {
     <meta name="twitter:description" content={siteDescription} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content={ogImage || siteOGImage} />
-    <script type="application/ld+json">
-      {
-       "@context": "https://schema.org",
-       "@type": "WebSite",
-       "name": "ARKWEB",
-       "url": "https://arkxv.com/"
-      }
-    </script>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
@@ -260,7 +252,7 @@ if (database.Icon && database.Icon.Type === 'file') {
     display: block;
     height: 1px;
     width: 183px;
-    background: #dfdfde;
+    background: var(--border);
     margin-bottom: 20px;
   }
   .copyright {
@@ -379,7 +371,7 @@ if (database.Icon && database.Icon.Type === 'file') {
 
   mark {
     padding: var(--gap-quarter);
-    border-radius: var(--radius);
+    border-radius: 4px;
     background: rgba(247, 212, 255, 0.8);
   }
 
@@ -390,13 +382,13 @@ if (database.Icon && database.Icon.Type === 'file') {
   }
 
   ol {
-    color: #222;
+    color: var(--fg);
     font-weight: 400;
     font-size: 0.9rem;
     line-height: 1.8rem;
   }
   p, ul {
-    color: #222;
+    color: var(--fg);
     font-weight: 400;
     font-size: 1rem;
     line-height: 1.8rem;
@@ -426,7 +418,7 @@ if (database.Icon && database.Icon.Type === 'file') {
   code {
     font-size: 0.9rem;
     padding: 0.25rem;
-    border-radius: var(--radius);
+    border-radius: 4px;
     font-family: var(--font-mono);
   }
 
@@ -448,7 +440,7 @@ if (database.Icon && database.Icon.Type === 'file') {
     padding: 0.5rem 2rem 0.5rem 0;
     text-align: left;
     line-height: 1.2rem;
-    border-bottom: solid 1px #dfdfde;
+    border-bottom: 1px solid var(--border);
   }
   table tr:last-child td, table tr:last-child th {
     border-bottom: none;

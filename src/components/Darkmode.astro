@@ -30,44 +30,11 @@ layout.astro
   --border2: #707070;
   --bg2: #252525;
 }
-.darkmode header h1 {
-  color: var(--fg);
-}
-.darkmode aside {
-  background: var(--bg2);
-  color: var(--fg);
-}
-.darkmode footer::before {
-  background: #373737 !important;
- }
 .darkmode .system, .darkmode .system > a {
   color: #9b9b9b !important;
 }
 .darkmode .system > a:hover {
   color: var(--accents-4) !important;
-}
-
-/* --------------------
-pages/blog/index.astro
--------------------- */
-.darkmode .all-posts {
-  color: var(--fg) !important;
-}
-.darkmode .all-posts:hover {
-  background: var(--bg2) !important;
-}
-
-/* --------------------
-pages/blog/index.astro
--------------------- */
-.darkmode .read-more-link a {
-  color: var(--fg);
-}
-.darkmode .grid-parts {
-  border: solid 1px #373737 !important;
-}
-.darkmode .grid-parts:hover {
-  background: var(--bg2) !important;
 }
 
 /* --------------------
@@ -109,34 +76,15 @@ Pagination.astro
 }
 
 /* --------------------
-Bookmark.astro
--------------------- */
-.darkmode .bookmark > a {
-  border: 1px solid #373737 !important;
-}
-.darkmode .bookmark > a:hover {
-  background: var(--bg2) !important;
-}
-
-/* --------------------
-BulletedListItems.astro
--------------------- */
-.darkmode li {
-  color: var(--fg);
-}
-
-/* --------------------
 Code.astro
 -------------------- */
 .darkmode .code button.copy {
-  background-color: #303030 !important;
-  color: var(--fg) !important;
+  background: #303030 !important;
 }
 .darkmode .code button.copy:hover {
   background: #363636 !important;
 }
 .darkmode .code pre {
-  background: var(--bg2) !important;
   &::-webkit-scrollbar {
     height: 8px;
   }
@@ -147,36 +95,12 @@ Code.astro
     background: #595f64 !important;
   }
 }
-.darkmode .code pre code {
-  color: var(--fg);
-}
 
 /* --------------------
 Caption.astro
 -------------------- */
 .darkmode .caption {
   color: #9b9b9b !important;
-}
-
-/* --------------------
-Divider.astro
--------------------- */
-.darkmode .divider {
-  background-color: #373737 !important;
-}
-
-/* --------------------
-File.astro
--------------------- */
-.darkmode .file a:hover {
-  background-color: var(--bg2) !important;
-}
-
-/* --------------------
-Paragraph.astro
--------------------- */
-.darkmode p {
-  color: var(--fg);
 }
 
 /* --------------------
@@ -189,15 +113,6 @@ SyncedBlock.astro
 /* --------------------
 Table.astro
 -------------------- */
-.darkmode table {
-  color: var(--fg);
-}
-.darkmode table td, .darkmode table th {
-  border-bottom: solid 1px #373737 !important;
-}
-.darkmode table tr:last-child td, .darkmode table tr:last-child th {
-  border-bottom: none !important;
-}
 .darkmode .table table {
   &::-webkit-scrollbar {
     height: 8px;
@@ -216,93 +131,24 @@ TableOfContents.astro
 .darkmode .table-of-contents > a {
   color: #9b9b9b;
 }
-.darkmode .table-of-contents > a:hover {
-  background: var(--bg2) !important;
-}
 
 /* --------------------
 ContentList.astro
 -------------------- */
-.darkmode .body-area .content-list {
-  border: solid 1px #373737 !important;
-}
 .darkmode .ul-depth-1 li a {
   color: #9b9b9b !important;
 }
-.darkmode .ul-depth-1 li a:hover, .darkmode .ul-depth-1 li.active a {
-  color: var(--fg) !important;
-}
 
 /* --------------------
-ToDo.astro
+tooltip.css
 -------------------- */
-.darkmode .to-do {
-  color: var(--fg) !important;
-}
-
-/* --------------------
-Mention.astro
--------------------- */
-.darkmode a.link:hover {
-  background: var(--bg2) !important;
-}
-
-/* --------------------
-PostRelativeLink.astro
--------------------- */
-.darkmode .post-relative-link > div > a.colored:hover {
-  background: var(--bg2) !important;
-}
-
-/* --------------------
-BlogPostsLink.astro
--------------------- */
-.darkmode .blog-posts-link ul li a:hover {
-  background-color: var(--bg2) !important;
-}
-.darkmode .blog-posts-link h2 {
-  color: var(--fg) !important;
-}
-
-/* --------------------
-BlogTagsLink.astro
--------------------- */
-.darkmode .blog-tags-link a {
-  border: solid 1px #373737 !important;
-}
-.darkmode .blog-tags-link a:hover {
-  background: var(--bg2) !important;
-}
-
-/* --------------------
-Navigation.astro
--------------------- */
-.darkmode nav > a:hover {
-  background: var(--bg2) !important;
-}
 .darkmode .tooltip {
   background: #323232 !important;
 }
 
 /* --------------------
-RssButton.astro
--------------------- */
-.darkmode [data-icon="mingcute:rss-2-line"] {
-  color: var(--fg) !important;
-}
-.darkmode .rss-button:hover {
-  background: var(--bg2) !important;
-}
-
-/* --------------------
 scroll-links
 -------------------- */
-.darkmode .scroll-links a {
-  border: solid 1px #373737 !important;
-}
-.darkmode .scroll-links a:hover {
-  background: var(--bg2) !important;
-}
 .darkmode .scroll-links [data-icon="simple-icons:x"] {
   color: #fffffc !important;
 }
@@ -311,29 +157,12 @@ scroll-links
 }
 
 /* --------------------
-SearchModal.astro
+Heading1, 2.astro
 -------------------- */
-.darkmode div.search-result ul > li.selected > a {
-  background-color: rgba(32, 32, 32, 1) !important;
-}
-
-/* --------------------
-Heading1.astro
--------------------- */
-.darkmode .heading1::before {
+.darkmode .heading1::before, .darkmode .heading2::before {
   color: #373737 !important;
 }
-.darkmode .heading1:hover::before {
-  color: #9b9b9b !important;
-}
-
-/* --------------------
-Heading2.astro
--------------------- */
-.darkmode .heading2::before {
-  color: #373737 !important;
-}
-.darkmode .heading2:hover::before {
+.darkmode .heading1:hover::before, .darkmode .heading2:hover::before {
   color: #9b9b9b !important;
 }
 
