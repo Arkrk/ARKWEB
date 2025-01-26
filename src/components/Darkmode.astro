@@ -55,13 +55,6 @@ posts/[slug].astro
 }
 
 /* --------------------
-tag/[tag].astro
--------------------- */
-.darkmode [data-icon="mingcute:filter-fill"] {
-  color: var(--fg) !important;
-}
-
-/* --------------------
 dialog-toc
 -------------------- */
 .darkmode .dialog, .darkmode #openButton {
@@ -104,13 +97,6 @@ Caption.astro
 }
 
 /* --------------------
-SyncedBlock.astro
--------------------- */
-.darkmode .callout.blue-background {
-  background: #1D282E !important;
-}
-
-/* --------------------
 Table.astro
 -------------------- */
 .darkmode .table table {
@@ -137,6 +123,9 @@ ContentList.astro
 -------------------- */
 .darkmode .ul-depth-1 li a {
   color: #9b9b9b !important;
+}
+.darkmode .ul-depth-1 li a:hover, .darkmode .ul-depth-1 li.active a {
+  color: var(--fg) !important;
 }
 
 /* --------------------
@@ -207,31 +196,59 @@ notion-color.css
 }
 
 .darkmode .gray-background {
-  background: #303030 !important;
+  background: rgba(144, 144, 144, 0.05) !important;
 }
 .darkmode .brown-background {
-  background: #2f2723 !important;
+  background: rgba(202, 67, 0, 0.05) !important;
 }
 .darkmode .orange-background {
-  background: #38281e !important;
+  background: rgba(255, 98, 0, 0.05) !important;
 }
 .darkmode .yellow-background {
-  background: #392e1e !important;
+  background: rgba(255, 153, 0, 0.05) !important;
 }
 .darkmode .green-background {
-  background: #222b26 !important;
+  background: rgba(0, 255, 115, 0.05) !important;
 }
 .darkmode .blue-background {
-  background: #1d282e !important;
+  background: rgba(0, 166, 255, 0.05) !important;
 }
 .darkmode .purple-background {
-  background: #2b2431 !important;
+  background: rgba(195, 0, 255, 0.05) !important;
 }
 .darkmode .pink-background {
-  background: #302228 !important;
+  background: rgba(255, 0, 111, 0.05) !important;
 }
 .darkmode .red-background {
-  background: #362422 !important;
+  background: rgba(255, 25, 0, 0.05) !important;
+}
+
+.darkmode .callout.gray-background {
+  border: 1px solid rgba(144, 144, 144, 0.125) !important;
+}
+.darkmode .callout.brown-background {
+  border: 1px solid rgba(202, 67, 0, 0.125) !important;
+}
+.darkmode .callout.orange-background {
+  border: 1px solid rgba(255, 98, 0, 0.125) !important;
+}
+.darkmode .callout.yellow-background {
+  border: 1px solid rgba(255, 153, 0, 0.125) !important;
+}
+.darkmode .callout.green-background {
+  border: 1px solid rgba(0, 255, 115, 0.125) !important;
+}
+.darkmode .callout.blue-background {
+  border: 1px solid rgba(0, 166, 255, 0.125) !important;
+}
+.darkmode .callout.purple-background {
+  border: 1px solid rgba(195, 0, 255, 0.125) !important;
+}
+.darkmode .callout.pink-background {
+  border: 1px solid rgba(255, 0, 111, 0.125) !important;
+}
+.darkmode .callout.red-background {
+  border: 1px solid rgba(255, 25, 0, 0.125) !important;
 }
 
 .darkmode .tag.default {

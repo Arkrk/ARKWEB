@@ -34,32 +34,61 @@
 .red:hover {
   color: rgba(212, 76, 71, 1);
 }
+
 .gray-background {
-  background: rgba(235, 235, 235, 1) !important;
+  background: rgba(83, 83, 83, 0.08) !important;
 }
 .brown-background {
-  background: rgba(244, 238, 238, 1) !important;
+  background: rgba(134, 74, 43, 0.08) !important;
 }
 .orange-background {
-  background: rgba(251, 236, 221, 1) !important;
+  background: rgba(255, 128, 0, 0.08) !important;
 }
 .yellow-background {
-  background: rgba(251, 243, 219, 1) !important;
+  background: rgba(255, 191, 0, 0.08) !important;
 }
 .green-background {
-  background: rgba(237, 243, 236, 1) !important;
+  background: rgba(0, 255, 123, 0.08) !important;
 }
 .blue-background {
-  background: rgba(231, 243, 248, 1) !important;
+  background: rgba(0, 179, 255, 0.08) !important;
 }
 .purple-background {
-  background: rgba(244, 240, 247, 0.8) !important;
+  background: rgba(144, 0, 255, 0.08) !important;
 }
 .pink-background {
-  background: rgba(249, 238, 243, 0.8) !important;
+  background: rgba(255, 0, 115, 0.08) !important;
 }
 .red-background {
-  background: rgba(253, 235, 236, 1) !important;
+  background: rgba(255, 0, 13, 0.08) !important;
+}
+
+.callout.gray-background {
+  border: 1px solid rgba(83, 83, 83, 0.2) !important;
+}
+.callout.brown-background {
+  border: 1px solid rgba(134, 74, 43, 0.2) !important;
+}
+.callout.orange-background {
+  border: 1px solid rgba(255, 128, 0, 0.2) !important;
+}
+.callout.yellow-background {
+  border: 1px solid rgba(255, 191, 0, 0.3) !important;
+}
+.callout.green-background {
+  border: 1px solid rgba(0, 255, 123, 0.3) !important;
+}
+.callout.blue-background {
+  border: 1px solid rgba(0, 179, 255, 0.2) !important;
+}
+.callout.purple-background {
+  border: 1px solid rgba(144, 0, 255, 0.2) !important;
+}
+.callout.pink-background {
+  border: 1px solid rgba(255, 0, 115, 0.2) !important;
+}
+.callout.red-background {
+  border: 1px solid rgba(255, 0, 13, 0.2) !important;
 }
 
 .tag.light-gray {
