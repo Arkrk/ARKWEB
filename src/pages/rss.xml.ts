@@ -24,6 +24,6 @@ export async function GET() {
       description: post.Excerpt,
       pubDate: new Date(post.Date),
     })),
-    customData: `<language>ja</language>`,
+    customData: `<atom:link href="https://arkxv.com/rss.xml" rel="self" type="application/rss+xml" /><language>ja</language>`,
   })
 }
