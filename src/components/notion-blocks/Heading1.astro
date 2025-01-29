@@ -60,11 +60,11 @@ const id = buildHeadingId(block.Heading1)
   }
   .heading1::before {
     content: "#";
-    color: #dfdfde;
+    color: var(--border);
     margin-right: 8px;
   }
   .heading1:hover::before {
-    color: #787774;
+    color: var(--fg2);
   }
 
   .toggle {

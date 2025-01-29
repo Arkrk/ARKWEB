@@ -130,7 +130,7 @@ const { blocks } = Astro.props
     background: var(--accents-6);
     border: 2px solid var(--bg);
   }
-  .ul-depth-1 li.depth-1.active::before {
+  .ul-depth-1 li.depth-1.current::before {
     background: var(--accents-4);
     border-color: var(--accents-6);
   }
@@ -146,7 +146,7 @@ const { blocks } = Astro.props
     background: var(--accents-7);
     border: 2px solid var(--bg);
   }
-  .ul-depth-1 li.depth-2.active::before {
+  .ul-depth-1 li.depth-2.current::before {
     background: var(--accents-4);
     border-color: var(--accents-4);
   }
@@ -157,11 +157,14 @@ const { blocks } = Astro.props
     max-height: 3.05em;
     margin: 10px 0;
     overflow: hidden;
-    color: #7d7c78;
+    color: var(--fg2);
     transition: none;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     display: -webkit-box;
+  }
+  .ul-depth-1 li.current a {
+    color: var(--fg);
   }
   @media (hover: hover) {
     .ul-depth-1 li a:hover {
@@ -173,10 +176,7 @@ const { blocks } = Astro.props
       color: var(--fg);
     }
   }
-  .ul-depth-1 li.active a {
-    color: var(--fg);
-  }
-  
+
   .content-list::-webkit-scrollbar {
     display: none;
   }
@@ -218,12 +218,12 @@ const { blocks } = Astro.props
         entries.forEach((entry) => {
           if (entry.isIntersecting && entry.boundingClientRect.top <= 0) {
             navLinks.forEach((navLink) => {
-              navLink.classList.remove('active')
+              navLink.classList.remove('current')
               if (
                 entry.target.getAttribute('data-section') ===
                 navLink.querySelector('a').getAttribute('href').substring(1)
               ) {
-                navLink.classList.add('active')
+                navLink.classList.add('current')
               }
             })
           }

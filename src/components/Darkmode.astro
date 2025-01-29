@@ -18,9 +18,9 @@ layout.astro
 -------------------- */
 :root.darkmode {
   --bg: #191919;
+  --bg2: #252525;
   --fg: #ddd;
-  --accents-1: #9c9c9c;
-  --accents-2: #f26000;
+  --fg2: #9b9b9b;
   --accents-3: #474c50;
   --accents-4: #c29f6c;
   --accents-5: #dba95e;
@@ -28,25 +28,11 @@ layout.astro
   --accents-7: #4d4435;
   --border: #373737;
   --border2: #707070;
-  --bg2: #252525;
-}
-.darkmode .system, .darkmode .system > a {
-  color: #9b9b9b !important;
-}
-.darkmode .system > a:hover {
-  color: var(--accents-4) !important;
 }
 
 /* --------------------
 posts/[slug].astro
 -------------------- */
-.darkmode .content h1 {
-  color: var(--fg);
-}
-.darkmode .share-area {
-  border-top: 1px solid #373737 !important;
-  border-bottom: 1px solid #373737 !important;
-}
 .darkmode .share-area [data-icon="simple-icons:x"]:hover {
   color: #fffffc !important;
 }
@@ -97,13 +83,6 @@ Code.astro
 }
 
 /* --------------------
-Caption.astro
--------------------- */
-.darkmode .caption {
-  color: #9b9b9b !important;
-}
-
-/* --------------------
 Table.astro
 -------------------- */
 .darkmode .table table {
@@ -116,23 +95,6 @@ Table.astro
   &::-webkit-scrollbar-thumb:hover {
     background: #595f64 !important;
   }
-}
-
-/* --------------------
-TableOfContents.astro
--------------------- */
-.darkmode .table-of-contents > a {
-  color: #9b9b9b;
-}
-
-/* --------------------
-ContentList.astro
--------------------- */
-.darkmode .ul-depth-1 li a {
-  color: #9b9b9b !important;
-}
-.darkmode .ul-depth-1 li a:hover, .darkmode .ul-depth-1 li.active a {
-  color: var(--fg) !important;
 }
 
 /* --------------------
@@ -150,16 +112,6 @@ scroll-links
 }
 .darkmode .scroll-links [data-icon="simple-icons:threads"] {
   color: #f3f5f7 !important;
-}
-
-/* --------------------
-Heading1, 2.astro
--------------------- */
-.darkmode .heading1::before, .darkmode .heading2::before {
-  color: #373737 !important;
-}
-.darkmode .heading1:hover::before, .darkmode .heading2:hover::before {
-  color: #9b9b9b !important;
 }
 
 /* --------------------
