@@ -163,7 +163,17 @@ const { blocks } = Astro.props
     -webkit-line-clamp: 2;
     display: -webkit-box;
   }
-  .ul-depth-1 li a:hover, .ul-depth-1 li.active a {
+  @media (hover: hover) {
+    .ul-depth-1 li a:hover {
+      color: var(--fg);
+    }
+  }
+  @media (hover: none) {
+    .ul-depth-1 li a:active {
+      color: var(--fg);
+    }
+  }
+  .ul-depth-1 li.active a {
     color: var(--fg);
   }
   

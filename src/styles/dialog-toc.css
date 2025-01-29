@@ -12,8 +12,15 @@
   font-size: 14px;
   color: var(--fg);
 }
-#openButton:hover {
-  background: var(--bg2);
+@media (hover: hover) {
+  #openButton:hover {
+    background: var(--bg2);
+  }
+}
+@media (hover: none) {
+  #openButton:active {
+    background: var(--bg2);
+  }
 }
 @media (min-width: 801px) {
   #openButton {

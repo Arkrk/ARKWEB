@@ -34,9 +34,15 @@ import { Icon } from 'astro-icon/components'
     padding: 4.5px;
     gap: 4px;
   }
-  a:hover {
-  	cursor: pointer;
-    background: var(--bg2);
+  @media (hover: hover) {
+    a:hover {
+      background: var(--bg2);
+    }
+  }
+  @media (hover: none) {
+    a:active {
+      background: var(--bg2);
+    }
   }
   a svg {
   	width: 24px;

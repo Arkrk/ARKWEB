@@ -39,17 +39,22 @@ const { block, headings } = Astro.props
   }
   details[open] summary {
     border-radius: 8px 8px 0 0;
-    background: var(--bg2);
   }
   
-  .toggle > summary:hover {
-    background: var(--bg2);
+  @media (hover: hover) {
+    .toggle > summary:hover {
+      background: var(--bg2);
+    }
+  }
+  @media (hover: none) {
+    .toggle > summary:active {
+      background: var(--bg2);
+    }
   }
 
   .toggle > summary > a {
     display: inline;
   }
-
   .toggle > div {
     margin-top: -1px;
     padding: 0.8rem;

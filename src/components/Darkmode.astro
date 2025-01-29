@@ -74,8 +74,15 @@ Code.astro
 .darkmode .code button.copy {
   background: #303030 !important;
 }
-.darkmode .code button.copy:hover {
-  background: #363636 !important;
+@media (hover: hover) {
+  .darkmode .code button.copy:hover {
+    background: #363636 !important;
+  }
+}
+@media (hover: none) {
+  .darkmode .code button.copy:active {
+    background: #363636 !important;
+  }
 }
 .darkmode .code pre {
   &::-webkit-scrollbar {
@@ -451,11 +458,15 @@ syntax-coloring.css
   cursor: pointer;
   -webkit-tap-highlight-color:rgba(0,0,0,0);
 }
-#modes:hover {
-  background: #f7f6f3;
+@media (hover: hover) {
+  #modes:hover {
+    background: var(--bg2);
+  }
 }
-.darkmode #modes:hover {
-  background: var(--bg2);
+@media (hover: none) {
+  #modes:active {
+    background: var(--bg2);
+  }
 }
 #modes svg{
   width: 24px;
