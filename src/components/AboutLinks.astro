@@ -55,8 +55,15 @@ import { Icon } from 'astro-icon/components'
     cursor: pointer;
     color: var(--fg);
   }
-  a:hover {
-    background: var(--bg2);
+  @media (hover: hover) {
+    a:hover {
+      background: var(--bg2);
+    }
+  }
+  @media (hover: none) {
+    a:active {
+      background: var(--bg2);
+    }
   }
   span {
     padding-left: 5px;

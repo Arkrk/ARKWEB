@@ -57,8 +57,15 @@ const { prevPost, nextPost } = Astro.props
     border-radius: 8px;
     color: var(--fg);
   }
-  div.post-relative-link > div > a.colored:hover {
-    background: var(--bg2);
+  @media (hover: hover) {
+    div.post-relative-link > div > a.colored:hover {
+      background: var(--bg2);
+    }
+  }
+  @media (hover: none) {
+    div.post-relative-link > div > a.colored:active {
+      background: var(--bg2);
+    }
   }
   div.post-relative-link > div > a.colored > svg {
     width: 24px;

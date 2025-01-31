@@ -41,9 +41,6 @@ const filename = decodeURIComponent(url.pathname.split('/').slice(-1)[0])
 </div>
 
 <style>
-  .file {
-  }
-
   .file a {
     display: block;
     padding: 0.5rem 0.2rem 0.4rem;
@@ -52,10 +49,16 @@ const filename = decodeURIComponent(url.pathname.split('/').slice(-1)[0])
     font-weight: 500;
     line-height: 1.4rem;
   }
-  .file a:hover {
-    background-color: var(--bg2);
+  @media (hover: hover) {
+    .file a:hover {
+      background: var(--bg2);
+    }
   }
-
+  @media (hover: none) {
+    .file a:active {
+      background: var(--bg2);
+    }
+  }
   .file a img {
     width: 1.3rem;
     height: 1.3rem;

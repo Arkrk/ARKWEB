@@ -57,8 +57,15 @@ if (pageId) {
     padding: 0 7px 0 3px;
     border-radius: 8px;
   }
-  a.link:hover {
-    background: var(--bg2);
+  @media (hover: hover) {
+    a.link:hover {
+      background: var(--bg2);
+    }
+  }
+  @media (hover: none) {
+    a.link:active {
+      background: var(--bg2);
+    }
   }
   span.icon {
     height: fit-content;

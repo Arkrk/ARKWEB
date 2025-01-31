@@ -38,7 +38,9 @@ if (post.FeaturedImage && post.FeaturedImage.Url) {
   }
 </style>
 <style is:global>
-  .grid-parts:hover .post-featured-image img {
-    transform: scale(1.05,1.05);
+  @media (hover: hover) {
+    .grid-parts:hover .post-featured-image img {
+      transform: scale(1.05,1.05);
+    }
   }
 </style>

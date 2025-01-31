@@ -86,8 +86,15 @@ import mixi2 from '../images/mixi2.svg'
     cursor: pointer;
     color: var(--fg);
   }
-  a:hover {
-    background: var(--bg2);
+  @media (hover: hover) {
+    a:hover {
+      background: var(--bg2);
+    }
+  }
+  @media (hover: none) {
+    a:active {
+      background: var(--bg2);
+    }
   }
   a.arrow {
     padding-left: 7px;

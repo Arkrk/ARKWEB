@@ -100,8 +100,15 @@ try {
     overflow: hidden;
     user-select: none;
   }
-  .bookmark > a:hover {
-    background: var(--bg2);
+  @media (hover: hover) {
+    .bookmark > a:hover {
+      background: var(--bg2);
+    }
+  }
+  @media (hover: none) {
+    .bookmark > a:active {
+      background: var(--bg2);
+    }
   }
   .bookmark > a > div:first-child {
     flex: 4 1 180px;

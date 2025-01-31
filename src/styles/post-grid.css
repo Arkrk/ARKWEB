@@ -20,8 +20,15 @@
   border-radius: 8px;
   overflow: hidden;
 }
-.grid-parts:hover {
-  background: var(--bg2);
+@media (hover: hover) {
+  .grid-parts:hover {
+    background: var(--bg2);
+  }
+}
+@media (hover: none) {
+  .grid-parts:active {
+    background: var(--bg2);
+  }
 }
 .grid-parts svg {
   width: 18px;

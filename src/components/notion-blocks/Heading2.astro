@@ -85,8 +85,15 @@ const id = buildHeadingId(block.Heading2)
     display: none;
   }
 
-  .toggle > summary:hover {
-    background: var(--bg2);
+  @media (hover: hover) {
+    .toggle > summary:hover {
+      background: var(--bg2);
+    }
+  }
+  @media (hover: none) {
+    .toggle > summary:active {
+      background: var(--bg2);
+    }
   }
 
   .toggle > summary > a {

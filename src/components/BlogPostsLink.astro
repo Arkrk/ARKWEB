@@ -59,8 +59,15 @@ const { heading, posts } = Astro.props
     color: inherit;
     font-size: 1rem;
   }
-  .blog-posts-link ul li a:hover {
-    background-color: var(--bg2);
+  @media (hover: hover) {
+    .blog-posts-link ul li a:hover {
+      background: var(--bg2);
+    }
+  }
+  @media (hover: none) {
+    .blog-posts-link ul li a:active {
+      background: var(--bg2);
+    }
   }
   .blog-posts-link ul li a span,
   .blog-posts-link ul li a img {

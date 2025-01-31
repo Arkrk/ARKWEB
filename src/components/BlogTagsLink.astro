@@ -66,8 +66,15 @@ const { tags } = Astro.props
     cursor: pointer;
     color: var(--fg);
   }
-  a:hover {
-    background: var(--bg2);
+  @media (hover: hover) {
+    a:hover {
+      background: var(--bg2);
+    }
+  }
+  @media (hover: none) {
+    a:active {
+      background: var(--bg2);
+    }
   }
   svg {
     margin-left: 10px;

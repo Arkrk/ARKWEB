@@ -65,8 +65,15 @@ for (let i = startPage; i <= endPage; i++) {
   .pagination a:last-child {
     border-right: unset;
   }
-  .pagination a:hover:not(.inactive) {
-    background: var(--bg2);
+  @media (hover: hover) {
+    .pagination a:hover:not(.inactive) {
+      background: var(--bg2);
+    }
+  }
+  @media (hover: none) {
+    .pagination a:active:not(.inactive) {
+      background: var(--bg2);
+    }
   }
   .pagination a.inactive {
     pointer-events: none;
