@@ -1,37 +1,28 @@
-.gray,
-.gray:hover {
+.gray {
   color: rgba(120, 119, 116, 1);
 }
-.brown,
-.brown:hover {
+.brown {
   color: rgba(159, 107, 83, 1);
 }
-.orange,
-.orange:hover {
+.orange {
   color: rgba(217, 115, 13, 1);
 }
-.yellow,
-.yellow:hover {
+.yellow {
   color: rgba(203, 145, 47, 1);
 }
-.green,
-.green:hover {
+.green {
   color: rgba(68, 131, 97, 1);
 }
-.blue,
-.blue:hover {
+.blue {
   color: rgba(51, 126, 169, 1);
 }
-.purple,
-.purple:hover {
+.purple {
   color: rgba(144, 101, 176, 1);
 }
-.pink,
-.pink:hover {
+.pink {
   color: rgba(193, 76, 138, 1);
 }
-.red,
-.red:hover {
+.red {
   color: rgba(212, 76, 71, 1);
 }
 
@@ -92,72 +83,97 @@
 }
 
 .tag.light-gray {
-  color: rgb(28, 56, 41);
   background: rgba(227, 226, 224, 0.5) !important;
 }
 .tag.gray {
-  color: rgb(28, 56, 41);
   background: rgb(227, 226, 224) !important;
 }
 .tag.brown {
-  color: rgb(28, 56, 41);
   background: rgb(238, 224, 218) !important;
 }
 .tag.orange {
-  color: rgb(28, 56, 41);
   background: rgb(250, 222, 201) !important;
 }
 .tag.yellow {
-  color: rgb(28, 56, 41);
   background: rgb(253, 236, 200) !important;
 }
 .tag.green {
-  color: rgb(28, 56, 41);
   background: rgb(219, 237, 219) !important;
 }
 .tag.blue {
-  color: rgb(28, 56, 41);
   background: rgb(211, 229, 239) !important;
 }
 .tag.purple {
-  color: rgb(28, 56, 41);
   background: rgb(232, 222, 238) !important;
 }
 .tag.pink {
-  color: rgb(28, 56, 41);
   background: rgb(245, 224, 233) !important;
 }
 .tag.red {
-  color: rgb(28, 56, 41);
   background: rgb(255, 226, 221) !important;
 }
-.tag.light-gray:hover {
-  background: rgba(211, 208, 202, 0.5) !important;
+
+@media (hover: hover) {
+  .tag.light-gray:hover {
+    background: rgba(211, 208, 202, 0.5) !important;
+  }
+  .tag.gray:hover {
+    background: rgb(217, 215, 210) !important;
+  }
+  .tag.brown:hover {
+    background: rgb(229, 212, 205) !important;
+  }
+  .tag.orange:hover {
+    background: rgb(239, 210, 188) !important;
+  }
+  .tag.yellow:hover {
+    background: rgb(239, 222, 183) !important;
+  }
+  .tag.green:hover {
+    background: rgb(204, 226, 204) !important;
+  }
+  .tag.blue:hover {
+    background: rgb(198, 218, 229) !important;
+  }
+  .tag.purple:hover {
+    background: rgb(218, 205, 225) !important;
+  }
+  .tag.pink:hover {
+    background: rgb(235, 210, 221) !important;
+  }
+  .tag.red:hover {
+    background: rgb(235, 204, 199) !important;
+  }
 }
-.tag.gray:hover {
-  background: rgb(217, 215, 210) !important;
-}
-.tag.brown:hover {
-  background: rgb(229, 212, 205) !important;
-}
-.tag.orange:hover {
-  background: rgb(239, 210, 188) !important;
-}
-.tag.yellow:hover {
-  background: rgb(239, 222, 183) !important;
-}
-.tag.green:hover {
-  background: rgb(204, 226, 204) !important;
-}
-.tag.blue:hover {
-  background: rgb(198, 218, 229) !important;
-}
-.tag.purple:hover {
-  background: rgb(218, 205, 225) !important;
-}
-.tag.pink:hover {
-  background: rgb(235, 210, 221) !important;
-}
-.tag.red:hover {
-  background: rgb(235, 204, 199) !important;
+@media (hover: none) {
+  .tag.light-gray:active {
+    background: rgba(211, 208, 202, 0.5) !important;
+  }
+  .tag.gray:active {
+    background: rgb(217, 215, 210) !important;
+  }
+  .tag.brown:active {
+    background: rgb(229, 212, 205) !important;
+  }
+  .tag.orange:active {
+    background: rgb(239, 210, 188) !important;
+  }
+  .tag.yellow:active {
+    background: rgb(239, 222, 183) !important;
+  }
+  .tag.green:active {
+    background: rgb(204, 226, 204) !important;
+  }
+  .tag.blue:active {
+    background: rgb(198, 218, 229) !important;
+  }
+  .tag.purple:active {
+    background: rgb(218, 205, 225) !important;
+  }
+  .tag.pink:active {
+    background: rgb(235, 210, 221) !important;
+  }
+  .tag.red:active {
+    background: rgb(235, 204, 199) !important;
+  }
 }
