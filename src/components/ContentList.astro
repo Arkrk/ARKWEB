@@ -208,32 +208,34 @@ const { blocks } = Astro.props
   }
 </style>
 
-<script type="module">
-  document.addEventListener('DOMContentLoaded', (event) => {
-    const sections = document.querySelectorAll('.heading1, .heading2')
-    const navLinks = document.querySelectorAll('.content-list ul li')
+<script>
+  document.addEventListener("scroll", function() {
+    const wrapper = document.querySelector(".body-area") as Element;
 
-    const observer = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && entry.boundingClientRect.top <= 0) {
-            navLinks.forEach((navLink) => {
-              navLink.classList.remove('current')
-              if (
-                entry.target.getAttribute('data-section') ===
-                navLink.querySelector('a').getAttribute('href').substring(1)
-              ) {
-                navLink.classList.add('current')
-              }
-            })
-          }
-        })
-      },
-      { threshold: [0, 1] }
-    ) 
+    const contents = document
+      .querySelectorAll(".heading1, .heading2");
+    const tocLinks = document.querySelectorAll(".content-list ul li");
 
-    sections.forEach((section) => {
-      observer.observe(section)
-    })
-  })
+    const contentPositions: any[] = [];
+    contents.forEach((content, i) => {
+      const startPosition =
+        content.getBoundingClientRect().top;
+      const endPosition = contents.item(i + 1)
+        ? contents.item(i + 1).getBoundingClientRect().top
+        : wrapper.scrollHeight;
+      contentPositions.push({ startPosition, endPosition });
+    });
+
+    tocLinks.forEach((tocLink, i) => {
+      const { startPosition, endPosition } = contentPositions[i];
+      if (
+        startPosition <= 100 &&
+        endPosition > 100
+      ) {
+        tocLink.classList.add('current');
+      } else {
+        tocLink.classList.remove('current');
+      }
+    });
+  });
 </script>
