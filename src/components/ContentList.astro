@@ -209,33 +209,30 @@ const { blocks } = Astro.props
 </style>
 
 <script>
-  document.addEventListener("scroll", function() {
-    const wrapper = document.querySelector(".body-area") as Element;
-
-    const contents = document
-      .querySelectorAll(".heading1, .heading2");
-    const tocLinks = document.querySelectorAll(".content-list ul li");
+  document.addEventListener('scroll', function() {
+    const wrapper = document.querySelector('.body-area') as Element;
+    const contents = document.querySelectorAll('.heading1, .heading2');
 
     const contentPositions: any[] = [];
     contents.forEach((content, i) => {
-      const startPosition =
-        content.getBoundingClientRect().top;
+      const startPosition = content.getBoundingClientRect().top;
       const endPosition = contents.item(i + 1)
         ? contents.item(i + 1).getBoundingClientRect().top
         : wrapper.scrollHeight;
       contentPositions.push({ startPosition, endPosition });
     });
 
-    tocLinks.forEach((tocLink, i) => {
-      const { startPosition, endPosition } = contentPositions[i];
-      if (
-        startPosition <= 100 &&
-        endPosition > 100
-      ) {
-        tocLink.classList.add('current');
-      } else {
-        tocLink.classList.remove('current');
-      }
-    });
+    let tocLinks = document.querySelectorAll('.body-area .content-list ul li');
+    for (let i = 0; i < 2; i++) {
+      tocLinks.forEach((tocLink, i) => {
+        const { startPosition, endPosition } = contentPositions[i];
+        if (startPosition <= 100 && endPosition > 100) {
+          tocLink.classList.add('current');
+        } else {
+          tocLink.classList.remove('current');
+        }
+      });
+      tocLinks = document.querySelectorAll('#dialog-container .content-list ul li');
+    }
   });
 </script>
