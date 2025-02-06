@@ -202,26 +202,52 @@ if (post.FeaturedImage && post.FeaturedImage.Url) {
     width: 26px;
     height: 26px;
   }
-  [data-icon="simple-icons:x"]:hover {
-    color: #10131a;
+  
+  @media (hover: hover) {
+    [data-icon="simple-icons:x"]:hover {
+      color: #10131a;
+    }
+    [data-icon="simple-icons:bluesky"]:hover {
+      color: #1185fe;
+    }
+    [data-icon="simple-icons:misskey"]:hover {
+      color: #96d04a;
+    }
+    [data-icon="simple-icons:mastodon"]:hover {
+      color: #5d52e9;
+    }
+    [data-icon="simple-icons:threads"]:hover {
+      color: #000000;
+    }
+    [data-icon="simple-icons:pocket"]:hover {
+      color: #ef4056;
+    }
+    [data-icon="simple-icons:hatenabookmark"]:hover {
+      color: #00a4de;
+    }
   }
-  [data-icon="simple-icons:bluesky"]:hover {
-    color: #1185fe;
-  }
-  [data-icon="simple-icons:misskey"]:hover {
-    color: #96d04a;
-  }
-  [data-icon="simple-icons:mastodon"]:hover {
-    color: #5d52e9;
-  }
-  [data-icon="simple-icons:threads"]:hover {
-    color: #000000;
-  }
-  [data-icon="simple-icons:pocket"]:hover {
-    color: #ef4056;
-  }
-  [data-icon="simple-icons:hatenabookmark"]:hover {
-    color: #00a4de;
+  @media (hover: none) {
+    [data-icon="simple-icons:x"]:active {
+      color: #10131a;
+    }
+    [data-icon="simple-icons:bluesky"]:active {
+      color: #1185fe;
+    }
+    [data-icon="simple-icons:misskey"]:active {
+      color: #96d04a;
+    }
+    [data-icon="simple-icons:mastodon"]:active {
+      color: #5d52e9;
+    }
+    [data-icon="simple-icons:threads"]:active {
+      color: #000000;
+    }
+    [data-icon="simple-icons:pocket"]:active {
+      color: #ef4056;
+    }
+    [data-icon="simple-icons:hatenabookmark"]:active {
+      color: #00a4de;
+    }
   }
 </style>
 
