@@ -2,37 +2,47 @@
 import { Icon } from 'astro-icon/components'
 ---
 
-<nav>
+<div class="fixed-nav">
   <a id="home-icon" href="/" aria-label="ホーム">
-	  <Icon name="mingcute:home-4-line" />
+    <Icon name="mingcute:home-4-line" />
     <span>Home</span>
   </a>
   <a id="blog-icon" href="/blog/" aria-label="ブログ">
-	  <Icon name="mingcute:edit-line" />
+    <Icon name="mingcute:edit-line" />
     <span>Blog</span>
+  </a>
+  <a id="about-icon" href="/about/" aria-label="About">
+    <Icon name="mingcute:information-line" />
+    <span>About</span>
   </a>
   <a id="search-icon" href="/search/" aria-label="検索">
 	  <Icon name="mingcute:search-line" />
-    <span>Search</span>
   </a>
-  <a id="about-icon" href="/about/" aria-label="About">
-	  <Icon name="mingcute:information-line" />
-    <span>About</span>
-  </a>
-</nav>
+</div>
 
 <style>
-  nav {
+  .fixed-nav {
+    position: fixed;
     display: flex;
-    justify-content: flex-end;
-    gap: 8px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    padding: 4px;
+    border: 1px solid var(--border);
+    border-radius: 99px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    width: fit-content;
+    z-index: 99;
   }
   a {
     display: flex;
     align-items: center;
-    border-radius: 8px;
-    padding: 4.5px;
+    padding: 2px 11px 2px 10px;
+    border-radius: 99px;
     gap: 4px;
+    font-size: 14px;
   }
   @media (hover: hover) {
     a:hover {
@@ -45,26 +55,19 @@ import { Icon } from 'astro-icon/components'
     }
   }
   a svg {
-  	width: 24px;
-    height: 24px;
+  	width: 20px;
+    height: 20px;
     color: var(--fg);
   }
   a span {
     font-weight: 600;
-    line-height: 24px;
     color: var(--fg);
-    margin-right: 2px;
   }
   a.current svg, a.current span {
     color: var(--accents-4);
   }
-  @media (max-width: 640px) {
-    nav {
-      gap: 4px;
-    }
-    a span {
-      display: none;
-    }
+  #search-icon {
+    padding: 8px;
   }
 </style>
 

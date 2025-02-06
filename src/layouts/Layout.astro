@@ -6,6 +6,7 @@ import '../styles/syntax-coloring.css'
 import GoogleAnalytics from '../components/GoogleAnalytics.astro'
 import Darkmode from '../components/Darkmode.astro'
 import Navigation from '../components/Navigation.astro'
+import { Icon } from 'astro-icon/components'
 
 export interface Props {
   title: string
@@ -93,15 +94,20 @@ if (database.Icon && database.Icon.Type === 'file') {
   <body>
     <GoogleAnalytics trackingId={PUBLIC_GA_TRACKING_ID} />
     <div class="container" ontouchstart="">
-      <header class="site-header">
-        <a href={getNavLink('/')}>
-            <div class="custom-icon"></div>
-            <div class="coversvg"></div>
-        </a>
-        <div class="header_button_wrapper">
+      <header>
+        <nav>
           <Navigation />
-          <Darkmode />
-        </div>
+          <div class="bg-header">
+            <a class="logo" href={getNavLink('/')}>
+              <div id="logo-icon"></div>
+              <div id="logo-type"></div>
+            </a>
+            <div class="switch">
+              <a id="rss-btn" href="/rss.xml" target="_blank"><Icon name="mingcute:rss-2-line" /></a>
+              <Darkmode />
+            </div>
+          </div>
+        <nav>
       </header>
 
       <main>
@@ -131,111 +137,70 @@ if (database.Icon && database.Icon.Type === 'file') {
     min-height: 100vh;
     min-height: 100dvh;
   }
-
   header {
+    padding: 12px;
+  }
+  .bg-header {
     display: flex;
-    position: sticky;
-    top: 0;
-    left: 0;
-    width: 100%;
-    align-items: center;
-    background-color: var(--bg);
-    padding: 10px 10px;
-    z-index: 98;
-    transition:
-      translateY 600ms,
-      opacity 200ms;
+    height: fit-content;
   }
   @media (max-width: 640px) {
-    header {
-      padding: 6px 6px;
+    .bg-header {
+      padding-top: 55px;
     }
   }
-  header.hide {
-    translatey: -100%;
-    opacity: 0;
-  }
-
-  header > a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 100%;
-    padding: 5px 5px 5px 3px;
-    border-radius: 8px;
-  }
-
   @media (hover: hover) {
-    header > a:hover {
+    .bg-header a:hover {
       background: var(--bg2);
     }
   }
   @media (hover: none) {
-    header > a:active {
+    .bg-header a:active {
       background: var(--bg2);
     }
   }
-
-  main {
-    flex: 1;
-    order: 2;
-    justify-content: space-between;
+  .logo {
+    display: flex;
+    align-items: center;
+    padding: 5px 9px 5px 7px;
+    border-radius: 8px;
   }
-  @media (max-width: 640px) {
-    main {
-      order: 1;
-      padding-top: 1.5rem;
-    }
-  }
-  
-  @media screen and (max-width: 640px) {
-    main {
-      margin: 0;
-    }
-  }
-
-  .custom-icon{
+  #logo-icon {
     -webkit-mask: url("../images/blogicon.svg") no-repeat center center / contain;
     mask-image: url("../images/blogicon.svg");
     mask-repeat: no-repeat;
     mask-position: center center;
     mask-size: contain;
-    height: 25px;
-    width: 41px;
+    height: 23px;
+    width: 38px;
     background-color: var(--accents-4);
   }
-
-  .coversvg {
+  #logo-type {
     -webkit-mask: url("../images/arksblog.svg") no-repeat center center / contain;
     mask-image: url("../images/arksblog.svg");
     mask-repeat: no-repeat;
     mask-position: center center;
     mask-size: contain;
-    height: 25px;
-    width: 87.5px;
+    height: 23px;
+    width: 80.5px;
     background-color: var(--fg);
   }
-
-  .header_button_wrapper {
+  .bg-header .switch {
     display: flex;
+    margin-left: auto;
+  }
+  #rss-btn {
+    display: flex;
+    color: var(--fg);
+    height: 45.6px;
+    width: 45.6px;
+    border-radius: 100%;
     justify-content: center;
     align-items: center;
-    margin-left: auto;
-    gap: 8px;
   }
-
-  @media (max-width: 640px) {
-    .custom-icon {
-      height: 23px;
-      width: 38px;
-    }
-    .coversvg {
-      height: 23px;
-      width: 80.5px;
-    }
-    .header_button_wrapper {
-      gap: 4px;
-    }
+  #rss-btn svg {
+    width: 24px;
+    height: 24px;
   }
 
   div.content {
@@ -243,7 +208,7 @@ if (database.Icon && database.Icon.Type === 'file') {
   }
   @media (max-width: 640px) {
     div.content {
-      padding: 10px 18px 60px 18px;
+      padding: 30px 18px 60px 18px;
     }
   }
 
@@ -282,7 +247,6 @@ if (database.Icon && database.Icon.Type === 'file') {
       text-decoration: underline;
     }
   }
-  
   @media (max-width: 640px) {
     footer {
       padding: 18px 18px;
@@ -338,7 +302,7 @@ if (database.Icon && database.Icon.Type === 'file') {
     margin: 0;
     font-size: 16px;
     scroll-behavior: smooth;
-    scroll-padding-top: 55px; 
+    scroll-padding-top: 65px;
   }
 
   body {
@@ -375,8 +339,13 @@ if (database.Icon && database.Icon.Type === 'file') {
   }
 
   a {
+    cursor: pointer;
     text-decoration: none;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
+  }
+
+  button {
+    cursor: pointer;
   }
 
   mark {
@@ -486,30 +455,4 @@ if (database.Icon && database.Icon.Type === 'file') {
   }
   
   document.addEventListener('DOMContentLoaded', imgWidthHeightSet);
-
-  let lastScrollTop = 0;
-  function scrollHandler() {
-    const header = document.querySelector('header')!;
-    const body = document.querySelector('body')!;
-    const scrollTop = window.scrollY || document.documentElement.scrollTop;
-    if (scrollTop < lastScrollTop) {
-      header.classList.remove('hide');
-    } else if (window.scrollY > 48 && !body.classList.contains('no-scroll')) {
-      header.classList.add('hide');
-    }
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-  }
-
-  let timeout: NodeJS.Timeout | null = null;
-  function throttleScrollHandler() {
-    if (timeout) {
-      clearTimeout(timeout);
-    }
-    timeout = setTimeout(() => {
-      scrollHandler();
-      timeout = null;
-    }, 50);
-  }
-
-  document.addEventListener('scroll', throttleScrollHandler);
 </script>

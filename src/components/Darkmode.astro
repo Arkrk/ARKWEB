@@ -31,6 +31,13 @@ layout.astro
 }
 
 /* --------------------
+Navigation.astro
+-------------------- */
+.darkmode .fixed-nav {
+  background: rgba(25, 25, 25, 0.7) !important;
+}
+
+/* --------------------
 posts/[slug].astro
 -------------------- */
 .darkmode .share-area [data-icon="simple-icons:x"]:hover {
@@ -394,7 +401,6 @@ syntax-coloring.css
   -webkit-transition: 0.2s;  transition: 0.2s;
   border: 2px solid #000;
   overflow: hidden;
-  cursor: pointer;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
@@ -407,7 +413,6 @@ syntax-coloring.css
   transform: translateX(-0.125em) scale(0.65);
   -webkit-transition: 0.2s;
   transition: 0.2s;
-  cursor: pointer;
 }
 
 .mode-wrap #mode-toggle:checked + label {
@@ -426,14 +431,16 @@ syntax-coloring.css
 }
 
 #modes {
-  height: 33px;
-  width: 33px;
+  display: flex;
+  height: 45.6px;
+  width: 45.6px;
   padding: 0;
   border: none;
   background: transparent;
-  border-radius: 8px;
-  cursor: pointer;
+  border-radius: 100%;
   -webkit-tap-highlight-color:rgba(0,0,0,0);
+  align-items: center;
+  justify-content: center;
 }
 @media (hover: hover) {
   #modes:hover {
@@ -448,7 +455,6 @@ syntax-coloring.css
 #modes svg{
   width: 24px;
   height: 24px;
-  margin: 4.5px;
 }
 [data-icon="mingcute:sun-line"] {
   display: none;
