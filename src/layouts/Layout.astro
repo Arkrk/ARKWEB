@@ -297,7 +297,7 @@ if (database.Icon && database.Icon.Type === 'file') {
   }
 
   *:focus {
-  outline: none;
+    outline: none;
   }
 
   html {
@@ -320,16 +320,7 @@ if (database.Icon && database.Icon.Type === 'file') {
     overflow-y: scroll;
     background: var(--bg);
     color: var(--fg);
-
-    /*background-image: radial-gradient(#ddd 1px, transparent 1px),
-      radial-gradient(#ddd 1px, transparent 1px);*/
-    background-position: 0 0, 25px 25px;
-    background-attachment: fixed;
-    background-size: 50px 50px;
-
-    /* Hack */
     overflow-x: hidden;
-
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: 100%;
   }
@@ -341,14 +332,12 @@ if (database.Icon && database.Icon.Type === 'file') {
     line-height: 1.8rem;
   }
 
-  a {
+  a, button {
     cursor: pointer;
-    text-decoration: none;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
   }
-
-  button {
-    cursor: pointer;
+  a {
+    text-decoration: none;
   }
 
   mark {
@@ -410,7 +399,6 @@ if (database.Icon && database.Icon.Type === 'file') {
     white-space: nowrap;
     border-spacing: 0;
   }
-
   table tr {
     vertical-align: top;
   }
