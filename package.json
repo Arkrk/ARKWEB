@@ -36,6 +36,7 @@
     "metascraper-description": "^5.46.5",
     "metascraper-image": "^5.46.5",
     "metascraper-title": "^5.46.5",
+    "overlayscrollbars": "^2.10.1",
     "prismjs": "^1.29.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

@@ -51,7 +51,7 @@ if (database.Icon && database.Icon.Type === 'file') {
 ---
 
 <!DOCTYPE html>
-<html lang="ja" prefix="og: https://ogp.me/ns#">
+<html lang="ja" prefix="og: https://ogp.me/ns#" data-overlayscrollbars-initialize>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="max-image-preview:large" />
@@ -91,7 +91,7 @@ if (database.Icon && database.Icon.Type === 'file') {
     </style>
   </head>
 
-  <body>
+  <body data-overlayscrollbars-initialize>
     <GoogleAnalytics trackingId={PUBLIC_GA_TRACKING_ID} />
     <div class="container" ontouchstart="">
       <header>
@@ -317,10 +317,8 @@ if (database.Icon && database.Icon.Type === 'file') {
     max-width: 1024px;
     width: 100%;
     margin: auto;
-    overflow-y: scroll;
     background: var(--bg);
     color: var(--fg);
-    overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: 100%;
   }
@@ -421,18 +419,22 @@ if (database.Icon && database.Icon.Type === 'file') {
     min-height: 0.9rem;
   }
 
-  ::-webkit-scrollbar {
-    width: 8px;
+  .os-scrollbar-handle {
+    background: var(--accents-4) !important;
   }
-  ::-webkit-scrollbar-thumb {
-    background-color: var(--accents-4);
+  .os-scrollbar-handle:hover {
+    background: var(--accents-5) !important;
   }
-  ::-webkit-scrollbar-thumb:hover {
-    background-color: var(--accents-5);
+  @media (hover: none) {
+    .os-scrollbar {
+      width: 7px !important;
+    }
   }
 </style>
 
-<script>
+<script type="module">
+  import '/src/scripts/scrollbars.js'
+
   function imgWidthHeightSet() {
     const images = document.querySelectorAll('img');
     images.forEach(image => {
