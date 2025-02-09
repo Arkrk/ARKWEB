@@ -28,6 +28,7 @@ layout.astro
   --accents-7: #4d4435;
   --border: #373737;
   --border2: #707070;
+  --scroll: 230, 230, 230;
 }
 
 /* --------------------
@@ -85,32 +86,6 @@ Code.astro
 @media (hover: none) {
   .darkmode .code button.copy:active {
     background: #363636 !important;
-  }
-}
-.darkmode .code pre {
-  &::-webkit-scrollbar {
-    height: 8px;
-  }
-  &::-webkit-scrollbar-thumb {
-    background: #474c50 !important;
-  }
-  &::-webkit-scrollbar-thumb:hover {
-    background: #595f64 !important;
-  }
-}
-
-/* --------------------
-Table.astro
--------------------- */
-.darkmode .table table {
-  &::-webkit-scrollbar {
-    height: 8px;
-  }
-  &::-webkit-scrollbar-thumb {
-    background: #474c50 !important;
-  }
-  &::-webkit-scrollbar-thumb:hover {
-    background: #595f64 !important;
   }
 }
 
@@ -390,54 +365,6 @@ syntax-coloring.css
 -------------------- */
 .mode-wrap {
   display: none;
-}
-
-.mode-wrap #mode-toggle {
-  display: none;
-}
-
-.mode-wrap #mode-toggle + label {
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  align-items: center;
-  font-size: 1rem;
-  height: 1.6em;
-  width: 2.4em;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  border-radius: calc(2em / 2);
-  background: #000;
-  -webkit-transition: 0.2s;  transition: 0.2s;
-  border: 2px solid #000;
-  overflow: hidden;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
-}
-
-.mode-wrap #mode-toggle + label span {
-  background: #fff;
-  border-radius: 50%;
-  height: 1.8em;
-  width: 1.8em;
-  -webkit-transform: translateX(-0.125em) scale(0.65);
-  transform: translateX(-0.125em) scale(0.65);
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
-}
-
-.mode-wrap #mode-toggle:checked + label {
-  border-color: var(--bg);
-  background: #fff;
-}
-
-.mode-wrap #mode-toggle:checked + label span {
-  background: var(--bg);
-  -webkit-transform: translateX(calc(100% - 1.25em)) scale(0.65);
-  transform: translateX(calc(100% - 1.25em)) scale(0.65);
-}
-
-.darkmode .mode-wrap #mode-toggle + label {
-  border-color: #fff;
 }
 
 #modes {

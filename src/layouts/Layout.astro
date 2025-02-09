@@ -268,11 +268,6 @@ if (database.Icon && database.Icon.Type === 'file') {
 
 <style is:global>
   :root {
-    --gap-quarter: 0.25rem;
-    --gap-half: 0.5rem;
-    --gap: 1rem;
-    --gap-double: 2rem;
-
     --bg: #fff;
     --bg2: #f7f6f3;
     --fg: #222;
@@ -284,6 +279,7 @@ if (database.Icon && database.Icon.Type === 'file') {
     --accents-7: #f8e1be;
     --border: #dfdfde;
     --border2: #c6c6c4;
+    --scroll: 0, 0, 0;
 
     --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
       'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
@@ -339,7 +335,7 @@ if (database.Icon && database.Icon.Type === 'file') {
   }
 
   mark {
-    padding: var(--gap-quarter);
+    padding: 0.25rem;
     border-radius: 4px;
     background: rgba(247, 212, 255, 0.8);
   }
@@ -420,10 +416,12 @@ if (database.Icon && database.Icon.Type === 'file') {
   }
 
   .os-scrollbar-handle {
-    background: var(--accents-4) !important;
+    background: rgba(var(--scroll), 0.4) !important;
   }
-  .os-scrollbar-handle:hover {
-    background: var(--accents-5) !important;
+  @media (hover: hover) {
+    .os-scrollbar-handle:hover {
+      background: rgba(var(--scroll), 0.6) !important;
+    }
   }
   @media (hover: none) {
     .os-scrollbar {
