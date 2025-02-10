@@ -1,7 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import Search from "astro-pagefind/components/Search";
+import '@fontsource-variable/inter/opsz.css';
+import '@fontsource-variable/noto-sans-jp';
 ---
+
 <Layout title="検索" path="/search">
   <div slot="main">
     <h1>検索</h1>
@@ -9,7 +12,7 @@ import Search from "astro-pagefind/components/Search";
       id="search"
       className="pagefind-ui"
       uiOptions={{
-        pageSize: 20,
+        pageSize: 10,
         excerptLength: 30,
         showSubResults : true,
         showImages: false,
@@ -50,12 +53,9 @@ import Search from "astro-pagefind/components/Search";
   .pagefind-ui {
     --pagefind-ui-text: var(--fg);
     --pagefind-ui-background: var(--bg);
-    --pagefind-ui-border: #dfdfde;
+    --pagefind-ui-border: var(--border);
     --pagefind-ui-border-width: 1px;
     --pagefind-ui-border-radius: 8px;
-    --pagefind-ui-font: "Inter", "Noto Sans JP", sans-serif;
-  }
-  .darkmode .pagefind-ui {
-    --pagefind-ui-border: #373737;
+    --pagefind-ui-font: "Inter Variable", "Noto Sans JP Variable", sans-serif;
   }
 </style>
