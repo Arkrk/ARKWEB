@@ -1,9 +1,14 @@
 import 'overlayscrollbars/overlayscrollbars.css';
 import { OverlayScrollbars } from 'overlayscrollbars';
   
-OverlayScrollbars(document.querySelector('body'), {
+OverlayScrollbars({ 
+  target: document.querySelector('body'),
+  cancel: {
+    nativeScrollbarsOverlaid: true,
+  }
+}, {
   paddingAbsolute: false,
-  showNativeOverlaidScrollbars: false,
+  showNativeOverlaidScrollbars: true,
   update: {
     elementEvents: [
       ['img', 'load']
@@ -25,4 +30,4 @@ OverlayScrollbars(document.querySelector('body'), {
     clickScroll: false,
     pointers: ['mouse', 'pen'],
   },
-});
+ });
