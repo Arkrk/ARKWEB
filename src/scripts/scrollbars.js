@@ -2,13 +2,13 @@ import 'overlayscrollbars/overlayscrollbars.css';
 import { OverlayScrollbars } from 'overlayscrollbars';
   
 OverlayScrollbars({ 
-  target: document.querySelector('body'),
+  target: document.body,
   cancel: {
     nativeScrollbarsOverlaid: true,
   }
 }, {
   paddingAbsolute: false,
-  showNativeOverlaidScrollbars: true,
+  showNativeOverlaidScrollbars: false,
   update: {
     elementEvents: [
       ['img', 'load']
