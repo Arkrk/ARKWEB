@@ -1,8 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import Search from "astro-pagefind/components/Search";
-import '@fontsource-variable/inter/opsz.css';
-import '@fontsource-variable/noto-sans-jp';
 ---
 
 <Layout title="検索" path="/search">
@@ -53,9 +51,9 @@ import '@fontsource-variable/noto-sans-jp';
   .pagefind-ui {
     --pagefind-ui-text: var(--fg);
     --pagefind-ui-background: var(--bg);
-    --pagefind-ui-border: var(--border);
+    --pagefind-ui-border: var(--bd);
     --pagefind-ui-border-width: 1px;
-    --pagefind-ui-border-radius: 8px;
-    --pagefind-ui-font: "Inter Variable", "Noto Sans JP Variable", sans-serif;
+    --pagefind-ui-border-radius: var(--radius);
+    --pagefind-ui-font: var(--font-sans);
   }
 </style>

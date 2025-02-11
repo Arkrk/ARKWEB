@@ -5,10 +5,10 @@
   padding: 8px 10px 10px;
   z-index: 1;
   background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 8px;
+  border: var(--border);
+  border-radius: var(--radius);
   box-shadow: 0 5px 15px #001b443b;
-  font-family: "Inter", "Noto Sans JP", sans-serif;
+  font-family: var(--font-sans);
   font-size: 14px;
   color: var(--fg);
 }
@@ -30,8 +30,8 @@
 
 .dialog {
   box-shadow: 0 5px 15px #001b443b;
-  border-radius: 8px;
-  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  border: var(--border);
   position: fixed;
   inset-block-start: unset;
   inset-block-end: unset;

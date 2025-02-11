@@ -16,8 +16,8 @@
 }
 .grid-parts {
   position: relative;
-  border: 1px solid var(--border);
-  border-radius: 8px;
+  border: var(--border);
+  border-radius: var(--radius);
   overflow: hidden;
 }
 @media (hover: hover) {
@@ -40,7 +40,7 @@
   aspect-ratio: 16 / 9;
 }
 .grid-fix {
-  border-top: 1px solid var(--border);
+  border-top: var(--border);
 }
 @media (min-width: 641px) {
   .grid-fix {

@@ -44,8 +44,8 @@ for (let i = startPage; i <= endPage; i++) {
     display: flex;
     width: fit-content;
     margin: 30px auto 0;
-    border: 1px solid var(--border);
-    border-radius: 8px;
+    border: var(--border);
+    border-radius: var(--radius);
     justify-content: center;
     align-items: center;
     overflow: hidden;
@@ -56,7 +56,7 @@ for (let i = startPage; i <= endPage; i++) {
     height: 45px;
     background: var(--bg);
     color: var(--fg);
-    border-right: 1px solid var(--border);
+    border-right: var(--border);
     font-weight: 500;
     font-size: 0.9rem;
     align-items: center;
@@ -79,7 +79,7 @@ for (let i = startPage; i <= endPage; i++) {
     pointer-events: none;
   }
   .pagination a.first-or-last {
-    color: var(--border);
+    color: var(--bd);
   }
   .pagination a.current-page {
     color: var(--fg);

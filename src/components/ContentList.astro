@@ -106,7 +106,7 @@ const { blocks } = Astro.props
     left: 5px;
     width: 2px;
     content: '';
-    background: var(--accents-7);
+    background: var(--ac4);
     border-radius: 0 0 5px 5px;
   }
   .ul-depth-1 li {
@@ -127,12 +127,12 @@ const { blocks } = Astro.props
     left: 0;
     width: 12px;
     height: 12px;
-    background: var(--accents-6);
+    background: var(--ac3);
     border: 2px solid var(--bg);
   }
   .ul-depth-1 li.depth-1.current::before {
-    background: var(--accents-4);
-    border-color: var(--accents-6);
+    background: var(--ac);
+    border-color: var(--ac3);
   }
 
   .ul-depth-1 li.depth-2 {
@@ -143,12 +143,12 @@ const { blocks } = Astro.props
     left: 2px;
     width: 8px;
     height: 8px;
-    background: var(--accents-7);
+    background: var(--ac4);
     border: 2px solid var(--bg);
   }
   .ul-depth-1 li.depth-2.current::before {
-    background: var(--accents-4);
-    border-color: var(--accents-4);
+    background: var(--ac);
+    border-color: var(--ac);
   }
 
   .ul-depth-1 li a {
@@ -189,8 +189,8 @@ const { blocks } = Astro.props
     top: 5rem;
     align-self: start;
     padding: 10px 10px 0;
-    border: 1px solid var(--border);
-    border-radius: 8px;
+    border: var(--border);
+    border-radius: var(--radius);
     overflow-y: auto;
     max-height: 80vh;
   }

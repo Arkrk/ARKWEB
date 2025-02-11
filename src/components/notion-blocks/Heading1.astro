@@ -50,7 +50,7 @@ const id = buildHeadingId(block.Heading1)
     margin: 3rem 0 1.1rem;
     color: var(--fg);
     font-size: 1.8rem;
-    border-bottom: 1px solid var(--border);
+    border-bottom: var(--border);
     padding-bottom: 0.5rem;
   }
   @media (max-width: 640px) {
@@ -60,7 +60,7 @@ const id = buildHeadingId(block.Heading1)
   }
   .heading1::before {
     content: "#";
-    color: var(--border);
+    color: var(--bd);
     margin-right: 8px;
   }
   @media (hover: hover) {
@@ -84,7 +84,6 @@ const id = buildHeadingId(block.Heading1)
   }
 
   .toggle > summary {
-    cursor: pointer;
     display: flex;
     margin: 3rem 0 0.3rem;
     padding-bottom: 0.5rem;
