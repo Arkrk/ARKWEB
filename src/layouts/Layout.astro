@@ -101,12 +101,12 @@ if (database.Icon && database.Icon.Type === 'file') {
         <nav>
           <Navigation />
           <div class="bg-header">
-            <a class="logo" href={getNavLink('/')}>
+            <a class="logo" href={getNavLink('/')} aria-label="ARKWEB">
               <div id="logo-icon"></div>
               <div id="logo-type"></div>
             </a>
             <div class="switch">
-              <a id="rss-btn" href="/rss.xml" target="_blank"><Icon name="mingcute:rss-2-line" /></a>
+              <a id="rss-btn" href="/rss.xml" target="_blank" aria-label="RSSフィード"><Icon name="mingcute:rss-2-line" /></a>
               <Darkmode />
             </div>
           </div>
@@ -275,15 +275,15 @@ if (database.Icon && database.Icon.Type === 'file') {
     --bg2: #f7f6f3;
     --fg: #222;
     --fg2: #787774;
+    --bd: #dfdfde;
+    --bd2: #c6c6c4;
     --ac: #987745;
     --ac2: #795723;
     --ac3: #dec094;
     --ac4: #f8e1be;
-    --bd: #dfdfde;
-    --bd2: #c6c6c4;
-    --border: 1px solid var(--bd);
     --scroll: 0, 0, 0;
 
+    --border: 1px solid var(--bd);
     --radius: 8px;
     --font-sans: 'Inter Variable', 'Noto Sans JP Variable', sans-serif;
     --font-mono: 'Noto Sans Mono Variable', 'Noto Sans JP Variable', monospace, sans-serif;
