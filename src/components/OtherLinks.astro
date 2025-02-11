@@ -1,13 +1,14 @@
 ---
 import { Icon } from 'astro-icon/components'
+import '../styles/scroll-links.css'
 import clubdam from '../images/clubdam.webp'
 import nana from '../images/nana.webp'
 import annict from '../images/annict.webp'
 import petitlyrics from '../images/petitlyrics.webp'
 ---
 
-<div>
-<ul class="scroll-links">
+<div class="scroll-links">
+<ul id="scroll-links-other">
   <li>
     <a href="https://open.spotify.com/user/21j2yhq6gvx2n2xhxga2obtri?si=762b421111464bf0" target="_blank" rel="noopener noreferrer">
       <Icon name="simple-icons:spotify" />
@@ -54,54 +55,17 @@ import petitlyrics from '../images/petitlyrics.webp'
 </div>
 
 <style>
-  ul {
-    display: flex;
-    list-style-type: none;
+  .scroll-links ul {
     padding: 0 0 1px 0;
-    gap: 8px;
-    overflow-x: scroll;
-    white-space: nowrap;
-    scrollbar-width: none;
   }
-  ul::-webkit-scrollbar {
-    display: none;
-  }
-  @media (max-width: 640px) {
-    div {
-      margin-left: calc(-50vw + 50%);
-      margin-right: calc(-50vw + 50%);
-    }
-    ul {
-      padding-left: 18px;
-    }
-    ul:last-child {
-      padding-right: 18px;
-    }
-  }
-  a {
-    display: flex;
-    align-items: center;
-    height: 40px;
+  .scroll-links ul li a {
     padding-right: 10px;
-    border: var(--border);
-    border-radius: var(--radius);
-    overflow: hidden;
-    color: var(--fg);
   }
-  @media (hover: hover) {
-    a:hover {
-      background: var(--bg2);
-    }
-  }
-  @media (hover: none) {
-    a:active {
-      background: var(--bg2);
-    }
-  }
-  span {
+  .scroll-links ul li a span {
     padding-left: 5px;
   }
-  svg, img {
+  .scroll-links ul li a svg,
+  .scroll-links ul li a img {
     width: 16px;
     height: 16px;
     margin-left: 10px;

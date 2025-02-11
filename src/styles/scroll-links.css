@@ -1,0 +1,42 @@
+.scroll-links ul {
+  display: flex;
+  list-style-type: none;
+  gap: 8px;
+  overflow-x: scroll;
+  white-space: nowrap;
+  scrollbar-width: none;
+}
+.scroll-links ul::-webkit-scrollbar {
+  display: none;
+}
+@media (max-width: 640px) {
+  .scroll-links {
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+  }
+  .scroll-links ul {
+    padding-left: 18px;
+  }
+  .scroll-links ul:last-child {
+    padding-right: 18px;
+  }
+}
+.scroll-links ul li a {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  border: var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  color: var(--fg);
+}
+@media (hover: hover) {
+  .scroll-links ul li a:hover {
+    background: var(--bg2);
+  }
+}
+@media (hover: none) {
+  .scroll-links ul li a:active {
+    background: var(--bg2);
+  }
+}
