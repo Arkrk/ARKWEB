@@ -34,10 +34,17 @@ import { Icon } from 'astro-icon/components'
     align-items: center;
     justify-content: center;
   }
-  .btn:hover {
-    background: var(--bg2);
+  @media (hover: hover) {
+    .btn:hover {
+      background: var(--bg2);
+    }
   }
-  .btn svg{
+  @media (hover: none) {
+    .btn:active {
+      background: var(--bg2);
+    }
+  }
+  .btn svg {
     width: 24px;
     height: 24px;
     color: var(--fg);
