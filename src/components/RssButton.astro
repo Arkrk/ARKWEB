@@ -1,0 +1,121 @@
+---
+import { Icon } from 'astro-icon/components'
+---
+
+<div>
+  <button type="button" class="btn" id="btn" aria-label="RSSフィード">
+    <Icon name="mingcute:rss-2-line" />
+  </button>
+
+  <div class="dropdown" id="dropdown">
+    <a href="/rss.xml" target="_blank">
+      フィードを開く
+    </a>
+    <button type="button" onclick="copyUrl()" aria-label="リンクをコピー">
+      リンクをコピー
+    </button>
+    <a href="https://www.inoreader.com?add_feed=arkxv.com" target="_blank" rel="noopener noreferrer">
+      Inoreader でフォロー
+    </a>
+  </div>
+</div>
+
+<style>
+  button {
+    border: none;
+    background: transparent;
+  }
+  .btn {
+    display: flex;
+    height: 45.6px;
+    width: 45.6px;
+    padding: 0;
+    border-radius: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  .btn:hover {
+    background: var(--bg2);
+  }
+  .btn svg{
+    width: 24px;
+    height: 24px;
+    color: var(--fg);
+  }
+
+  .dropdown {
+    position: absolute;
+    width: 170px;
+    border: var(--border);
+    box-shadow: 0 5px 15px #001b443b;
+    border-radius: var(--radius);
+    margin-top: 0.3rem;
+    background: var(--bg);
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-0.5rem);
+    transition: all 0.1s cubic-bezier(0.16, 1, 0.5, 1);
+    padding: 4px;
+    right: 5px;
+    overflow: hidden;
+  }
+  .dropdown a, .dropdown button {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 30px;
+    column-gap: 0.5rem;
+    padding: 14px 10px 16px;
+    text-decoration: none;
+    color: var(--fg);
+    font-size: 14px;
+    border-radius: 6px;
+  }
+  @media (hover: hover) {
+    .dropdown a:hover, .dropdown button:hover {
+      background-color: var(--bg2);
+    }
+  }
+  @media (hover: none) {
+    .dropdown a:active, .dropdown button:active {
+      background-color: var(--bg2);
+    }
+  }
+  .dropdown a svg {
+    height: 16px;
+    width: 16px;
+    height: var(--fg);
+  }
+
+  .show {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0rem);
+  }
+</style>
+
+<script is:inline>
+  const dropdownBtn = document.getElementById('btn');
+  const dropdownMenu = document.getElementById('dropdown');
+
+  const toggleDropdown = function () {
+    dropdownMenu.classList.toggle('show');
+  };
+
+  dropdownBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    toggleDropdown();
+  });
+
+  document.documentElement.addEventListener('click', function () {
+    if (dropdownMenu.classList.contains('show')) {
+      toggleDropdown();
+    }
+  });
+
+  function copyUrl() {
+    const url = 'https://arkxv.com/rss.xml';
+    navigator.clipboard.writeText(url);
+  }
+</script>

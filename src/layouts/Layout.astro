@@ -6,7 +6,7 @@ import '../styles/syntax-coloring.css'
 import GoogleAnalytics from '../components/GoogleAnalytics.astro'
 import Darkmode from '../components/Darkmode.astro'
 import Navigation from '../components/Navigation.astro'
-import { Icon } from 'astro-icon/components'
+import RssButton from '../components/RssButton.astro'
 import '@fontsource-variable/inter/opsz.css';
 import '@fontsource-variable/noto-sans-jp';
 import '@fontsource-variable/noto-sans-mono';
@@ -106,7 +106,7 @@ if (database.Icon && database.Icon.Type === 'file') {
               <div id="logo-type"></div>
             </a>
             <div class="switch">
-              <a id="rss-btn" href="/rss.xml" target="_blank" aria-label="RSSフィード"><Icon name="mingcute:rss-2-line" /></a>
+              <RssButton />
               <Darkmode />
             </div>
           </div>
@@ -194,19 +194,7 @@ if (database.Icon && database.Icon.Type === 'file') {
   .bg-header .switch {
     display: flex;
     margin-left: auto;
-  }
-  #rss-btn {
-    display: flex;
-    color: var(--fg);
-    height: 45.6px;
-    width: 45.6px;
-    border-radius: 100%;
-    justify-content: center;
-    align-items: center;
-  }
-  #rss-btn svg {
-    width: 24px;
-    height: 24px;
+    position: relative;
   }
 
   div.content {
