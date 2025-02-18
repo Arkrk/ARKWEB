@@ -25,10 +25,18 @@ const { richTexts } = Astro.props
     white-space: pre-wrap;
     word-break: break-word;
     line-height: 1.4;
+    text-align: center;
   }
   .caption > div {
     flex-grow: 1;
-    width: 0;
-    text-align: center;
+  }
+</style>
+
+<style is:global>
+  .code div .caption {
+    margin: 0;
+    padding: 0.3rem 0.8rem;
+    border-bottom: var(--border);
+    text-align: unset;
   }
 </style>
