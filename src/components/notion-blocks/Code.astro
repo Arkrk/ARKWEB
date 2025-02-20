@@ -40,7 +40,7 @@ const grammer =
         <>
           <Caption richTexts={block.Code.Caption} />
           <div>
-            <button class="copy" data-code={code} data-done-text="コピー完了">
+            <button class="copy" data-code={code} data-done-text="完了">
               コピー
             </button>
           </div>
@@ -92,6 +92,7 @@ const grammer =
   }
   .code button.copy {
     display: block;
+    min-width: 50px;
     margin: 4px;
     border: var(--border);
     border-radius: 99px;
