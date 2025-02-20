@@ -39,9 +39,6 @@
   overflow: hidden;
   aspect-ratio: 16 / 9;
 }
-.grid-fix {
-  border-top: var(--border);
-}
 @media (min-width: 641px) {
   .grid-fix {
     display: flex;

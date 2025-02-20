@@ -35,6 +35,8 @@ if (post.FeaturedImage && post.FeaturedImage.Url) {
     aspect-ratio: 16 / 9;
     object-fit: cover;
     transition: 0.3s all;
+    mask-image: linear-gradient(to top, #0000, #000);
+    -webkit-mask-image: -webkit-linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
   }
 </style>
 <style is:global>
