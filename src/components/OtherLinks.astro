@@ -1,10 +1,11 @@
 ---
 import { Icon } from 'astro-icon/components'
 import '../styles/scroll-links.css'
-import clubdam from '../images/clubdam.webp'
-import nana from '../images/nana.webp'
+import statsfm from '../images/statsfm.svg'
 import annict from '../images/annict.webp'
 import petitlyrics from '../images/petitlyrics.webp'
+import nana from '../images/nana.webp'
+import clubdam from '../images/clubdam.webp'
 ---
 
 <div class="scroll-links">
@@ -13,6 +14,12 @@ import petitlyrics from '../images/petitlyrics.webp'
     <a href="https://open.spotify.com/user/21j2yhq6gvx2n2xhxga2obtri?si=762b421111464bf0" target="_blank" rel="noopener noreferrer">
       <Icon name="simple-icons:spotify" />
       <span>Spotify</span>
+    </a>
+  </li>
+  <li>
+    <a href="https://stats.fm/arkxv" target="_blank" rel="noopener noreferrer">
+      <img id="statsfm" src={statsfm.src} alt="" />
+      <span>stats.fm</span>
     </a>
   </li>
   <li>
@@ -43,12 +50,6 @@ import petitlyrics from '../images/petitlyrics.webp'
     <a href="https://www.clubdam.com/app/damtomo/SP/member/info/Profile.do?damtomoId=Mzc1MjQ1OTM" target="_blank" rel="noopener noreferrer">
       <img src={clubdam.src} alt="" />
       <span>DAM★とも</span>
-    </a>
-  </li>
-  <li>
-    <a href="https://lounge.nintendo.com/friendcode/5918-2458-2583/Cw7BP1FsvQ" target="_blank" rel="noopener noreferrer">
-      <Icon name="simple-icons:nintendoswitch" />
-      <span>Nintendo Switch</span>
     </a>
   </li>
 </ul>
