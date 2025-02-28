@@ -30,4 +30,4 @@ OverlayScrollbars({
     clickScroll: false,
     pointers: ['mouse', 'pen'],
   },
- });
+});
