@@ -15,9 +15,9 @@ const { prevPost, nextPost } = Astro.props
   <div>
     {
       nextPost && (
-        <a href={getPostLink(nextPost.Slug)} class="colored next">
+        <a href={getPostLink(nextPost.Slug)} class="next">
           <Icon name="mingcute:arrow-left-line" />
-          <div class="relative-title">{nextPost.Title}</div>
+          <span>{nextPost.Title}</span>
         </a>
       )
     }
@@ -25,9 +25,9 @@ const { prevPost, nextPost } = Astro.props
   <div>
     {
       prevPost && (
-        <a href={getPostLink(prevPost.Slug)} class="colored prev">
+        <a href={getPostLink(prevPost.Slug)} class="prev">
+          <span>{prevPost.Title}</span>
           <Icon name="mingcute:arrow-right-line" />
-          <div class="relative-title">{prevPost.Title}</div>
         </a>
       )
     }
@@ -36,60 +36,51 @@ const { prevPost, nextPost } = Astro.props
 
 <style>
   div.post-relative-link {
-    display: flex;
-    margin-top: 1.5rem;
-    gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 14px;
+    row-gap: 14px;
+    margin-top: 1rem;
   }
-  div.post-relative-link > div {
-    display: block;
-    max-width: 50%;
-  }
-  div.post-relative-link > div:last-child {
-    margin-left: auto;
+  @media (max-width: 640px) {
+    div.post-relative-link {
+      column-gap: 8px;
+      row-gap: 8px;
+    }
   }
   div.post-relative-link > div > a {
-    display: block;
-  }
-  div.post-relative-link > div > a.colored {
+    display: flex;
     align-items: center;
-    gap: 2px;
-    padding: 10px;
+    height: 100%;
+    padding: 15px 10px;
+    border: var(--border);
     border-radius: var(--radius);
     color: var(--fg);
+    gap: 4px;
+  }
+  div.post-relative-link > div > a.prev {
+    justify-content: flex-end;
+    text-align: right;
   }
   @media (hover: hover) {
-    div.post-relative-link > div > a.colored:hover {
+    div.post-relative-link > div > a:hover {
       background: var(--bg2);
     }
   }
   @media (hover: none) {
-    div.post-relative-link > div > a.colored:active {
+    div.post-relative-link > div > a:active {
       background: var(--bg2);
     }
   }
-  div.post-relative-link > div > a.colored > svg {
-    width: 24px;
-    height: 24px;
+  div.post-relative-link > div > a > svg {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
   }
-  div.post-relative-link > div > a.colored > div.relative-title {
-    width: auto;
-    margin: 0 2.5px 4px;
-    font-size: 1rem;
+  div.post-relative-link > div > a > span {
+    font-size: 0.9rem;
     line-height: 1.2rem;
-    font-weight: bold;
-  }
-  div.post-relative-link > div > a.colored.prev {
-    text-align: right;
-  }
-  @media (max-width: 640px) {
-    div.post-relative-link {
-      display: block;
-    }
-    div.post-relative-link > div {
-      max-width: 100%;
-    }
-    div.post-relative-link > div > a.colored.prev {
-      justify-content: end;
-    }
+    font-weight: 500;
+    padding-top: 0;
   }
 </style>
