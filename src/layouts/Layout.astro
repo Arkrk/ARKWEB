@@ -9,7 +9,7 @@ import Navigation from '../components/Navigation.astro'
 import RssButton from '../components/RssButton.astro'
 import '@fontsource-variable/inter/opsz.css';
 import '@fontsource-variable/noto-sans-jp';
-import '@fontsource-variable/noto-sans-mono';
+import '@fontsource-variable/jetbrains-mono';
 
 export interface Props {
   title: string
@@ -272,7 +272,7 @@ if (database.Icon && database.Icon.Type === 'file') {
     --border: 1px solid var(--bd);
     --radius: 8px;
     --font-sans: 'Inter Variable', 'Noto Sans JP Variable', sans-serif;
-    --font-mono: 'Noto Sans Mono Variable', 'Noto Sans JP Variable', monospace, sans-serif;
+    --font-mono: 'JetBrains Mono Variable', 'Noto Sans JP Variable', monospace, sans-serif;
   }
 
   * {
@@ -372,6 +372,8 @@ if (database.Icon && database.Icon.Type === 'file') {
     padding: 0.25rem;
     border-radius: 4px;
     font-family: var(--font-mono);
+    font-variant-ligatures: none;
+    letter-spacing: -1px;
   }
 
   table {
