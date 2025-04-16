@@ -25,6 +25,7 @@
   display: flex;
   align-items: center;
   height: 40px;
+  background: var(--bg);
   border: var(--border);
   border-radius: var(--radius);
   overflow: hidden;

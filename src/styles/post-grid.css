@@ -16,6 +16,7 @@
 }
 .grid-parts {
   position: relative;
+  background: var(--bg);
   border: var(--border);
   border-radius: var(--radius);
   overflow: hidden;

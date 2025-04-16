@@ -17,24 +17,24 @@ import { Icon } from 'astro-icon/components'
 layout.astro
 -------------------- */
 :root.darkmode {
-  --bg: #191919;
-  --bg2: #252525;
+  --bg: #0a0a0a;
+  --bg2: #1b1b1b;
   --fg: #ddd;
-  --fg2: #9b9b9b;
-  --bd: #373737;
-  --bd2: #707070;
+  --fg2: #8f8f8f;
+  --bd: #2e2e2e;
+  --bd2: #505050;
   --ac: #c29f6c;
   --ac2: #dba95e;
   --ac3: #76654f;
   --ac4: #4d4435;
-  --scroll: 230, 230, 230;
+  --scroll: 255, 255, 255;
 }
 
 /* --------------------
 Navigation.astro
 -------------------- */
 .darkmode .fixed-nav {
-  background: rgba(25, 25, 25, 0.7) !important;
+  background: rgba(10, 10, 10, 0.7) !important;
 }
 
 /* --------------------
@@ -76,23 +76,23 @@ RssButton.astro
 Pagination.astro
 -------------------- */
 .darkmode .pagination a.current-page {
-  background: #323232 !important;
+  background: #252525 !important;
 }
 
 /* --------------------
 Code.astro
 -------------------- */
 .darkmode .code button.copy {
-  background: #303030 !important;
+  background: #272727 !important;
 }
 @media (hover: hover) {
   .darkmode .code button.copy:hover {
-    background: #343434 !important;
+    background: #303030 !important;
   }
 }
 @media (hover: none) {
   .darkmode .code button.copy:active {
-    background: #343434 !important;
+    background: #303030 !important;
   }
 }
 
