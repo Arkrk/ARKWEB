@@ -97,7 +97,6 @@ if (database.Icon && database.Icon.Type === 'file') {
     <div class="container" ontouchstart="">
       <header>
         <nav>
-          <Navigation />
           <div class="bg-header">
             <a class="logo" href={getNavLink('/')} aria-label="ARKWEB">
               <div id="logo-icon"></div>
@@ -108,6 +107,7 @@ if (database.Icon && database.Icon.Type === 'file') {
               <RssButton />
             </div>
           </div>
+          <Navigation />
         <nav>
       </header>
 
@@ -301,8 +301,8 @@ if (database.Icon && database.Icon.Type === 'file') {
     color: var(--fg);
     background-color: var(--bg);
     background-image: 
-      linear-gradient(rgba(var(--scroll), 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(var(--scroll), 0.03) 1px, transparent 1px);
+      linear-gradient(rgba(var(--scroll), 0.0275) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(var(--scroll), 0.0275) 1px, transparent 1px);
     background-size: 40px 40px;
     background-position: -1px -1px;
     -webkit-font-smoothing: antialiased;
