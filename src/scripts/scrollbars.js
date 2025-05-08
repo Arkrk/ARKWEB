@@ -8,7 +8,7 @@ OverlayScrollbars({
   }
 }, {
   paddingAbsolute: false,
-  showNativeOverlaidScrollbars: false,
+  showNativeOverlaidScrollbars: true,
   update: {
     elementEvents: [
       ['img', 'load']
