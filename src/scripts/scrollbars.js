@@ -4,7 +4,7 @@ import { OverlayScrollbars } from 'overlayscrollbars';
 OverlayScrollbars({ 
   target: document.body,
   cancel: {
-    nativeScrollbarsOverlaid: false,
+    nativeScrollbarsOverlaid: true,
   }
 }, {
   paddingAbsolute: false,

@@ -39,13 +39,3 @@ const { tags } = Astro.props
     padding: 0 10px;
   }
 </style>
-
-<script>
-  const scrollElement = document.querySelector(".scroll-links-tags");
-
-  scrollElement.addEventListener("wheel", (e) => {
-    if (Math.abs(e.deltaY) < Math.abs(e.deltaX)) return;
-    e.preventDefault();
-    scrollElement.scrollLeft += e.deltaY;
-  });
-</script>
