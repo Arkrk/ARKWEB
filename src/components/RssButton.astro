@@ -23,6 +23,8 @@ import { Icon } from 'astro-icon/components'
   </div>
 </div>
 
+<div id="toast-container"></div>
+
 <style>
   button {
     border: none;
@@ -101,6 +103,36 @@ import { Icon } from 'astro-icon/components'
   }
 </style>
 
+<style is:global>
+  #toast-container {
+    position: fixed;
+    right: 0;
+    left: 0;
+    bottom: 25px;
+    margin: 0 auto;
+    width: fit-content;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .toast {
+    background: var(--bg);
+    color: var(--fg);
+    border: var(--border);
+    border-radius: var(--radius);
+    box-shadow: 0 5px 15px #001b443b;
+    padding: 0.8rem 1.2rem;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+  .toast.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
 <script is:inline>
   const dropdownBtn = document.getElementById('btn');
   const dropdownMenu = document.getElementById('dropdown');
@@ -123,5 +155,20 @@ import { Icon } from 'astro-icon/components'
   function copyUrl() {
     const url = 'https://arkxv.com/rss.xml';
     navigator.clipboard.writeText(url);
+
+    const container = document.getElementById("toast-container");
+    const toast = document.createElement("div");
+    toast.className = "toast";
+    toast.textContent = "クリップボードにコピーしました";
+    container.appendChild(toast);
+    requestAnimationFrame(() => {
+      toast.classList.add("show");
+    });
+    setTimeout(() => {
+      toast.classList.remove("show");
+      toast.addEventListener("transitionend", () => {
+        toast.remove();
+      });
+    }, 3000);
   }
 </script>
