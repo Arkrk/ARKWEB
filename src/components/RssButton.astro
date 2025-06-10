@@ -59,7 +59,7 @@ import { Icon } from 'astro-icon/components'
     position: absolute;
     width: 170px;
     border: var(--border);
-    box-shadow: 0 5px 15px #001b443b;
+    box-shadow: var(--shadow);
     border-radius: var(--radius);
     margin-top: 0.3rem;
     background: var(--bg);
@@ -121,8 +121,9 @@ import { Icon } from 'astro-icon/components'
     color: var(--fg);
     border: var(--border);
     border-radius: var(--radius);
-    box-shadow: 0 5px 15px #001b443b;
-    padding: 0.8rem 1.2rem;
+    box-shadow: var(--shadow);
+    padding: 0.8rem 1.2rem 0.9rem;
+    font-size: 14.5px;
     opacity: 0;
     transform: translateY(10px);
     transition: opacity 0.2s ease, transform 0.2s ease;

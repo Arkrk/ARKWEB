@@ -7,7 +7,7 @@
   background: var(--bg);
   border: var(--border);
   border-radius: var(--radius);
-  box-shadow: 0 5px 15px #001b443b;
+  box-shadow: var(--shadow);
   font-size: 14px;
   color: var(--fg);
 }
@@ -28,7 +28,7 @@
 }
 
 .dialog {
-  box-shadow: 0 5px 15px #001b443b;
+  box-shadow: var(--shadow);
   border-radius: var(--radius);
   border: var(--border);
   position: fixed;
