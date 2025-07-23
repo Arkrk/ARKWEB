@@ -14,8 +14,7 @@ const isFirstPage = currentPage === 1
 const isLastPage = currentPage === numberOfPages
 
 const startPage = currentPage - 2 < 1 ? 1 : currentPage - 2
-const endPage =
-  currentPage + 2 > numberOfPages ? numberOfPages : currentPage + 2
+const endPage = currentPage + 2 > numberOfPages ? numberOfPages : currentPage + 2
 
 let pages = []
 for (let i = startPage; i <= endPage; i++) {

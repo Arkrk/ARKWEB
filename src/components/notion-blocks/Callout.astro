@@ -24,7 +24,7 @@ const { block, headings } = Astro.props
       </div>
     )
   }
-  <div>
+  <div class="callout-contents">
     {
       block.Callout.RichTexts.map((richText: interfaces.RichText) => (
         <RichText richText={richText} />
@@ -53,7 +53,7 @@ const { block, headings } = Astro.props
   }
   .callout > div {
     margin: 0;
-    line-height: 1.5rem;
+    line-height: 1.8rem;
   }
   .callout > div.icon {
     margin-right: 0.7rem;
@@ -61,5 +61,11 @@ const { block, headings } = Astro.props
   .callout > div.icon > img {
     width: 1.4rem;
     height: 1.4rem;
+  }
+</style>
+
+<style is:global>
+  .callout > .callout-contents > *:last-child {
+    margin-bottom: 0 !important;
   }
 </style>
