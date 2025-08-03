@@ -1,0 +1,36 @@
+---
+export interface Props {
+  url: URL
+}
+const { url } = Astro.props
+const path = url.pathname.split('/')
+const intl = path.indexOf('intl-ja')
+
+if (intl !== -1) {
+  path.splice(intl, 1)
+}
+
+const contentType = path[1]
+const contentId = path[2]
+const embedHeight = contentType === 'track' ? 152 : 452
+---
+
+<div class="spotify">
+  <iframe 
+    data-testid="embed-iframe"
+    style="border-radius:8px"
+    src={`https://open.spotify.com/embed/${contentType}/${contentId}`}
+    width="100%"
+    height={`${embedHeight}`}
+    frameborder="0"
+    allowfullscreen=""
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+    loading="lazy"
+  />
+</div>
+
+<style>
+  .spotify {
+    margin: 0.5rem 0;
+  }
+</style>

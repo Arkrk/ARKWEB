@@ -4,6 +4,7 @@ import {
   isTweetURL,
   isTikTokURL,
   isInstagramURL,
+  isSpotifyURL,
   isPinterestURL,
   isCodePenURL,
 } from '../../lib/blog-helpers.ts'
@@ -11,6 +12,7 @@ import Bookmark from './Bookmark.astro'
 import TweetEmbed from './TweetEmbed.astro'
 import TikTokEmbed from './TikTokEmbed.astro'
 import InstagramEmbed from './InstagramEmbed.astro'
+import SpotifyEmbed from './SpotifyEmbed.astro'
 import PinterestEmbed from './PinterestEmbed.astro'
 import CodePenEmbed from './CodePenEmbed.astro'
 
@@ -37,6 +39,8 @@ try {
       <TikTokEmbed url={url} />
     ) : isInstagramURL(url) ? (
       <InstagramEmbed url={url} />
+    ) : isSpotifyURL(url) ? (
+      <SpotifyEmbed url={url} />
     ) : isPinterestURL(url) ? (
       <PinterestEmbed url={url} />
     ) : isCodePenURL(url) ? (

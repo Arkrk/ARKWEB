@@ -207,6 +207,16 @@ export const isInstagramURL = (url: URL): boolean => {
   return /\/p\/[^/]+/.test(url.pathname)
 }
 
+export const isSpotifyURL = (url: URL): boolean => {
+  if (
+    url.hostname !== 'open.spotify.com' &&
+    url.hostname !== 'www.open.spotify.com'
+  ) {
+    return false
+  }
+  return /\/(track|album|playlist|artist)\/[^/]+/.test(url.pathname)
+}
+
 export const isPinterestURL = (url: URL): boolean => {
   if (
     url.hostname !== 'pinterest.com' &&
