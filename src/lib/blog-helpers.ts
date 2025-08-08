@@ -217,6 +217,16 @@ export const isSpotifyURL = (url: URL): boolean => {
   return /\/(track|album|playlist|artist)\/[^/]+/.test(url.pathname)
 }
 
+export const isAppleMusicURL = (url: URL): boolean => {
+  if (
+    url.hostname !== 'music.apple.com' &&
+    url.hostname !== 'www.music.apple.com'
+  ) {
+    return false
+  }
+  return /\/(song|album|playlist)\/[^/]+\/[^/]+/.test(url.pathname)
+}
+
 export const isPinterestURL = (url: URL): boolean => {
   if (
     url.hostname !== 'pinterest.com' &&
