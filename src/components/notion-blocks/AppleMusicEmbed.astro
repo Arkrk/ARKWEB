@@ -4,10 +4,7 @@ export interface Props {
 }
 const { url } = Astro.props
 const path = url.pathname.split('/')
-
 const contentType = path[2]
-const contentTitle = path[3]
-const contentId = path[4]
 const embedHeight = contentType === 'song' ? 175 : 450
 ---
 
@@ -18,7 +15,7 @@ const embedHeight = contentType === 'song' ? 175 : 450
     height={`${embedHeight}`}
     style="width:100%;overflow:hidden;border-radius:10px;"
     sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
-    src={`https://embed.music.apple.com/jp/${contentType}/${contentTitle}/${contentId}`}
+    src={`https://embed.music.apple.com${url.pathname}`}
   />
 </div>
 
