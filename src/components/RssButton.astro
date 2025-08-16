@@ -11,7 +11,7 @@ import { Icon } from 'astro-icon/components'
     <a href="/rss.xml" target="_blank">
       フィードを開く
     </a>
-    <button type="button" onclick="copyUrl()" aria-label="リンクをコピー">
+    <button type="button" id="feedlink-btn" aria-label="リンクをコピー">
       リンクをコピー
     </button>
     <a href="https://feedly.com/i/subscription/feed%2Fhttps%3A%2F%2Farkxv.com%2Frss.xml" target="_blank" rel="noopener noreferrer">
@@ -108,7 +108,7 @@ import { Icon } from 'astro-icon/components'
     position: fixed;
     right: 0;
     left: 0;
-    bottom: 25px;
+    bottom: 30px;
     margin: 0 auto;
     width: fit-content;
     z-index: 999;
@@ -152,24 +152,16 @@ import { Icon } from 'astro-icon/components'
       toggleDropdown();
     }
   });
+</script>
 
-  function copyUrl() {
-    const url = 'https://arkxv.com/rss.xml';
-    navigator.clipboard.writeText(url);
+<script>
+  import { copyRssUrl } from "../scripts/toast.js";
 
-    const container = document.getElementById("toast-container");
-    const toast = document.createElement("div");
-    toast.className = "toast";
-    toast.textContent = "クリップボードにコピーしました";
-    container.appendChild(toast);
-    requestAnimationFrame(() => {
-      toast.classList.add("show");
+  const feedLinkBtn = document.getElementById("feedlink-btn");
+  const url = 'https://arkxv.com/rss.xml';
+  if (feedLinkBtn) {
+    feedLinkBtn.addEventListener("click", (e) => {
+      copyRssUrl(url);
     });
-    setTimeout(() => {
-      toast.classList.remove("show");
-      toast.addEventListener("transitionend", () => {
-        toast.remove();
-      });
-    }, 3000);
   }
 </script>
