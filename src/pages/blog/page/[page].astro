@@ -15,7 +15,6 @@ import PostFeaturedImage from '../../../components/PostFeaturedImage.astro'
 import Pagination from '../../../components/Pagination.astro'
 import BlogTagsLink from '../../../components/BlogTagsLink.astro'
 import '../../../styles/post-grid.css'
-import { Icon } from 'astro-icon/components'
 
 export async function getStaticPaths() {
   const numberOfPages = await getNumberOfPages()
@@ -61,7 +60,6 @@ const [posts, rankedPosts, tags, numberOfPages] = await Promise.all([
                     <PostDate post={post} />
                   </div>
                   <div class="tags-area">
-                    <Icon name="mingcute:tag-2-fill" />
                     <PostTags post={post} />
                   </div>
                 </div>

@@ -1,7 +1,6 @@
 ---
 import { Post } from '../lib/interfaces.ts'
 import { getDateStr } from '../lib/blog-helpers.ts'
-import { Icon } from 'astro-icon/components'
 
 export interface Props {
   post: Post
@@ -11,7 +10,7 @@ const { post } = Astro.props
 ---
 
 <div>
-  {post.Date ? <div class="post-date"><Icon name="mingcute:calendar-2-fill" />{getDateStr(post.Date)}</div> : ''}
+  {post.Date ? <div class="post-date">{getDateStr(post.Date)}&nbsp;に公開</div> : ''}
 </div>
 
 <style>

@@ -16,7 +16,6 @@ import PostFeaturedImage from '../../../components/PostFeaturedImage.astro'
 import Pagination from '../../../components/Pagination.astro'
 import '../../../styles/post-grid.css'
 import '../../../styles/notion-color.css'
-import { Icon } from 'astro-icon/components'
 
 export async function getStaticPaths() {
   const allTags = await getAllTags()
@@ -61,7 +60,6 @@ const currentTag = posts[0].Tags.find((t) => t.name === tag)
                     <PostDate post={post} />
                   </div>
                   <div class="tags-area">
-                    <Icon name="mingcute:tag-2-fill" />
                     <PostTags post={post} />
                   </div>
                 </div>

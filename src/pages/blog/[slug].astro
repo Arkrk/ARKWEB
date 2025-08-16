@@ -22,9 +22,9 @@ import PostTags from '../../components/PostTags.astro'
 import PostTitle from '../../components/PostTitle.astro'
 import PostBody from '../../components/PostBody.astro'
 import PostRelativeLink from '../../components/PostRelativeLink.astro'
-import { Icon } from 'astro-icon/components'
 import PostUpdateDate from '../../components/PostUpdateDate.astro'
 import ContentList from '../../components/ContentList.astro'
+import ShareButtons from '../../components/ShareButtons.astro'
 import '../../styles/dialog-toc.css'
 
 export async function getStaticPaths() {
@@ -109,7 +109,6 @@ if (post.FeaturedImage && post.FeaturedImage.Url) {
           <PostUpdateDate post={post} />
         </div>
         <div class="tags-area">
-          <Icon name="mingcute:tag-2-fill" />
           <PostTags post={post} />
         </div>
         <div class="body-area">
@@ -118,29 +117,7 @@ if (post.FeaturedImage && post.FeaturedImage.Url) {
         </div>
       </article>
 
-      <div class="share-area">
-        <a id="js-share-x" class="share_button share_x" href="" target="_blank" rel="nofollow noopener noreferrer">
-          <Icon name="simple-icons:x" />
-        </a>
-        <a id="js-share-bluesky" class="share_button share_bluesky" href="" target="_blank" rel="nofollow noopener noreferrer">
-          <Icon name="simple-icons:bluesky" />
-        </a>
-        <a id="js-share-misskey" class="share_button share_misskey" href="" target="_blank" rel="nofollow noopener noreferrer">
-          <Icon name="simple-icons:misskey" />
-        </a>
-        <a id="js-share-mastodon" class="share_button share_mastodon" href="" target="_blank" rel="nofollow noopener noreferrer">
-          <Icon name="simple-icons:mastodon" />
-        </a>
-        <a id="js-share-threads" class="share_button share_threads" href="" target="_blank" rel="nofollow noopener noreferrer">
-          <Icon name="simple-icons:threads" />
-        </a>
-        <a id="js-share-pocket" class="share_button share_pocket" href="" target="_blank" rel="nofollow noopener noreferrer">
-          <Icon name="simple-icons:pocket" />
-        </a>
-        <a id="js-share-hatena" class="share_button share_hatena" href="" target="_blank" rel="nofollow noopener noreferrer">
-          <Icon name="simple-icons:hatenabookmark" />
-        </a>
-      </div>
+      <ShareButtons />
       <PostRelativeLink prevPost={prevPost} nextPost={nextPost} />
     </div>
 
@@ -161,7 +138,6 @@ if (post.FeaturedImage && post.FeaturedImage.Url) {
     display: flex;
     align-items: center;
     margin-top: 0.8rem;
-    gap: 0.8rem;
   }
   .tags-area {
     display: flex;
@@ -175,6 +151,7 @@ if (post.FeaturedImage && post.FeaturedImage.Url) {
   }
   .body-area {
     padding: 3rem 0 5rem;
+    border-bottom: var(--border);
   }
   @media (min-width: 801px) {
     .body-area {
@@ -182,120 +159,4 @@ if (post.FeaturedImage && post.FeaturedImage.Url) {
       gap: 60px;
     }
   }
-  .share-area {
-    display: flex;
-    border-top: var(--border);
-    padding: 30px 10px;
-    gap: 15px;
-  }
-  @media (max-width: 640px) {
-    .share-area {
-      justify-content: center;
-    }
-  }
-  .share-area a {
-    height: 26px;
-    color: var(--fg2);
-  }
-  .share-area svg {
-    width: 26px;
-    height: 26px;
-  }
-  
-  @media (hover: hover) {
-    [data-icon="simple-icons:x"]:hover {
-      color: #10131a;
-    }
-    [data-icon="simple-icons:bluesky"]:hover {
-      color: #1185fe;
-    }
-    [data-icon="simple-icons:misskey"]:hover {
-      color: #96d04a;
-    }
-    [data-icon="simple-icons:mastodon"]:hover {
-      color: #5d52e9;
-    }
-    [data-icon="simple-icons:threads"]:hover {
-      color: #000000;
-    }
-    [data-icon="simple-icons:pocket"]:hover {
-      color: #ef4056;
-    }
-    [data-icon="simple-icons:hatenabookmark"]:hover {
-      color: #00a4de;
-    }
-  }
-  @media (hover: none) {
-    [data-icon="simple-icons:x"]:active {
-      color: #10131a;
-    }
-    [data-icon="simple-icons:bluesky"]:active {
-      color: #1185fe;
-    }
-    [data-icon="simple-icons:misskey"]:active {
-      color: #96d04a;
-    }
-    [data-icon="simple-icons:mastodon"]:active {
-      color: #5d52e9;
-    }
-    [data-icon="simple-icons:threads"]:active {
-      color: #000000;
-    }
-    [data-icon="simple-icons:pocket"]:active {
-      color: #ef4056;
-    }
-    [data-icon="simple-icons:hatenabookmark"]:active {
-      color: #00a4de;
-    }
-  }
 </style>
-
-<script>
-  import '../../scripts/dialog.js'
-
-  const share_url = location.href;
-  const share_title = document.title;
-  const share_hostpath = location.host + location.pathname;
-
-  const share_x = document.getElementById("js-share-x");
-  share_x.setAttribute(
-	  "href",
-	  "https://x.com/share?url=" + share_url + "&text=" + share_title
-  );
-
-  const share_bluesky = document.getElementById("js-share-bluesky");
-  share_bluesky.setAttribute(
-	  "href",
-	  "https://bsky.app/intent/compose?text=" + share_title + "+" + share_url
-  );
-
-  const share_misskey = document.getElementById("js-share-misskey");
-  share_misskey.setAttribute(
-	  "href",
-	  "https://misskey-hub.net/share/?text=" + share_title + "+" + share_url
-  );
-
-  const share_mastodon = document.getElementById("js-share-mastodon");
-  share_mastodon.setAttribute(
-	  "href",
-	  "https://mastoshare.net/share?text=" + share_title + "+" + share_url
-  );
-
-  const share_threads = document.getElementById("js-share-threads");
-  share_threads.setAttribute(
-	  "href",
-	  "https://www.threads.net/intent/post?text=" + share_title + "+" + share_url
-  );
-
-  const share_pocket = document.getElementById("js-share-pocket");
-  share_pocket.setAttribute(
-	  "href",
-	  "https://getpocket.com/edit?url=" + share_url
-  );
-
-  const share_hatena = document.getElementById("js-share-hatena");
-  share_hatena.setAttribute(
-	  "href",
-	  "https://b.hatena.ne.jp/entry/s/" + share_hostpath
-  );
-</script>
