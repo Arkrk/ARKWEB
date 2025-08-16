@@ -161,7 +161,9 @@ import { Icon } from 'astro-icon/components'
           url: share_url,
         });
       } catch (err) {
-        createToast('このブラウザは Web Share API をサポートしていません');
+        if (err instanceof Error && err.message === 'navigator.share is not a function') {
+          createToast('このブラウザは Web Share API をサポートしていません');
+        }
       }
     });
   }
