@@ -18,12 +18,12 @@ import { Icon } from 'astro-icon/components'
   <a id="js-share-threads" class="share_button share_threads" href="" target="_blank" rel="nofollow noopener noreferrer">
     <Icon name="simple-icons:threads" />
   </a>
-  <a id="js-share-pocket" class="share_button share_pocket" href="" target="_blank" rel="nofollow noopener noreferrer">
-    <Icon name="simple-icons:pocket" />
-  </a>
-  <a id="js-share-hatena" class="share_button share_hatena" href="" target="_blank" rel="nofollow noopener noreferrer">
-    <Icon name="simple-icons:hatenabookmark" />
-  </a>
+  <button type="button" id="postlink-btn" aria-label="リンクをコピー">
+    <Icon name="mingcute:link-fill" />
+  </button>
+  <button type="button" id="system-share-btn" aria-label="共有">
+    <Icon name="mingcute:more-1-fill" />
+  </button>
 </div>
 
 <style>
@@ -37,13 +37,18 @@ import { Icon } from 'astro-icon/components'
       justify-content: center;
     }
   }
-  .share-area a {
+  .share-area a, .share-area button {
     height: 26px;
     color: var(--fg2);
   }
   .share-area svg {
     width: 26px;
     height: 26px;
+  }
+  button {
+    padding: 0;
+    border: none;
+    background: transparent;
   }
   
   @media (hover: hover) {
@@ -62,11 +67,9 @@ import { Icon } from 'astro-icon/components'
     [data-icon="simple-icons:threads"]:hover {
       color: #000000;
     }
-    [data-icon="simple-icons:pocket"]:hover {
-      color: #ef4056;
-    }
-    [data-icon="simple-icons:hatenabookmark"]:hover {
-      color: #00a4de;
+    [data-icon="mingcute:link-fill"]:hover,
+    [data-icon="mingcute:more-1-fill"]:hover {
+      color: var(--ac);
     }
   }
   @media (hover: none) {
@@ -85,22 +88,20 @@ import { Icon } from 'astro-icon/components'
     [data-icon="simple-icons:threads"]:active {
       color: #000000;
     }
-    [data-icon="simple-icons:pocket"]:active {
-      color: #ef4056;
-    }
-    [data-icon="simple-icons:hatenabookmark"]:active {
-      color: #00a4de;
+    [data-icon="mingcute:link-fill"]:active,
+    [data-icon="mingcute:more-1-fill"]:active {
+      color: var(--ac);
     }
   }
 </style>
 
 <script>
-  import '../scripts/dialog.js'
-
+  import { createToast } from "../scripts/toast.js";
+  
   const share_url = location.href;
   const share_title = document.title;
-  const share_hostpath = location.host + location.pathname;
 
+  // X で共有
   const share_x = document.getElementById("js-share-x");
   if (share_x) {
     share_x.setAttribute(
@@ -108,6 +109,7 @@ import { Icon } from 'astro-icon/components'
     );
   }
 
+  // Bluesky で共有
   const share_bluesky = document.getElementById("js-share-bluesky");
   if (share_bluesky) {
     share_bluesky.setAttribute(
@@ -115,6 +117,7 @@ import { Icon } from 'astro-icon/components'
     );
   }
 
+  // Misskey で共有
   const share_misskey = document.getElementById("js-share-misskey");
   if (share_misskey) {
     share_misskey.setAttribute(
@@ -122,6 +125,7 @@ import { Icon } from 'astro-icon/components'
     );
   }
 
+  // Mastodon で共有
   const share_mastodon = document.getElementById("js-share-mastodon");
   if (share_mastodon) {
     share_mastodon.setAttribute(
@@ -129,6 +133,7 @@ import { Icon } from 'astro-icon/components'
     );
   }
 
+  // Threads で共有
   const share_threads = document.getElementById("js-share-threads");
   if (share_threads) {
     share_threads.setAttribute(
@@ -136,17 +141,28 @@ import { Icon } from 'astro-icon/components'
     );
   }
 
-  const share_pocket = document.getElementById("js-share-pocket");
-  if (share_pocket) {
-    share_pocket.setAttribute(
-      "href", "https://getpocket.com/edit?url=" + share_url
-    );
+  // リンクをコピー
+  const feedLinkBtn = document.getElementById("postlink-btn");
+  if (feedLinkBtn) {
+    feedLinkBtn.addEventListener("click", (e) => {
+      navigator.clipboard.writeText(share_url);
+      createToast('記事リンクをクリップボードにコピーしました');
+    });
   }
 
-  const share_hatena = document.getElementById("js-share-hatena");
-  if (share_hatena) {
-    share_hatena.setAttribute(
-      "href", "https://b.hatena.ne.jp/entry/s/" + share_hostpath
-    );
+  // システムの共有機能
+  const systemShareBtn = document.getElementById('system-share-btn');
+
+  if (systemShareBtn) {
+    systemShareBtn.addEventListener('click', async () => {
+      try {
+        await navigator.share({
+          title: share_title,
+          url: share_url,
+        });
+      } catch (err) {
+        createToast('このブラウザは Web Share API をサポートしていません');
+      }
+    });
   }
 </script>

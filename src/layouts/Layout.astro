@@ -129,6 +129,7 @@ if (database.Icon && database.Icon.Type === 'file') {
           <a href="https://github.com/otoyo/astro-notion-blog" target="_blank" rel="noopener noreferrer">astro-notion-blog</a>
         </div>
       </footer>
+      <div id="toast-container"></div>
     </div>
   </body>
 </html>
@@ -409,6 +410,36 @@ if (database.Icon && database.Icon.Type === 'file') {
     .os-scrollbar-handle:hover {
       background: rgba(var(--scroll), 0.5) !important;
     }
+  }
+
+  #toast-container {
+    position: fixed;
+    right: 0;
+    left: 0;
+    bottom: 30px;
+    margin: 0 auto;
+    width: fit-content;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .toast {
+    background: var(--bg);
+    color: var(--fg);
+    border: var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin: 0 18px;
+    padding: 0.8rem 1.1rem 0.9rem;
+    font-size: 14.5px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+  .toast.show {
+    opacity: 1;
+    transform: translateY(0);
   }
 </style>
 

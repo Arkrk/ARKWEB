@@ -1,10 +1,8 @@
-export function copyRssUrl(url) {
-  navigator.clipboard.writeText(url);
-
+export function createToast(message) {
   const container = document.getElementById("toast-container");
   const toast = document.createElement("div");
   toast.className = "toast";
-  toast.textContent = "クリップボードにコピーしました";
+  toast.textContent = message;
   container.appendChild(toast);
   requestAnimationFrame(() => {
     toast.classList.add("show");
