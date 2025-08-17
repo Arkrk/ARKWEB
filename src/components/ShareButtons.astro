@@ -121,7 +121,7 @@ import { Icon } from 'astro-icon/components'
   const share_misskey = document.getElementById("js-share-misskey");
   if (share_misskey) {
     share_misskey.setAttribute(
-      "href", "https://misskey-hub.net/share/?text=" + share_title + "+" + share_url
+      "href", "https://misskey-hub.net/share/?url=" + share_url + "&text=" + share_title + "&manualInstance=misskey.io"
     );
   }
 
@@ -129,7 +129,7 @@ import { Icon } from 'astro-icon/components'
   const share_mastodon = document.getElementById("js-share-mastodon");
   if (share_mastodon) {
     share_mastodon.setAttribute(
-      "href", "https://mastoshare.net/share?text=" + share_title + "+" + share_url
+      "href", "https://mastoshare.net/share?url=" + share_url + "&text=" + share_title
     );
   }
 
@@ -150,7 +150,7 @@ import { Icon } from 'astro-icon/components'
     });
   }
 
-  // システムの共有機能
+  // システムネイティブ共有
   const systemShareBtn = document.getElementById('system-share-btn');
 
   if (systemShareBtn) {
