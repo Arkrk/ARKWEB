@@ -105,7 +105,7 @@ import { Icon } from 'astro-icon/components'
   const share_x = document.getElementById("js-share-x");
   if (share_x) {
     share_x.setAttribute(
-	    "href", "https://x.com/share?url=" + share_url + "&text=" + share_title
+	    "href", "https://x.com/share?text=" + share_title + "&url=" + share_url
     );
   }
 
@@ -121,7 +121,7 @@ import { Icon } from 'astro-icon/components'
   const share_misskey = document.getElementById("js-share-misskey");
   if (share_misskey) {
     share_misskey.setAttribute(
-      "href", "https://misskey-hub.net/share/?url=" + share_url + "&text=" + share_title + "&manualInstance=misskey.io"
+      "href", "https://misskey-hub.net/share/?text=" + share_title + "&url=" + share_url + "&manualInstance=misskey.io"
     );
   }
 
@@ -129,7 +129,7 @@ import { Icon } from 'astro-icon/components'
   const share_mastodon = document.getElementById("js-share-mastodon");
   if (share_mastodon) {
     share_mastodon.setAttribute(
-      "href", "https://mastoshare.net/share?url=" + share_url + "&text=" + share_title
+      "href", "https://mastoshare.net/share?text=" + share_title + "&url=" + share_url
     );
   }
 
@@ -145,8 +145,12 @@ import { Icon } from 'astro-icon/components'
   const feedLinkBtn = document.getElementById("postlink-btn");
   if (feedLinkBtn) {
     feedLinkBtn.addEventListener("click", (e) => {
-      navigator.clipboard.writeText(share_url);
-      createToast('記事リンクをクリップボードにコピーしました');
+      try {
+        navigator.clipboard.writeText(share_url);
+        createToast('記事リンクをクリップボードにコピーしました');
+      } catch (err) {
+        createToast('クリップボードにコピーできません');
+      }
     });
   }
 
@@ -154,9 +158,9 @@ import { Icon } from 'astro-icon/components'
   const systemShareBtn = document.getElementById('system-share-btn');
 
   if (systemShareBtn) {
-    systemShareBtn.addEventListener('click', async () => {
+    systemShareBtn.addEventListener('click', () => {
       try {
-        await navigator.share({
+        navigator.share({
           title: share_title,
           url: share_url,
         });

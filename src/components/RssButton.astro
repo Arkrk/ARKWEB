@@ -124,11 +124,16 @@ import { Icon } from 'astro-icon/components'
 <script>
   import { createToast } from "../scripts/toast.js";
 
+  // リンクをコピー
   const feedLinkBtn = document.getElementById("feedlink-btn");
   if (feedLinkBtn) {
     feedLinkBtn.addEventListener("click", (e) => {
-      navigator.clipboard.writeText('https://arkxv.com/rss.xml');
-      createToast('フィードリンクをクリップボードにコピーしました');
+      try {
+        navigator.clipboard.writeText('https://arkxv.com/rss.xml');
+        createToast('フィードリンクをクリップボードにコピーしました');
+      } catch (err) {
+        createToast('クリップボードにコピーできません');
+      }
     });
   }
 </script>
