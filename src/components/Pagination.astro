@@ -29,7 +29,7 @@ for (let i = 1; i <= numberOfPages; i++) {
     <Icon name="mingcute:left-line" />
   </a>
   <button type="button" id="pagelist-btn" aria-label="ページリスト">
-    <p>{currentPage}</p>
+    <span>{currentPage}</span>
     <Icon name="mingcute:down-line" />
   </button>
   <div class="pagelist-dropdown" id="pagelist-dropdown">
@@ -55,7 +55,7 @@ for (let i = 1; i <= numberOfPages; i++) {
     justify-content: center;
     align-items: center;
     width: fit-content;
-    margin: 30px auto 0;
+    margin: 50px auto 0;
     border: var(--border);
     border-radius: var(--radius);
     overflow: hidden;
@@ -121,6 +121,14 @@ for (let i = 1; i <= numberOfPages; i++) {
     .pagination button:active {
       background: var(--bg2);
     }
+  }
+  .pagination button span {
+    padding-left: 3px;
+    font-size: 1rem;
+  }
+  .pagination button svg {
+    width: 16px;
+    height: 16px;
   }
 
   .pagelist-dropdown {
