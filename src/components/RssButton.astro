@@ -59,12 +59,11 @@ import { Icon } from 'astro-icon/components'
     border: var(--border);
     box-shadow: var(--shadow);
     border-radius: var(--radius);
-    margin-top: 0.3rem;
     background: var(--bg);
     overflow: hidden;
     visibility: hidden;
     opacity: 0;
-    transform: translateY(-0.5rem);
+    transform: translateY(0rem);
     transition: all 0.1s cubic-bezier(0.16, 1, 0.5, 1);
     padding: 4px;
     right: 5px;
@@ -97,31 +96,14 @@ import { Icon } from 'astro-icon/components'
   .show {
     visibility: visible;
     opacity: 1;
-    transform: translateY(0rem);
+    transform: translateY(0.5rem);
   }
 </style>
 
-<script is:inline>
-  const dropdownBtn = document.getElementById('btn');
-  const dropdownMenu = document.getElementById('dropdown');
-
-  const toggleDropdown = function () {
-    dropdownMenu.classList.toggle('show');
-  };
-
-  dropdownBtn.addEventListener('click', function (e) {
-    e.stopPropagation();
-    toggleDropdown();
-  });
-
-  document.documentElement.addEventListener('click', function () {
-    if (dropdownMenu.classList.contains('show')) {
-      toggleDropdown();
-    }
-  });
-</script>
-
 <script>
+  import { dropdown } from "../scripts/dropdown.js";
+  dropdown('btn', 'dropdown');
+
   import { createToast } from "../scripts/toast.js";
 
   // リンクをコピー

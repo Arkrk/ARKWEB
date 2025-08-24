@@ -13,56 +13,68 @@ const { currentPage, numberOfPages, tag = '' } = Astro.props
 const isFirstPage = currentPage === 1
 const isLastPage = currentPage === numberOfPages
 
-const startPage = currentPage - 2 < 1 ? 1 : currentPage - 2
-const endPage = currentPage + 2 > numberOfPages ? numberOfPages : currentPage + 2
+const prevPage = isFirstPage ? 1 : currentPage - 1
+const nextPage = isLastPage ? numberOfPages : currentPage + 1
+
+const layout = numberOfPages >= 6 ? 'pagelist-grid' : 'pagelist-flex'
 
 let pages = []
-for (let i = startPage; i <= endPage; i++) {
+for (let i = 1; i <= numberOfPages; i++) {
   pages.push(i)
 }
 ---
 
 <div class="pagination">
-  <a href={getPageLink(1, tag)} class={isFirstPage && 'inactive first-or-last'}>
-    <Icon name="mingcute:arrow-to-left-line" />
+  <a href={getPageLink(prevPage, tag)} class={isFirstPage && 'inactive first-or-last'} id="prev">
+    <Icon name="mingcute:left-line" />
   </a>
-  {
-    pages.map((p: number) => (
-      <a href={getPageLink(p, tag)} class={p === currentPage && 'inactive current-page'}>
-        {p}
-      </a>
-    ))
-  }
-  <a href={getPageLink(numberOfPages, tag)} class={isLastPage && 'inactive first-or-last'}>
-    <Icon name="mingcute:arrow-to-right-line" />
+  <button type="button" id="pagelist-btn" aria-label="ページリスト">
+    <p>{currentPage}</p>
+    <Icon name="mingcute:down-line" />
+  </button>
+  <div class="pagelist-dropdown" id="pagelist-dropdown">
+    <div class="pagelist-label">全&nbsp;{numberOfPages}&nbsp;ページ</div>
+    <div class={layout}>
+    {
+      pages.map((p: number) => (
+        <a href={getPageLink(p, tag)} class={p === currentPage && 'inactive current-page'}>
+          {p}
+        </a>
+      ))
+    }
+    </div>
+  </div>
+  <a href={getPageLink(nextPage, tag)} class={isLastPage && 'inactive first-or-last'} id="next">
+    <Icon name="mingcute:right-line" />
   </a>
 </div>
 
 <style>
    .pagination {
     display: flex;
+    justify-content: center;
+    align-items: center;
     width: fit-content;
     margin: 30px auto 0;
     border: var(--border);
     border-radius: var(--radius);
-    justify-content: center;
-    align-items: center;
     overflow: hidden;
   }
   .pagination a {
     display: flex;
-    width: 45px;
+    align-items: center;
+    justify-content: center;
+    min-width: 45px;
     height: 45px;
     background: var(--bg);
     color: var(--fg);
-    border-right: var(--border);
     font-weight: 500;
-    font-size: 0.9rem;
-    align-items: center;
-    justify-content: center;
   }
-  .pagination a:last-child {
-    border-right: unset;
+  .pagination #prev {
+    border-right: var(--border);
+  }
+  .pagination #next {
+    border-left: var(--border);
   }
   @media (hover: hover) {
     .pagination a:hover:not(.inactive) {
@@ -81,11 +93,80 @@ for (let i = startPage; i <= endPage; i++) {
     color: var(--bd);
   }
   .pagination a.current-page {
-    color: var(--fg);
-    background: #ebebeb;
+    color: var(--ac);
+    border: var(--border);
   }
   .pagination a svg {
     width: 20px;
     height: 20px;
   }
+  .pagination button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    color: var(--fg);
+    border: none;
+    background: none;
+    height: 45px;
+    min-width: 60px;
+  }
+  @media (hover: hover) {
+    .pagination button:hover {
+      background: var(--bg2);
+    }
+  }
+  @media (hover: none) {
+    .pagination button:active {
+      background: var(--bg2);
+    }
+  }
+
+  .pagelist-dropdown {
+    position: absolute;
+    border: var(--border);
+    box-shadow: var(--shadow);
+    border-radius: var(--radius);
+    background: var(--bg);
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(0.5rem);
+    transition: all 0.1s cubic-bezier(0.16, 1, 0.5, 1);
+    z-index: 2;
+    overflow: hidden;
+    min-width: 160px;
+  }
+  .show {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0rem);
+  }
+  .pagelist-dropdown a {
+    border-radius: 50%;
+  }
+  .pagelist-label {
+    border-bottom: var(--border);
+    text-align: center;
+    font-size: 0.8rem;
+    padding: 6px 0 7px;
+  }
+  .pagelist-flex {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    padding: 10px;
+  }
+  .pagelist-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 5px;
+    padding: 10px;
+  }
 </style>
+
+<script>
+  import { dropdown } from "../scripts/dropdown.js";
+  dropdown('pagelist-btn', 'pagelist-dropdown');
+</script>
