@@ -16,7 +16,7 @@ const isLastPage = currentPage === numberOfPages
 const prevPage = isFirstPage ? 1 : currentPage - 1
 const nextPage = isLastPage ? numberOfPages : currentPage + 1
 
-const layout = numberOfPages >= 6 ? 'pagelist-grid' : 'pagelist-flex'
+const layout = numberOfPages >= 7 ? 'pagelist-grid' : 'pagelist-flex'
 
 let pages = []
 for (let i = 1; i <= numberOfPages; i++) {
@@ -33,8 +33,8 @@ for (let i = 1; i <= numberOfPages; i++) {
     <Icon name="mingcute:down-line" />
   </button>
   <div class="pagelist-dropdown" id="pagelist-dropdown">
-    <div class="pagelist-label">全&nbsp;{numberOfPages}&nbsp;ページ</div>
-    <div class={layout}>
+    <div id="pagelist-label">全&nbsp;{numberOfPages}&nbsp;ページ</div>
+    <div class={layout} id="pagelist">
     {
       pages.map((p: number) => (
         <a href={getPageLink(p, tag)} class={p === currentPage && 'inactive current-page'}>
@@ -45,36 +45,24 @@ for (let i = 1; i <= numberOfPages; i++) {
     </div>
   </div>
   <a href={getPageLink(nextPage, tag)} class={isLastPage && 'inactive first-or-last'} id="next">
+    <span>次のページ</span>
     <Icon name="mingcute:right-line" />
   </a>
 </div>
 
 <style>
    .pagination {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: fit-content;
     margin: 50px auto 0;
-    border: var(--border);
-    border-radius: var(--radius);
-    overflow: hidden;
   }
   .pagination a {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 45px;
-    height: 45px;
-    background: var(--bg);
     color: var(--fg);
-    font-weight: 500;
-  }
-  .pagination #prev {
-    border-right: var(--border);
-  }
-  .pagination #next {
-    border-left: var(--border);
   }
   @media (hover: hover) {
     .pagination a:hover:not(.inactive) {
@@ -87,21 +75,32 @@ for (let i = 1; i <= numberOfPages; i++) {
     }
   }
   .pagination a.inactive {
+    color: var(--bd);
     pointer-events: none;
   }
-  .pagination a.first-or-last {
-    color: var(--bd);
-  }
-  .pagination a.current-page {
-    color: var(--ac);
+  .pagination > a {
+    height: 50px;
     border: var(--border);
   }
-  .pagination a svg {
+  .pagination > a#prev {
+    padding: 0 15px 0 18px;
+    border-top-left-radius: 99px;
+    border-bottom-left-radius: 99px;
+  }
+  .pagination > a#next {
+    padding: 0 15px;
+    border-top-right-radius: 99px;
+    border-bottom-right-radius: 99px;
+  }
+  .pagination > a > span {
+    padding: 0 8px 1.75px 0;
+    font-size: 1rem;
+  }
+  .pagination > a > svg {
     width: 20px;
     height: 20px;
   }
-  .pagination button {
-    position: relative;
+  .pagination > button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -109,24 +108,26 @@ for (let i = 1; i <= numberOfPages; i++) {
     color: var(--fg);
     border: none;
     background: none;
-    height: 45px;
+    height: 50px;
     min-width: 60px;
+    border-top: var(--border);
+    border-bottom: var(--border);
   }
   @media (hover: hover) {
-    .pagination button:hover {
+    .pagination > button:hover {
       background: var(--bg2);
     }
   }
   @media (hover: none) {
-    .pagination button:active {
+    .pagination > button:active {
       background: var(--bg2);
     }
   }
-  .pagination button span {
+  .pagination > button > span {
     padding-left: 3px;
     font-size: 1rem;
   }
-  .pagination button svg {
+  .pagination > button > svg {
     width: 16px;
     height: 16px;
   }
@@ -144,33 +145,40 @@ for (let i = 1; i <= numberOfPages; i++) {
     transition: all 0.1s cubic-bezier(0.16, 1, 0.5, 1);
     z-index: 2;
     overflow: hidden;
-    min-width: 160px;
+    min-width: 150px;
+    bottom: 40px;
   }
   .show {
     visibility: visible;
     opacity: 1;
     transform: translateY(0rem);
   }
-  .pagelist-dropdown a {
+  #pagelist a {
+    min-width: 36px;
+    height: 36px;
     border-radius: 50%;
   }
-  .pagelist-label {
+  #pagelist a.current-page {
+    color: var(--ac);
+    border: var(--border);
+  }
+  #pagelist-label {
     border-bottom: var(--border);
     text-align: center;
     font-size: 0.8rem;
     padding: 6px 0 7px;
   }
+  .pagelist-flex, .pagelist-grid {
+    gap: 0.5rem;
+    padding: 0.75rem;
+  }
   .pagelist-flex {
     display: flex;
     justify-content: center;
-    gap: 5px;
-    padding: 10px;
   }
   .pagelist-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 5px;
-    padding: 10px;
+    grid-template-columns: repeat(7, 1fr);
   }
 </style>
 
