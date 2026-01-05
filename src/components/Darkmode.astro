@@ -2,11 +2,6 @@
 import { Icon } from 'astro-icon/components'
 ---
 
-<div class="mode-wrap">
-  <input type="checkbox" id="mode-toggle" tabindex="0" />
-  <label for="mode-toggle"><span></span></label>
-</div>
-
 <button id="modes" type="button" aria-label="テーマ切替">
   <Icon name="mingcute:sun-line" />
   <Icon name="mingcute:moon-line" />
@@ -349,10 +344,6 @@ syntax-coloring.css
 /* --------------------
 ダークモードトグル
 -------------------- */
-.mode-wrap {
-  display: none;
-}
-
 #modes {
   display: flex;
   height: 45.6px;
@@ -395,21 +386,17 @@ syntax-coloring.css
 </style>
 
 <script is:inline>
-/* --------------------
-ダークモード切り替え
--------------------- */
 // OS設定を反映
 const osDark = window.matchMedia("(prefers-color-scheme: dark)");
-// トグル処理
-const modeToggle = document.getElementById("mode-toggle");
+
 function darkModeOn() {
   document.documentElement.classList.add("darkmode");
-  modeToggle.checked = true;
+  localStorage.setItem("mode", "dark");
 }
 
 function darkModeOff() {
   document.documentElement.classList.remove("darkmode");
-  modeToggle.checked = false;
+  localStorage.setItem("mode", "light");
 }
 
 const listener = (event) => {
@@ -418,29 +405,29 @@ const listener = (event) => {
   } else {
     darkModeOff();
   }
-};
-
-osDark.addEventListener("change", listener);
-listener(osDark);
-
-modeToggle.addEventListener("change", () => {
-  if (modeToggle.checked) {
-    darkModeOn();
-    style = "dark";
-  } else {
-    darkModeOff();
-    style = "light";
-  }
-  localStorage.setItem("mode", style);
-});
-// モード設定をロード
-if (localStorage.getItem("mode") === "dark") {
-  darkModeOn();
-} else if (localStorage.getItem("mode") === "light") {
-  darkModeOff();
 }
 
-modes.addEventListener ( "click", () => { 
-  modeToggle.click();
-});
+osDark.addEventListener("change", listener);
+
+// モード設定をロード
+const currentMode = localStorage.getItem("mode");
+if (currentMode === "dark") {
+  darkModeOn();
+} else if (currentMode === "light") {
+  darkModeOff();
+} else if (osDark.matches) {
+  // 初期ロード時、localStorageがない場合はOS設定に従う
+  darkModeOn();
+}
+
+// ボタンクリックイベント
+const modes = document.getElementById("modes");
+modes.addEventListener("click", () => {
+  const isDark = document.documentElement.classList.contains("darkmode");
+  if (isDark) {
+    darkModeOff();
+  } else {
+    darkModeOn();
+  }
+})
 </script>
