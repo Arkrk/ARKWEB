@@ -11,12 +11,14 @@ export interface QueryDataSourceResponse {
 
 // Retrieve a database response
 // https://developers.notion.com/reference/retrieve-a-database
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export type RetrieveDatabaseResponse = DatabaseObject
+
+// Retrieve a data source response
+// https://developers.notion.com/reference/retrieve-a-data-source
+export type RetrieveDataSourceResponse = DataSourceObject
 
 // Retrieve a block response
 // https://developers.notion.com/reference/retrieve-a-block
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export type RetrieveBlockResponse = BlockObject
 
 // Retrieve block children response
@@ -130,7 +132,7 @@ interface DatabaseObject {
   created_by: UserObject
   last_edited_time: string
   last_edited_by: UserObject
-  data_sources: DataSouceObject[]
+  data_sources: DataSourceObject[]
   title: RichTextObject[]
   description: RichTextObject[]
   icon: FileObject | Emoji | null
@@ -144,7 +146,7 @@ interface DatabaseObject {
 
 // Data source object
 // https://developers.notion.com/reference/data-source
-export interface DataSouceObject {
+export interface DataSourceObject {
   object: string
   id: string
   created_time: string
@@ -154,6 +156,7 @@ export interface DataSouceObject {
   title: RichTextObject[]
   description: RichTextObject[]
   icon: FileObject | Emoji | null
+  cover: FileObject | Emoji | null
   properties: DataSourceProperties
   parent: Parent
   database_parent: Parent

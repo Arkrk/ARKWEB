@@ -2,6 +2,10 @@ export interface RetrieveDatabase {
   database_id: string
 }
 
+export interface RetrieveDataSource {
+  data_source_id: string
+}
+
 export interface QueryDataSource {
   data_source_id: string
   filter?: PropertyFilterObject | CompoundFilterObject

@@ -1,3 +1,4 @@
+import { APIResponseError, Client } from '@notionhq/client'
 import retry from 'async-retry'
 import ExifTransformer from 'exif-be-gone'
 import fs, { createWriteStream } from 'node:fs'
@@ -52,8 +53,6 @@ import type {
 } from '../interfaces'
 import type * as requestParams from './request-params'
 import type * as responses from './responses'
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-import { APIResponseError, Client } from '@notionhq/client'
 
 const client = new Client({
   auth: NOTION_API_SECRET,
@@ -473,31 +472,36 @@ export async function getDatabase(): Promise<Database> {
     }
   )
 
+  const dataSource = await _getDataSource(res.data_sources?.[0]?.id || '')
+
   let icon: FileObject | Emoji | null = null
-  if (res.icon) {
-    if (res.icon.type === 'emoji' && 'emoji' in res.icon) {
+  if (dataSource.icon) {
+    if (dataSource.icon.type === 'emoji' && 'emoji' in dataSource.icon) {
       icon = {
-        Type: res.icon.type,
-        Emoji: res.icon.emoji,
+        Type: dataSource.icon.type,
+        Emoji: dataSource.icon.emoji,
       }
-    } else if (res.icon.type === 'external' && 'external' in res.icon) {
+    } else if (
+      dataSource.icon.type === 'external' &&
+      'external' in dataSource.icon
+    ) {
       icon = {
-        Type: res.icon.type,
-        Url: res.icon.external?.url || '',
+        Type: dataSource.icon.type,
+        Url: dataSource.icon.external?.url || '',
       }
-    } else if (res.icon.type === 'file' && 'file' in res.icon) {
+    } else if (dataSource.icon.type === 'file' && 'file' in dataSource.icon) {
       icon = {
-        Type: res.icon.type,
-        Url: res.icon.file?.url || '',
+        Type: dataSource.icon.type,
+        Url: dataSource.icon.file?.url || '',
       }
     }
   }
 
   let cover: FileObject | null = null
-  if (res.cover) {
+  if (dataSource.cover) {
     cover = {
-      Type: res.cover.type,
-      Url: res.cover.external?.url || res.cover?.file?.url || '',
+      Type: dataSource.cover.type,
+      Url: dataSource.cover.external?.url || dataSource.cover?.file?.url || '',
     }
   }
 
@@ -512,6 +516,34 @@ export async function getDatabase(): Promise<Database> {
 
   dbCache = database
   return database
+}
+
+export async function _getDataSource(
+  data_source_id: string
+): Promise<responses.DataSourceObject> {
+  const params: requestParams.RetrieveDataSource = {
+    data_source_id: data_source_id,
+  }
+
+  return await retry(
+    async (bail) => {
+      try {
+        return (await client.dataSources.retrieve(
+          params as any // eslint-disable-line @typescript-eslint/no-explicit-any
+        )) as responses.RetrieveDataSourceResponse
+      } catch (error: unknown) {
+        if (error instanceof APIResponseError) {
+          if (error.status && error.status >= 400 && error.status < 500) {
+            bail(error)
+          }
+        }
+        throw error
+      }
+    },
+    {
+      retries: numberOfRetry,
+    }
+  )
 }
 
 function _buildBlock(blockObject: responses.BlockObject): Block {
